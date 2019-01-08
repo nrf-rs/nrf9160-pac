@@ -3,7 +3,7 @@ name = "nrf91"
 version = "0.1.0"
 authors = ["Fredrik Ahlberg <fredrik@z80.se>"]
 description = "Device support crate for nRF9160/Alta"
-license = "MIT"
+license = "0BSD"
 
 [dependencies]
 bare-metal = "0.2.0"
