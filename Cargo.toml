@@ -1,0 +1,18 @@
+[package]
+name = "nrf91"
+version = "0.1.0"
+authors = ["Fredrik Ahlberg <fredrik@z80.se>"]
+description = "Device support crate for nRF9160/Alta"
+license = "MIT"
+
+[dependencies]
+bare-metal = "0.2.0"
+cortex-m = "0.5.8"
+vcell = "0.1.0"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "0.6.5"
+
+[features]
+rt = ["cortex-m-rt/device"]
