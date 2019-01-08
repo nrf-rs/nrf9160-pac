@@ -101,7 +101,7 @@ impl LOADR {
 #[doc = "Possible values of the field `MODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODER {
-    #[doc = "SEQ[n].REFRESH is used to determine loading internal compare registers"]
+    #[doc = "SEQ\\[n\\].REFRESH is used to determine loading internal compare registers"]
     REFRESHCOUNT,
     #[doc = "NEXTSTEP task causes a new value to be loaded to internal compare registers"]
     NEXTSTEP,
@@ -213,7 +213,7 @@ impl<'a> _LOADW<'a> {
 }
 #[doc = "Values that can be written to the field `MODE`"]
 pub enum MODEW {
-    #[doc = "SEQ[n].REFRESH is used to determine loading internal compare registers"]
+    #[doc = "SEQ\\[n\\].REFRESH is used to determine loading internal compare registers"]
     REFRESHCOUNT,
     #[doc = "NEXTSTEP task causes a new value to be loaded to internal compare registers"]
     NEXTSTEP,
@@ -241,7 +241,7 @@ impl<'a> _MODEW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "SEQ[n].REFRESH is used to determine loading internal compare registers"]
+    #[doc = "SEQ\\[n\\].REFRESH is used to determine loading internal compare registers"]
     #[inline]
     pub fn refresh_count(self) -> &'a mut W {
         self.variant(MODEW::REFRESHCOUNT)

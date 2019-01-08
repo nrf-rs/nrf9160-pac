@@ -24,7 +24,7 @@ pub struct RegisterBlock {
     #[doc = "0x104 - Event on counter overflow"]
     pub events_ovrflw: EVENTS_OVRFLW,
     _reserved2: [u8; 56usize],
-    #[doc = "0x140 - Description collection: Compare event on CC[n] match"]
+    #[doc = "0x140 - Description collection: Compare event on CC\\[n\\] match"]
     pub events_compare: [EVENTS_COMPARE; 4],
     _reserved3: [u8; 48usize],
     #[doc = "0x180 - Publish configuration for event TICK"]
@@ -32,7 +32,7 @@ pub struct RegisterBlock {
     #[doc = "0x184 - Publish configuration for event OVRFLW"]
     pub publish_ovrflw: PUBLISH_OVRFLW,
     _reserved4: [u8; 56usize],
-    #[doc = "0x1c0 - Description collection: Publish configuration for event COMPARE[n]"]
+    #[doc = "0x1c0 - Description collection: Publish configuration for event COMPARE\\[n\\]"]
     pub publish_compare: [PUBLISH_COMPARE; 4],
     _reserved5: [u8; 308usize],
     #[doc = "0x304 - Enable interrupt"]
@@ -115,11 +115,11 @@ pub struct EVENTS_OVRFLW {
 }
 #[doc = "Event on counter overflow"]
 pub mod events_ovrflw;
-#[doc = "Description collection: Compare event on CC[n] match"]
+#[doc = "Description collection: Compare event on CC\\[n\\] match"]
 pub struct EVENTS_COMPARE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Compare event on CC[n] match"]
+#[doc = "Description collection: Compare event on CC\\[n\\] match"]
 pub mod events_compare;
 #[doc = "Publish configuration for event TICK"]
 pub struct PUBLISH_TICK {
@@ -133,11 +133,11 @@ pub struct PUBLISH_OVRFLW {
 }
 #[doc = "Publish configuration for event OVRFLW"]
 pub mod publish_ovrflw;
-#[doc = "Description collection: Publish configuration for event COMPARE[n]"]
+#[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]"]
 pub struct PUBLISH_COMPARE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Publish configuration for event COMPARE[n]"]
+#[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]"]
 pub mod publish_compare;
 #[doc = "Enable interrupt"]
 pub struct INTENSET {

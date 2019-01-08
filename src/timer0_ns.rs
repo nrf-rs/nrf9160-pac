@@ -12,7 +12,7 @@ pub struct RegisterBlock {
     #[doc = "0x10 - Deprecated register - Shut down timer"]
     pub tasks_shutdown: TASKS_SHUTDOWN,
     _reserved0: [u8; 44usize],
-    #[doc = "0x40 - Description collection: Capture Timer value to CC[n] register"]
+    #[doc = "0x40 - Description collection: Capture Timer value to CC\\[n\\] register"]
     pub tasks_capture: [TASKS_CAPTURE; 6],
     _reserved1: [u8; 40usize],
     #[doc = "0x80 - Subscribe configuration for task START"]
@@ -26,13 +26,13 @@ pub struct RegisterBlock {
     #[doc = "0x90 - Deprecated register - Subscribe configuration for task SHUTDOWN"]
     pub subscribe_shutdown: SUBSCRIBE_SHUTDOWN,
     _reserved2: [u8; 44usize],
-    #[doc = "0xc0 - Description collection: Subscribe configuration for task CAPTURE[n]"]
+    #[doc = "0xc0 - Description collection: Subscribe configuration for task CAPTURE\\[n\\]"]
     pub subscribe_capture: [SUBSCRIBE_CAPTURE; 6],
     _reserved3: [u8; 104usize],
-    #[doc = "0x140 - Description collection: Compare event on CC[n] match"]
+    #[doc = "0x140 - Description collection: Compare event on CC\\[n\\] match"]
     pub events_compare: [EVENTS_COMPARE; 6],
     _reserved4: [u8; 104usize],
-    #[doc = "0x1c0 - Description collection: Publish configuration for event COMPARE[n]"]
+    #[doc = "0x1c0 - Description collection: Publish configuration for event COMPARE\\[n\\]"]
     pub publish_compare: [PUBLISH_COMPARE; 6],
     _reserved5: [u8; 40usize],
     #[doc = "0x200 - Shortcuts between local events and tasks"]
@@ -84,11 +84,11 @@ pub struct TASKS_SHUTDOWN {
 }
 #[doc = "Deprecated register - Shut down timer"]
 pub mod tasks_shutdown;
-#[doc = "Description collection: Capture Timer value to CC[n] register"]
+#[doc = "Description collection: Capture Timer value to CC\\[n\\] register"]
 pub struct TASKS_CAPTURE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Capture Timer value to CC[n] register"]
+#[doc = "Description collection: Capture Timer value to CC\\[n\\] register"]
 pub mod tasks_capture;
 #[doc = "Subscribe configuration for task START"]
 pub struct SUBSCRIBE_START {
@@ -120,23 +120,23 @@ pub struct SUBSCRIBE_SHUTDOWN {
 }
 #[doc = "Deprecated register - Subscribe configuration for task SHUTDOWN"]
 pub mod subscribe_shutdown;
-#[doc = "Description collection: Subscribe configuration for task CAPTURE[n]"]
+#[doc = "Description collection: Subscribe configuration for task CAPTURE\\[n\\]"]
 pub struct SUBSCRIBE_CAPTURE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Subscribe configuration for task CAPTURE[n]"]
+#[doc = "Description collection: Subscribe configuration for task CAPTURE\\[n\\]"]
 pub mod subscribe_capture;
-#[doc = "Description collection: Compare event on CC[n] match"]
+#[doc = "Description collection: Compare event on CC\\[n\\] match"]
 pub struct EVENTS_COMPARE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Compare event on CC[n] match"]
+#[doc = "Description collection: Compare event on CC\\[n\\] match"]
 pub mod events_compare;
-#[doc = "Description collection: Publish configuration for event COMPARE[n]"]
+#[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]"]
 pub struct PUBLISH_COMPARE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Publish configuration for event COMPARE[n]"]
+#[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]"]
 pub mod publish_compare;
 #[doc = "Shortcuts between local events and tasks"]
 pub struct SHORTS {

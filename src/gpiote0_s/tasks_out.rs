@@ -76,7 +76,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Task for writing to pin specified in CONFIG[n].PSEL. Action on pin is configured in CONFIG[n].POLARITY."]
+    #[doc = "Bit 0 - Task for writing to pin specified in CONFIG\\[n\\].PSEL. Action on pin is configured in CONFIG\\[n\\].POLARITY."]
     #[inline]
     pub fn tasks_out(&mut self) -> _TASKS_OUTW {
         _TASKS_OUTW { w: self }

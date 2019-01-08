@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Bits [31+n*32:0+n*32] of OTP region"]
+    #[doc = "Bits 0:31 - Bits \\[31+n*32:0+n*32\\] of OTP region"]
     #[inline]
     pub fn otp(&self) -> OTPR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:31 - Bits [31+n*32:0+n*32] of OTP region"]
+    #[doc = "Bits 0:31 - Bits \\[31+n*32:0+n*32\\] of OTP region"]
     #[inline]
     pub fn otp(&mut self) -> _OTPW {
         _OTPW { w: self }

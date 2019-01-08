@@ -76,7 +76,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Task for writing to pin specified in CONFIG[n].PSEL. Action on pin is to set it high."]
+    #[doc = "Bit 0 - Task for writing to pin specified in CONFIG\\[n\\].PSEL. Action on pin is to set it high."]
     #[inline]
     pub fn tasks_set(&mut self) -> _TASKS_SETW {
         _TASKS_SETW { w: self }

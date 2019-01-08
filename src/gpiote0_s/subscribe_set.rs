@@ -179,7 +179,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:3 - Channel that task SET[n] will subscribe to"]
+    #[doc = "Bits 0:3 - Channel that task SET\\[n\\] will subscribe to"]
     #[inline]
     pub fn chidx(&self) -> CHIDXR {
         let bits = {
@@ -211,7 +211,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:3 - Channel that task SET[n] will subscribe to"]
+    #[doc = "Bits 0:3 - Channel that task SET\\[n\\] will subscribe to"]
     #[inline]
     pub fn chidx(&mut self) -> _CHIDXW {
         _CHIDXW { w: self }

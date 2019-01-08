@@ -1600,7 +1600,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to disable interrupt for event TRIGGERED[0]"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for event TRIGGERED\\[0\\]"]
     #[inline]
     pub fn triggered0(&self) -> TRIGGERED0R {
         TRIGGERED0R::_from({
@@ -1609,7 +1609,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to disable interrupt for event TRIGGERED[1]"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for event TRIGGERED\\[1\\]"]
     #[inline]
     pub fn triggered1(&self) -> TRIGGERED1R {
         TRIGGERED1R::_from({
@@ -1618,7 +1618,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to disable interrupt for event TRIGGERED[2]"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for event TRIGGERED\\[2\\]"]
     #[inline]
     pub fn triggered2(&self) -> TRIGGERED2R {
         TRIGGERED2R::_from({
@@ -1627,7 +1627,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to disable interrupt for event TRIGGERED[3]"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for event TRIGGERED\\[3\\]"]
     #[inline]
     pub fn triggered3(&self) -> TRIGGERED3R {
         TRIGGERED3R::_from({
@@ -1636,7 +1636,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to disable interrupt for event TRIGGERED[4]"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for event TRIGGERED\\[4\\]"]
     #[inline]
     pub fn triggered4(&self) -> TRIGGERED4R {
         TRIGGERED4R::_from({
@@ -1645,7 +1645,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Write '1' to disable interrupt for event TRIGGERED[5]"]
+    #[doc = "Bit 5 - Write '1' to disable interrupt for event TRIGGERED\\[5\\]"]
     #[inline]
     pub fn triggered5(&self) -> TRIGGERED5R {
         TRIGGERED5R::_from({
@@ -1654,7 +1654,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Write '1' to disable interrupt for event TRIGGERED[6]"]
+    #[doc = "Bit 6 - Write '1' to disable interrupt for event TRIGGERED\\[6\\]"]
     #[inline]
     pub fn triggered6(&self) -> TRIGGERED6R {
         TRIGGERED6R::_from({
@@ -1663,7 +1663,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Write '1' to disable interrupt for event TRIGGERED[7]"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for event TRIGGERED\\[7\\]"]
     #[inline]
     pub fn triggered7(&self) -> TRIGGERED7R {
         TRIGGERED7R::_from({
@@ -1672,7 +1672,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Write '1' to disable interrupt for event TRIGGERED[8]"]
+    #[doc = "Bit 8 - Write '1' to disable interrupt for event TRIGGERED\\[8\\]"]
     #[inline]
     pub fn triggered8(&self) -> TRIGGERED8R {
         TRIGGERED8R::_from({
@@ -1681,7 +1681,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Write '1' to disable interrupt for event TRIGGERED[9]"]
+    #[doc = "Bit 9 - Write '1' to disable interrupt for event TRIGGERED\\[9\\]"]
     #[inline]
     pub fn triggered9(&self) -> TRIGGERED9R {
         TRIGGERED9R::_from({
@@ -1690,7 +1690,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 10 - Write '1' to disable interrupt for event TRIGGERED[10]"]
+    #[doc = "Bit 10 - Write '1' to disable interrupt for event TRIGGERED\\[10\\]"]
     #[inline]
     pub fn triggered10(&self) -> TRIGGERED10R {
         TRIGGERED10R::_from({
@@ -1699,7 +1699,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 11 - Write '1' to disable interrupt for event TRIGGERED[11]"]
+    #[doc = "Bit 11 - Write '1' to disable interrupt for event TRIGGERED\\[11\\]"]
     #[inline]
     pub fn triggered11(&self) -> TRIGGERED11R {
         TRIGGERED11R::_from({
@@ -1708,7 +1708,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 12 - Write '1' to disable interrupt for event TRIGGERED[12]"]
+    #[doc = "Bit 12 - Write '1' to disable interrupt for event TRIGGERED\\[12\\]"]
     #[inline]
     pub fn triggered12(&self) -> TRIGGERED12R {
         TRIGGERED12R::_from({
@@ -1717,7 +1717,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 13 - Write '1' to disable interrupt for event TRIGGERED[13]"]
+    #[doc = "Bit 13 - Write '1' to disable interrupt for event TRIGGERED\\[13\\]"]
     #[inline]
     pub fn triggered13(&self) -> TRIGGERED13R {
         TRIGGERED13R::_from({
@@ -1726,7 +1726,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14 - Write '1' to disable interrupt for event TRIGGERED[14]"]
+    #[doc = "Bit 14 - Write '1' to disable interrupt for event TRIGGERED\\[14\\]"]
     #[inline]
     pub fn triggered14(&self) -> TRIGGERED14R {
         TRIGGERED14R::_from({
@@ -1735,7 +1735,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 15 - Write '1' to disable interrupt for event TRIGGERED[15]"]
+    #[doc = "Bit 15 - Write '1' to disable interrupt for event TRIGGERED\\[15\\]"]
     #[inline]
     pub fn triggered15(&self) -> TRIGGERED15R {
         TRIGGERED15R::_from({
@@ -1757,82 +1757,82 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to disable interrupt for event TRIGGERED[0]"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for event TRIGGERED\\[0\\]"]
     #[inline]
     pub fn triggered0(&mut self) -> _TRIGGERED0W {
         _TRIGGERED0W { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to disable interrupt for event TRIGGERED[1]"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for event TRIGGERED\\[1\\]"]
     #[inline]
     pub fn triggered1(&mut self) -> _TRIGGERED1W {
         _TRIGGERED1W { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to disable interrupt for event TRIGGERED[2]"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for event TRIGGERED\\[2\\]"]
     #[inline]
     pub fn triggered2(&mut self) -> _TRIGGERED2W {
         _TRIGGERED2W { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to disable interrupt for event TRIGGERED[3]"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for event TRIGGERED\\[3\\]"]
     #[inline]
     pub fn triggered3(&mut self) -> _TRIGGERED3W {
         _TRIGGERED3W { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to disable interrupt for event TRIGGERED[4]"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for event TRIGGERED\\[4\\]"]
     #[inline]
     pub fn triggered4(&mut self) -> _TRIGGERED4W {
         _TRIGGERED4W { w: self }
     }
-    #[doc = "Bit 5 - Write '1' to disable interrupt for event TRIGGERED[5]"]
+    #[doc = "Bit 5 - Write '1' to disable interrupt for event TRIGGERED\\[5\\]"]
     #[inline]
     pub fn triggered5(&mut self) -> _TRIGGERED5W {
         _TRIGGERED5W { w: self }
     }
-    #[doc = "Bit 6 - Write '1' to disable interrupt for event TRIGGERED[6]"]
+    #[doc = "Bit 6 - Write '1' to disable interrupt for event TRIGGERED\\[6\\]"]
     #[inline]
     pub fn triggered6(&mut self) -> _TRIGGERED6W {
         _TRIGGERED6W { w: self }
     }
-    #[doc = "Bit 7 - Write '1' to disable interrupt for event TRIGGERED[7]"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for event TRIGGERED\\[7\\]"]
     #[inline]
     pub fn triggered7(&mut self) -> _TRIGGERED7W {
         _TRIGGERED7W { w: self }
     }
-    #[doc = "Bit 8 - Write '1' to disable interrupt for event TRIGGERED[8]"]
+    #[doc = "Bit 8 - Write '1' to disable interrupt for event TRIGGERED\\[8\\]"]
     #[inline]
     pub fn triggered8(&mut self) -> _TRIGGERED8W {
         _TRIGGERED8W { w: self }
     }
-    #[doc = "Bit 9 - Write '1' to disable interrupt for event TRIGGERED[9]"]
+    #[doc = "Bit 9 - Write '1' to disable interrupt for event TRIGGERED\\[9\\]"]
     #[inline]
     pub fn triggered9(&mut self) -> _TRIGGERED9W {
         _TRIGGERED9W { w: self }
     }
-    #[doc = "Bit 10 - Write '1' to disable interrupt for event TRIGGERED[10]"]
+    #[doc = "Bit 10 - Write '1' to disable interrupt for event TRIGGERED\\[10\\]"]
     #[inline]
     pub fn triggered10(&mut self) -> _TRIGGERED10W {
         _TRIGGERED10W { w: self }
     }
-    #[doc = "Bit 11 - Write '1' to disable interrupt for event TRIGGERED[11]"]
+    #[doc = "Bit 11 - Write '1' to disable interrupt for event TRIGGERED\\[11\\]"]
     #[inline]
     pub fn triggered11(&mut self) -> _TRIGGERED11W {
         _TRIGGERED11W { w: self }
     }
-    #[doc = "Bit 12 - Write '1' to disable interrupt for event TRIGGERED[12]"]
+    #[doc = "Bit 12 - Write '1' to disable interrupt for event TRIGGERED\\[12\\]"]
     #[inline]
     pub fn triggered12(&mut self) -> _TRIGGERED12W {
         _TRIGGERED12W { w: self }
     }
-    #[doc = "Bit 13 - Write '1' to disable interrupt for event TRIGGERED[13]"]
+    #[doc = "Bit 13 - Write '1' to disable interrupt for event TRIGGERED\\[13\\]"]
     #[inline]
     pub fn triggered13(&mut self) -> _TRIGGERED13W {
         _TRIGGERED13W { w: self }
     }
-    #[doc = "Bit 14 - Write '1' to disable interrupt for event TRIGGERED[14]"]
+    #[doc = "Bit 14 - Write '1' to disable interrupt for event TRIGGERED\\[14\\]"]
     #[inline]
     pub fn triggered14(&mut self) -> _TRIGGERED14W {
         _TRIGGERED14W { w: self }
     }
-    #[doc = "Bit 15 - Write '1' to disable interrupt for event TRIGGERED[15]"]
+    #[doc = "Bit 15 - Write '1' to disable interrupt for event TRIGGERED\\[15\\]"]
     #[inline]
     pub fn triggered15(&mut self) -> _TRIGGERED15W {
         _TRIGGERED15W { w: self }

@@ -76,7 +76,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Capture Timer value to CC[n] register"]
+    #[doc = "Bit 0 - Capture Timer value to CC\\[n\\] register"]
     #[inline]
     pub fn tasks_capture(&mut self) -> _TASKS_CAPTUREW {
         _TASKS_CAPTUREW { w: self }

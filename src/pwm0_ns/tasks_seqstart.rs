@@ -76,7 +76,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
+    #[doc = "Bit 0 - Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ\\[n\\]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
     #[inline]
     pub fn tasks_seqstart(&mut self) -> _TASKS_SEQSTARTW {
         _TASKS_SEQSTARTW { w: self }

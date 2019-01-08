@@ -76,7 +76,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Trigger events on channel enabled in SEND_CNF[n]."]
+    #[doc = "Bit 0 - Trigger events on channel enabled in SEND_CNF\\[n\\]."]
     #[inline]
     pub fn tasks_send(&mut self) -> _TASKS_SENDW {
         _TASKS_SENDW { w: self }

@@ -4,14 +4,14 @@ pub struct RegisterBlock {
     _reserved0: [u8; 4usize],
     #[doc = "0x04 - Stops PWM pulse generation on all channels at the end of current PWM period, and stops sequence playback"]
     pub tasks_stop: TASKS_STOP,
-    #[doc = "0x08 - Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
+    #[doc = "0x08 - Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ\\[n\\]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
     pub tasks_seqstart: [TASKS_SEQSTART; 2],
     #[doc = "0x10 - Steps by one value in the current sequence on all enabled channels if DECODER.MODE=NextStep. Does not cause PWM generation to start if not running."]
     pub tasks_nextstep: TASKS_NEXTSTEP,
     _reserved1: [u8; 112usize],
     #[doc = "0x84 - Subscribe configuration for task STOP"]
     pub subscribe_stop: SUBSCRIBE_STOP,
-    #[doc = "0x88 - Description collection: Subscribe configuration for task SEQSTART[n]"]
+    #[doc = "0x88 - Description collection: Subscribe configuration for task SEQSTART\\[n\\]"]
     pub subscribe_seqstart: [SUBSCRIBE_SEQSTART; 2],
     #[doc = "0x90 - Subscribe configuration for task NEXTSTEP"]
     pub subscribe_nextstep: SUBSCRIBE_NEXTSTEP,
@@ -29,9 +29,9 @@ pub struct RegisterBlock {
     _reserved3: [u8; 100usize],
     #[doc = "0x184 - Publish configuration for event STOPPED"]
     pub publish_stopped: PUBLISH_STOPPED,
-    #[doc = "0x188 - Description collection: Publish configuration for event SEQSTARTED[n]"]
+    #[doc = "0x188 - Description collection: Publish configuration for event SEQSTARTED\\[n\\]"]
     pub publish_seqstarted: [PUBLISH_SEQSTARTED; 2],
-    #[doc = "0x190 - Description collection: Publish configuration for event SEQEND[n]"]
+    #[doc = "0x190 - Description collection: Publish configuration for event SEQEND\\[n\\]"]
     pub publish_seqend: [PUBLISH_SEQEND; 2],
     #[doc = "0x198 - Publish configuration for event PWMPERIODEND"]
     pub publish_pwmperiodend: PUBLISH_PWMPERIODEND,
@@ -100,11 +100,11 @@ pub struct TASKS_STOP {
 }
 #[doc = "Stops PWM pulse generation on all channels at the end of current PWM period, and stops sequence playback"]
 pub mod tasks_stop;
-#[doc = "Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
+#[doc = "Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ\\[n\\]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
 pub struct TASKS_SEQSTART {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
+#[doc = "Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ\\[n\\]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
 pub mod tasks_seqstart;
 #[doc = "Steps by one value in the current sequence on all enabled channels if DECODER.MODE=NextStep. Does not cause PWM generation to start if not running."]
 pub struct TASKS_NEXTSTEP {
@@ -118,11 +118,11 @@ pub struct SUBSCRIBE_STOP {
 }
 #[doc = "Subscribe configuration for task STOP"]
 pub mod subscribe_stop;
-#[doc = "Description collection: Subscribe configuration for task SEQSTART[n]"]
+#[doc = "Description collection: Subscribe configuration for task SEQSTART\\[n\\]"]
 pub struct SUBSCRIBE_SEQSTART {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Subscribe configuration for task SEQSTART[n]"]
+#[doc = "Description collection: Subscribe configuration for task SEQSTART\\[n\\]"]
 pub mod subscribe_seqstart;
 #[doc = "Subscribe configuration for task NEXTSTEP"]
 pub struct SUBSCRIBE_NEXTSTEP {
@@ -166,17 +166,17 @@ pub struct PUBLISH_STOPPED {
 }
 #[doc = "Publish configuration for event STOPPED"]
 pub mod publish_stopped;
-#[doc = "Description collection: Publish configuration for event SEQSTARTED[n]"]
+#[doc = "Description collection: Publish configuration for event SEQSTARTED\\[n\\]"]
 pub struct PUBLISH_SEQSTARTED {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Publish configuration for event SEQSTARTED[n]"]
+#[doc = "Description collection: Publish configuration for event SEQSTARTED\\[n\\]"]
 pub mod publish_seqstarted;
-#[doc = "Description collection: Publish configuration for event SEQEND[n]"]
+#[doc = "Description collection: Publish configuration for event SEQEND\\[n\\]"]
 pub struct PUBLISH_SEQEND {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Publish configuration for event SEQEND[n]"]
+#[doc = "Description collection: Publish configuration for event SEQEND\\[n\\]"]
 pub mod publish_seqend;
 #[doc = "Publish configuration for event PWMPERIODEND"]
 pub struct PUBLISH_PWMPERIODEND {

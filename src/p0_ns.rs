@@ -16,7 +16,7 @@ pub struct RegisterBlock {
     pub dirset: DIRSET,
     #[doc = "0x1c - DIR clear register"]
     pub dirclr: DIRCLR,
-    #[doc = "0x20 - Latch register indicating what GPIO pins that have met the criteria set in the PIN_CNF[n].SENSE registers"]
+    #[doc = "0x20 - Latch register indicating what GPIO pins that have met the criteria set in the PIN_CNF\\[n\\].SENSE registers"]
     pub latch: LATCH,
     #[doc = "0x24 - Select between default DETECT signal behaviour and LDETECT mode (For non-secure pin only)"]
     pub detectmode: DETECTMODE,
@@ -68,11 +68,11 @@ pub struct DIRCLR {
 }
 #[doc = "DIR clear register"]
 pub mod dirclr;
-#[doc = "Latch register indicating what GPIO pins that have met the criteria set in the PIN_CNF[n].SENSE registers"]
+#[doc = "Latch register indicating what GPIO pins that have met the criteria set in the PIN_CNF\\[n\\].SENSE registers"]
 pub struct LATCH {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Latch register indicating what GPIO pins that have met the criteria set in the PIN_CNF[n].SENSE registers"]
+#[doc = "Latch register indicating what GPIO pins that have met the criteria set in the PIN_CNF\\[n\\].SENSE registers"]
 pub mod latch;
 #[doc = "Select between default DETECT signal behaviour and LDETECT mode (For non-secure pin only)"]
 pub struct DETECTMODE {

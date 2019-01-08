@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Define bits [31+o*32:0+o*32] of value assigned to KMU key slot ID=n+1"]
+    #[doc = "Bits 0:31 - Define bits \\[31+o*32:0+o*32\\] of value assigned to KMU key slot ID=n+1"]
     #[inline]
     pub fn value(&self) -> VALUER {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:31 - Define bits [31+o*32:0+o*32] of value assigned to KMU key slot ID=n+1"]
+    #[doc = "Bits 0:31 - Define bits \\[31+o*32:0+o*32\\] of value assigned to KMU key slot ID=n+1"]
     #[inline]
     pub fn value(&mut self) -> _VALUEW {
         _VALUEW { w: self }

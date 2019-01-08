@@ -14,7 +14,7 @@ pub struct RegisterBlock {
     #[doc = "0x508 - Channel enable clear register"]
     pub chenclr: CHENCLR,
     _reserved2: [u8; 756usize],
-    #[doc = "0x800 - Description collection: Channel group n Note: Writes to this register is ignored if either SUBSCRIBE_CHG[n].EN/DIS are enabled."]
+    #[doc = "0x800 - Description collection: Channel group n Note: Writes to this register is ignored if either SUBSCRIBE_CHG\\[n\\].EN/DIS are enabled."]
     pub chg: [CHG; 6],
 }
 #[doc = r" Register block"]
@@ -31,9 +31,9 @@ pub mod tasks_chg;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct SUBSCRIBE_CHG {
-    #[doc = "0x00 - Description cluster: Subscribe configuration for task CHG[n].EN"]
+    #[doc = "0x00 - Description cluster: Subscribe configuration for task CHG\\[n\\].EN"]
     pub en: self::subscribe_chg::EN,
-    #[doc = "0x04 - Description cluster: Subscribe configuration for task CHG[n].DIS"]
+    #[doc = "0x04 - Description cluster: Subscribe configuration for task CHG\\[n\\].DIS"]
     pub dis: self::subscribe_chg::DIS,
 }
 #[doc = r" Register block"]
@@ -57,9 +57,9 @@ pub struct CHENCLR {
 }
 #[doc = "Channel enable clear register"]
 pub mod chenclr;
-#[doc = "Description collection: Channel group n Note: Writes to this register is ignored if either SUBSCRIBE_CHG[n].EN/DIS are enabled."]
+#[doc = "Description collection: Channel group n Note: Writes to this register is ignored if either SUBSCRIBE_CHG\\[n\\].EN/DIS are enabled."]
 pub struct CHG {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: Channel group n Note: Writes to this register is ignored if either SUBSCRIBE_CHG[n].EN/DIS are enabled."]
+#[doc = "Description collection: Channel group n Note: Writes to this register is ignored if either SUBSCRIBE_CHG\\[n\\].EN/DIS are enabled."]
 pub mod chg;

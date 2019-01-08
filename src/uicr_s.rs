@@ -1,3 +1,5 @@
+use uicr_s::keyslot::CONFIG;
+use uicr_s::keyslot::KEY;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
@@ -17,7 +19,7 @@ pub struct RegisterBlock {
     #[doc = "0x30 - Erase protection"]
     pub eraseprotect: ERASEPROTECT,
     _reserved3: [u8; 212usize],
-    #[doc = "0x108 - Description collection: OTP bits [31+n*32:0+n*32]."]
+    #[doc = "0x108 - Description collection: OTP bits \\[31+n*32:0+n*32\\]."]
     pub otp: [OTP; 190],
     #[doc = "0x400 - Unspecified"]
     pub keyslot: KEYSLOT,
@@ -69,9 +71,9 @@ pub struct ERASEPROTECT {
 }
 #[doc = "Erase protection"]
 pub mod eraseprotect;
-#[doc = "Description collection: OTP bits [31+n*32:0+n*32]."]
+#[doc = "Description collection: OTP bits \\[31+n*32:0+n*32\\]."]
 pub struct OTP {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection: OTP bits [31+n*32:0+n*32]."]
+#[doc = "Description collection: OTP bits \\[31+n*32:0+n*32\\]."]
 pub mod otp;

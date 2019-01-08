@@ -14,13 +14,13 @@ pub struct RegisterBlock {
 pub struct PSEL {
     #[doc = "0x00 - Pin number configuration for TRACECLK"]
     pub traceclk: self::psel::TRACECLK,
-    #[doc = "0x04 - Pin number configuration for TRACEDATA[0]"]
+    #[doc = "0x04 - Pin number configuration for TRACEDATA\\[0\\]"]
     pub tracedata0: self::psel::TRACEDATA0,
-    #[doc = "0x08 - Pin number configuration for TRACEDATA[1]"]
+    #[doc = "0x08 - Pin number configuration for TRACEDATA\\[1\\]"]
     pub tracedata1: self::psel::TRACEDATA1,
-    #[doc = "0x0c - Pin number configuration for TRACEDATA[2]"]
+    #[doc = "0x0c - Pin number configuration for TRACEDATA\\[2\\]"]
     pub tracedata2: self::psel::TRACEDATA2,
-    #[doc = "0x10 - Pin number configuration for TRACEDATA[3]"]
+    #[doc = "0x10 - Pin number configuration for TRACEDATA\\[3\\]"]
     pub tracedata3: self::psel::TRACEDATA3,
 }
 #[doc = r" Register block"]

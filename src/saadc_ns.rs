@@ -78,9 +78,9 @@ pub struct RegisterBlock {
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct EVENTS_CH {
-    #[doc = "0x00 - Description cluster: Last results is equal or above CH[n].LIMIT.HIGH"]
+    #[doc = "0x00 - Description cluster: Last results is equal or above CH\\[n\\].LIMIT.HIGH"]
     pub limith: self::events_ch::LIMITH,
-    #[doc = "0x04 - Description cluster: Last results is equal or below CH[n].LIMIT.LOW"]
+    #[doc = "0x04 - Description cluster: Last results is equal or below CH\\[n\\].LIMIT.LOW"]
     pub limitl: self::events_ch::LIMITL,
 }
 #[doc = r" Register block"]
@@ -89,9 +89,9 @@ pub mod events_ch;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct PUBLISH_CH {
-    #[doc = "0x00 - Description cluster: Publish configuration for event CH[n].LIMITH"]
+    #[doc = "0x00 - Description cluster: Publish configuration for event CH\\[n\\].LIMITH"]
     pub limith: self::publish_ch::LIMITH,
-    #[doc = "0x04 - Description cluster: Publish configuration for event CH[n].LIMITL"]
+    #[doc = "0x04 - Description cluster: Publish configuration for event CH\\[n\\].LIMITL"]
     pub limitl: self::publish_ch::LIMITL,
 }
 #[doc = r" Register block"]
@@ -100,11 +100,11 @@ pub mod publish_ch;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct CH {
-    #[doc = "0x00 - Description cluster: Input positive pin selection for CH[n]"]
+    #[doc = "0x00 - Description cluster: Input positive pin selection for CH\\[n\\]"]
     pub pselp: self::ch::PSELP,
-    #[doc = "0x04 - Description cluster: Input negative pin selection for CH[n]"]
+    #[doc = "0x04 - Description cluster: Input negative pin selection for CH\\[n\\]"]
     pub pseln: self::ch::PSELN,
-    #[doc = "0x08 - Description cluster: Input configuration for CH[n]"]
+    #[doc = "0x08 - Description cluster: Input configuration for CH\\[n\\]"]
     pub config: self::ch::CONFIG,
     #[doc = "0x0c - Description cluster: High/low limits for event monitoring a channel"]
     pub limit: self::ch::LIMIT,

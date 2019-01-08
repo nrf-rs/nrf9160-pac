@@ -393,7 +393,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Read pending status of interrupt for event RECEIVE[0]"]
+    #[doc = "Bit 0 - Read pending status of interrupt for event RECEIVE\\[0\\]"]
     #[inline]
     pub fn receive0(&self) -> RECEIVE0R {
         RECEIVE0R::_from({
@@ -402,7 +402,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Read pending status of interrupt for event RECEIVE[1]"]
+    #[doc = "Bit 1 - Read pending status of interrupt for event RECEIVE\\[1\\]"]
     #[inline]
     pub fn receive1(&self) -> RECEIVE1R {
         RECEIVE1R::_from({
@@ -411,7 +411,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Read pending status of interrupt for event RECEIVE[2]"]
+    #[doc = "Bit 2 - Read pending status of interrupt for event RECEIVE\\[2\\]"]
     #[inline]
     pub fn receive2(&self) -> RECEIVE2R {
         RECEIVE2R::_from({
@@ -420,7 +420,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Read pending status of interrupt for event RECEIVE[3]"]
+    #[doc = "Bit 3 - Read pending status of interrupt for event RECEIVE\\[3\\]"]
     #[inline]
     pub fn receive3(&self) -> RECEIVE3R {
         RECEIVE3R::_from({
@@ -429,7 +429,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Read pending status of interrupt for event RECEIVE[4]"]
+    #[doc = "Bit 4 - Read pending status of interrupt for event RECEIVE\\[4\\]"]
     #[inline]
     pub fn receive4(&self) -> RECEIVE4R {
         RECEIVE4R::_from({
@@ -438,7 +438,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Read pending status of interrupt for event RECEIVE[5]"]
+    #[doc = "Bit 5 - Read pending status of interrupt for event RECEIVE\\[5\\]"]
     #[inline]
     pub fn receive5(&self) -> RECEIVE5R {
         RECEIVE5R::_from({
@@ -447,7 +447,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Read pending status of interrupt for event RECEIVE[6]"]
+    #[doc = "Bit 6 - Read pending status of interrupt for event RECEIVE\\[6\\]"]
     #[inline]
     pub fn receive6(&self) -> RECEIVE6R {
         RECEIVE6R::_from({
@@ -456,7 +456,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Read pending status of interrupt for event RECEIVE[7]"]
+    #[doc = "Bit 7 - Read pending status of interrupt for event RECEIVE\\[7\\]"]
     #[inline]
     pub fn receive7(&self) -> RECEIVE7R {
         RECEIVE7R::_from({

@@ -45,9 +45,9 @@ impl super::LOCK {
 #[doc = "Possible values of the field `LOCK`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCKR {
-    #[doc = "DPPI[n].PERM register can't be changed until next reset"]
+    #[doc = "DPPI\\[n\\].PERM register can't be changed until next reset"]
     LOCKED,
-    #[doc = "DPPI[n].PERM register content can be changed"]
+    #[doc = "DPPI\\[n\\].PERM register content can be changed"]
     UNLOCKED,
 }
 impl LOCKR {
@@ -91,9 +91,9 @@ impl LOCKR {
 }
 #[doc = "Values that can be written to the field `LOCK`"]
 pub enum LOCKW {
-    #[doc = "DPPI[n].PERM register can't be changed until next reset"]
+    #[doc = "DPPI\\[n\\].PERM register can't be changed until next reset"]
     LOCKED,
-    #[doc = "DPPI[n].PERM register content can be changed"]
+    #[doc = "DPPI\\[n\\].PERM register content can be changed"]
     UNLOCKED,
 }
 impl LOCKW {
@@ -119,12 +119,12 @@ impl<'a> _LOCKW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "DPPI[n].PERM register can't be changed until next reset"]
+    #[doc = "DPPI\\[n\\].PERM register can't be changed until next reset"]
     #[inline]
     pub fn locked(self) -> &'a mut W {
         self.variant(LOCKW::LOCKED)
     }
-    #[doc = "DPPI[n].PERM register content can be changed"]
+    #[doc = "DPPI\\[n\\].PERM register content can be changed"]
     #[inline]
     pub fn unlocked(self) -> &'a mut W {
         self.variant(LOCKW::UNLOCKED)

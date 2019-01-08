@@ -49,9 +49,9 @@ pub enum SECUREMAPPINGR {
     NONSECURE,
     #[doc = "This peripheral is always accessible as a secure peripheral"]
     SECURE,
-    #[doc = "Non-secure or secure attribute for this peripheral is defined by the PERIPHID[n].PERM register"]
+    #[doc = "Non-secure or secure attribute for this peripheral is defined by the PERIPHID\\[n\\].PERM register"]
     USERSELECTABLE,
-    #[doc = "This peripheral implements the split security mechanism. Non-secure or secure attribute for this peripheral is defined by the PERIPHID[n].PERM register."]
+    #[doc = "This peripheral implements the split security mechanism. Non-secure or secure attribute for this peripheral is defined by the PERIPHID\\[n\\].PERM register."]
     SPLIT,
 }
 impl SECUREMAPPINGR {

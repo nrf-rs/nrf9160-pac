@@ -153,7 +153,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Event generated from pin specified in CONFIG[n].PSEL"]
+    #[doc = "Bit 0 - Event generated from pin specified in CONFIG\\[n\\].PSEL"]
     #[inline]
     pub fn events_in(&self) -> EVENTS_INR {
         EVENTS_INR::_from({
@@ -175,7 +175,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Event generated from pin specified in CONFIG[n].PSEL"]
+    #[doc = "Bit 0 - Event generated from pin specified in CONFIG\\[n\\].PSEL"]
     #[inline]
     pub fn events_in(&mut self) -> _EVENTS_INW {
         _EVENTS_INW { w: self }

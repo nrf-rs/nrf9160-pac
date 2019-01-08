@@ -1,4 +1,4 @@
-#![doc = "Peripheral access API for NRF9160 microcontrollers (generated using svd2rust v0.13.1)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.13.1/svd2rust/#peripheral-api"]
+#![doc = "Peripheral access API for NRF9160 microcontrollers (generated using svd2rust v0.14.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api"]
 #![deny(missing_docs)]
 #![deny(warnings)]
 #![allow(non_camel_case_types)]
@@ -134,53 +134,6 @@ pub static __INTERRUPTS: [Vector; 65] = [
         _handler: CRYPTOCELL,
     },
 ];
-#[doc = r" Macro to override a device specific interrupt handler"]
-#[doc = r""]
-#[doc = r" # Syntax"]
-#[doc = r""]
-#[doc = r" ``` ignore"]
-#[doc = r" interrupt!("]
-#[doc = r"     // Name of the interrupt"]
-#[doc = r"     $Name:ident,"]
-#[doc = r""]
-#[doc = r"     // Path to the interrupt handler (a function)"]
-#[doc = r"     $handler:path,"]
-#[doc = r""]
-#[doc = r"     // Optional, state preserved across invocations of the handler"]
-#[doc = r"     state: $State:ty = $initial_state:expr,"]
-#[doc = r" );"]
-#[doc = r" ```"]
-#[doc = r""]
-#[doc = r" Where `$Name` must match the name of one of the variants of the `Interrupt`"]
-#[doc = r" enum."]
-#[doc = r""]
-#[doc = r" The handler must have signature `fn()` is no state was associated to it;"]
-#[doc = r" otherwise its signature must be `fn(&mut $State)`."]
-#[cfg(feature = "rt")]
-#[macro_export]
-macro_rules! interrupt {
-    ( $ Name : ident , $ handler : path , state : $ State : ty = $ initial_state : expr ) => {
-        #[allow(unsafe_code)]
-        #[deny(private_no_mangle_fns)]
-        #[no_mangle]
-        pub unsafe extern "C" fn $Name() {
-            static mut STATE: $State = $initial_state;
-            let _ = $crate::Interrupt::$Name;
-            let f: fn(&mut $State) = $handler;
-            f(&mut STATE)
-        }
-    };
-    ( $ Name : ident , $ handler : path ) => {
-        #[allow(unsafe_code)]
-        #[deny(private_no_mangle_fns)]
-        #[no_mangle]
-        pub unsafe extern "C" fn $Name() {
-            let _ = $crate::Interrupt::$Name;
-            let f: fn() = $handler;
-            f()
-        }
-    };
-}
 #[doc = r" Enumeration of all the interrupts"]
 pub enum Interrupt {
     #[doc = "3 - SPU"]
@@ -284,10 +237,12 @@ unsafe impl ::bare_metal::Nr for Interrupt {
         }
     }
 }
-#[doc(hidden)]
-pub mod interrupt;
+#[cfg(feature = "rt")]
+pub use self::Interrupt as interrupt;
 pub use cortex_m::peripheral::Peripherals as CorePeripherals;
 pub use cortex_m::peripheral::{CBP, CPUID, DCB, DWT, FPB, FPU, ITM, MPU, NVIC, SCB, SYST, TPIU};
+#[cfg(feature = "rt")]
+pub use cortex_m_rt::interrupt;
 #[doc = "Factory Information Configuration Registers"]
 pub struct FICR_S {
     _marker: PhantomData<*const ()>,
@@ -2150,7 +2105,6 @@ impl Deref for P0_S {
         unsafe { &*P0_S::ptr() }
     }
 }
-#[allow(private_no_mangle_statics)]
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals"]

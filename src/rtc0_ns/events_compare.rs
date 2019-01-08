@@ -153,7 +153,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Compare event on CC[n] match"]
+    #[doc = "Bit 0 - Compare event on CC\\[n\\] match"]
     #[inline]
     pub fn events_compare(&self) -> EVENTS_COMPARER {
         EVENTS_COMPARER::_from({
@@ -175,7 +175,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Compare event on CC[n] match"]
+    #[doc = "Bit 0 - Compare event on CC\\[n\\] match"]
     #[inline]
     pub fn events_compare(&mut self) -> _EVENTS_COMPAREW {
         _EVENTS_COMPAREW { w: self }

@@ -49,7 +49,7 @@ pub enum SECUREMAPPINGR {
     NONSECURE,
     #[doc = "The bus access from this external domain always have the secure attribute set"]
     SECURE,
-    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN[n].PERM register"]
+    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
     USERSELECTABLE,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -192,7 +192,7 @@ pub enum SECUREMAPPINGW {
     NONSECURE,
     #[doc = "The bus access from this external domain always have the secure attribute set"]
     SECURE,
-    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN[n].PERM register"]
+    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
     USERSELECTABLE,
 }
 impl SECUREMAPPINGW {
@@ -227,7 +227,7 @@ impl<'a> _SECUREMAPPINGW<'a> {
     pub fn secure(self) -> &'a mut W {
         self.variant(SECUREMAPPINGW::SECURE)
     }
-    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN[n].PERM register"]
+    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
     #[inline]
     pub fn user_selectable(self) -> &'a mut W {
         self.variant(SECUREMAPPINGW::USERSELECTABLE)

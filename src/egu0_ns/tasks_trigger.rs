@@ -76,7 +76,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Trigger n for triggering the corresponding TRIGGERED[n] event"]
+    #[doc = "Bit 0 - Trigger n for triggering the corresponding TRIGGERED\\[n\\] event"]
     #[inline]
     pub fn tasks_trigger(&mut self) -> _TASKS_TRIGGERW {
         _TASKS_TRIGGERW { w: self }

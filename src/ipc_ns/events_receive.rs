@@ -153,7 +153,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Event received on one or more of the enabled channels in RECEIVE_CNF[n]."]
+    #[doc = "Bit 0 - Event received on one or more of the enabled channels in RECEIVE_CNF\\[n\\]."]
     #[inline]
     pub fn events_receive(&self) -> EVENTS_RECEIVER {
         EVENTS_RECEIVER::_from({
@@ -175,7 +175,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Event received on one or more of the enabled channels in RECEIVE_CNF[n]."]
+    #[doc = "Bit 0 - Event received on one or more of the enabled channels in RECEIVE_CNF\\[n\\]."]
     #[inline]
     pub fn events_receive(&mut self) -> _EVENTS_RECEIVEW {
         _EVENTS_RECEIVEW { w: self }

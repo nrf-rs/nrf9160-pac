@@ -153,7 +153,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Last results is equal or above CH[n].LIMIT.HIGH"]
+    #[doc = "Bit 0 - Last results is equal or above CH\\[n\\].LIMIT.HIGH"]
     #[inline]
     pub fn limith(&self) -> LIMITHR {
         LIMITHR::_from({
@@ -175,7 +175,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Last results is equal or above CH[n].LIMIT.HIGH"]
+    #[doc = "Bit 0 - Last results is equal or above CH\\[n\\].LIMIT.HIGH"]
     #[inline]
     pub fn limith(&mut self) -> _LIMITHW {
         _LIMITHW { w: self }
