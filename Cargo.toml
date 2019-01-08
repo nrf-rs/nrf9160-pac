@@ -4,6 +4,14 @@ version = "0.1.0"
 authors = ["Fredrik Ahlberg <fredrik@z80.se>"]
 description = "Device support crate for nRF9160/Alta"
 license = "0BSD"
+categories = ["embedded"]
+keywords = [
+    "no-std",
+    "arm",
+    "cortex-m",
+    "nordic",
+]
+repository = "https://github.com/themadinventor/nrf91-rs"
 
 [dependencies]
 bare-metal = "0.2.0"
