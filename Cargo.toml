@@ -15,12 +15,12 @@ repository = "https://github.com/themadinventor/nrf91-rs"
 
 [dependencies]
 bare-metal = "0.2.0"
-cortex-m = "0.5.8"
+cortex-m = "0.6"
 vcell = "0.1.0"
 
 [dependencies.cortex-m-rt]
 optional = true
-version = "0.6.5"
+version = "0.6.7"
 
 [features]
 rt = ["cortex-m-rt/device"]
