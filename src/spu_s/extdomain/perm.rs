@@ -1,422 +1,284 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PERM {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PERM"]
+pub type R = crate::R<u32, super::PERM>;
+#[doc = "Writer for register PERM"]
+pub type W = crate::W<u32, super::PERM>;
+#[doc = "Register PERM `reset()`'s with value 0"]
+impl crate::ResetValue for super::PERM {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `SECUREMAPPING`"]
+#[doc = "Define configuration capabilities for TrustZone Cortex-M secure attribute\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SECUREMAPPINGR {
-    #[doc = "The bus access from this external domain always have the non-secure attribute set"]
+pub enum SECUREMAPPING_A {
+    #[doc = "0: The bus access from this external domain always have the non-secure attribute set"]
     NONSECURE,
-    #[doc = "The bus access from this external domain always have the secure attribute set"]
+    #[doc = "1: The bus access from this external domain always have the secure attribute set"]
     SECURE,
-    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
+    #[doc = "2: Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
     USERSELECTABLE,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl SECUREMAPPINGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SECUREMAPPINGR::NONSECURE => 0,
-            SECUREMAPPINGR::SECURE => 1,
-            SECUREMAPPINGR::USERSELECTABLE => 2,
-            SECUREMAPPINGR::_Reserved(bits) => bits,
+impl From<SECUREMAPPING_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SECUREMAPPING_A) -> Self {
+        match variant {
+            SECUREMAPPING_A::NONSECURE => 0,
+            SECUREMAPPING_A::SECURE => 1,
+            SECUREMAPPING_A::USERSELECTABLE => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SECUREMAPPINGR {
-        match value {
-            0 => SECUREMAPPINGR::NONSECURE,
-            1 => SECUREMAPPINGR::SECURE,
-            2 => SECUREMAPPINGR::USERSELECTABLE,
-            i => SECUREMAPPINGR::_Reserved(i),
+}
+#[doc = "Reader of field `SECUREMAPPING`"]
+pub type SECUREMAPPING_R = crate::R<u8, SECUREMAPPING_A>;
+impl SECUREMAPPING_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, SECUREMAPPING_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(SECUREMAPPING_A::NONSECURE),
+            1 => Val(SECUREMAPPING_A::SECURE),
+            2 => Val(SECUREMAPPING_A::USERSELECTABLE),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `NONSECURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_non_secure(&self) -> bool {
-        *self == SECUREMAPPINGR::NONSECURE
+        *self == SECUREMAPPING_A::NONSECURE
     }
     #[doc = "Checks if the value of the field is `SECURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_secure(&self) -> bool {
-        *self == SECUREMAPPINGR::SECURE
+        *self == SECUREMAPPING_A::SECURE
     }
     #[doc = "Checks if the value of the field is `USERSELECTABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_user_selectable(&self) -> bool {
-        *self == SECUREMAPPINGR::USERSELECTABLE
+        *self == SECUREMAPPING_A::USERSELECTABLE
     }
 }
-#[doc = "Possible values of the field `SECATTR`"]
+#[doc = "Write proxy for field `SECUREMAPPING`"]
+pub struct SECUREMAPPING_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SECUREMAPPING_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SECUREMAPPING_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "The bus access from this external domain always have the non-secure attribute set"]
+    #[inline(always)]
+    pub fn non_secure(self) -> &'a mut W {
+        self.variant(SECUREMAPPING_A::NONSECURE)
+    }
+    #[doc = "The bus access from this external domain always have the secure attribute set"]
+    #[inline(always)]
+    pub fn secure(self) -> &'a mut W {
+        self.variant(SECUREMAPPING_A::SECURE)
+    }
+    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
+    #[inline(always)]
+    pub fn user_selectable(self) -> &'a mut W {
+        self.variant(SECUREMAPPING_A::USERSELECTABLE)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w
+    }
+}
+#[doc = "Peripheral security mapping\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SECATTRR {
-    #[doc = "Bus accesses from this domain have the non-secure attribute set"]
+pub enum SECATTR_A {
+    #[doc = "0: Bus accesses from this domain have the non-secure attribute set"]
     NONSECURE,
-    #[doc = "Bus accesses from this domain have secure attribute set"]
+    #[doc = "1: Bus accesses from this domain have secure attribute set"]
     SECURE,
 }
-impl SECATTRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SECATTRR::NONSECURE => false,
-            SECATTRR::SECURE => true,
+impl From<SECATTR_A> for bool {
+    #[inline(always)]
+    fn from(variant: SECATTR_A) -> Self {
+        match variant {
+            SECATTR_A::NONSECURE => false,
+            SECATTR_A::SECURE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SECATTRR {
-        match value {
-            false => SECATTRR::NONSECURE,
-            true => SECATTRR::SECURE,
+}
+#[doc = "Reader of field `SECATTR`"]
+pub type SECATTR_R = crate::R<bool, SECATTR_A>;
+impl SECATTR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SECATTR_A {
+        match self.bits {
+            false => SECATTR_A::NONSECURE,
+            true => SECATTR_A::SECURE,
         }
     }
     #[doc = "Checks if the value of the field is `NONSECURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_non_secure(&self) -> bool {
-        *self == SECATTRR::NONSECURE
+        *self == SECATTR_A::NONSECURE
     }
     #[doc = "Checks if the value of the field is `SECURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_secure(&self) -> bool {
-        *self == SECATTRR::SECURE
+        *self == SECATTR_A::SECURE
     }
 }
-#[doc = "Possible values of the field `LOCK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOCKR {
-    #[doc = "This register can be updated"]
-    UNLOCKED,
-    #[doc = "The content of this register can't be changed until the next reset"]
-    LOCKED,
+#[doc = "Write proxy for field `SECATTR`"]
+pub struct SECATTR_W<'a> {
+    w: &'a mut W,
 }
-impl LOCKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOCKR::UNLOCKED => false,
-            LOCKR::LOCKED => true,
+impl<'a> SECATTR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SECATTR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOCKR {
-        match value {
-            false => LOCKR::UNLOCKED,
-            true => LOCKR::LOCKED,
+    #[doc = "Bus accesses from this domain have the non-secure attribute set"]
+    #[inline(always)]
+    pub fn non_secure(self) -> &'a mut W {
+        self.variant(SECATTR_A::NONSECURE)
+    }
+    #[doc = "Bus accesses from this domain have secure attribute set"]
+    #[inline(always)]
+    pub fn secure(self) -> &'a mut W {
+        self.variant(SECATTR_A::SECURE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOCK_A {
+    #[doc = "0: This register can be updated"]
+    UNLOCKED,
+    #[doc = "1: The content of this register can't be changed until the next reset"]
+    LOCKED,
+}
+impl From<LOCK_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOCK_A) -> Self {
+        match variant {
+            LOCK_A::UNLOCKED => false,
+            LOCK_A::LOCKED => true,
+        }
+    }
+}
+#[doc = "Reader of field `LOCK`"]
+pub type LOCK_R = crate::R<bool, LOCK_A>;
+impl LOCK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOCK_A {
+        match self.bits {
+            false => LOCK_A::UNLOCKED,
+            true => LOCK_A::LOCKED,
         }
     }
     #[doc = "Checks if the value of the field is `UNLOCKED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_unlocked(&self) -> bool {
-        *self == LOCKR::UNLOCKED
+        *self == LOCK_A::UNLOCKED
     }
     #[doc = "Checks if the value of the field is `LOCKED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_locked(&self) -> bool {
-        *self == LOCKR::LOCKED
+        *self == LOCK_A::LOCKED
     }
 }
-#[doc = "Values that can be written to the field `SECUREMAPPING`"]
-pub enum SECUREMAPPINGW {
-    #[doc = "The bus access from this external domain always have the non-secure attribute set"]
-    NONSECURE,
-    #[doc = "The bus access from this external domain always have the secure attribute set"]
-    SECURE,
-    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
-    USERSELECTABLE,
-}
-impl SECUREMAPPINGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SECUREMAPPINGW::NONSECURE => 0,
-            SECUREMAPPINGW::SECURE => 1,
-            SECUREMAPPINGW::USERSELECTABLE => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SECUREMAPPINGW<'a> {
+#[doc = "Write proxy for field `LOCK`"]
+pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SECUREMAPPINGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SECUREMAPPINGW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
-    }
-    #[doc = "The bus access from this external domain always have the non-secure attribute set"]
-    #[inline]
-    pub fn non_secure(self) -> &'a mut W {
-        self.variant(SECUREMAPPINGW::NONSECURE)
-    }
-    #[doc = "The bus access from this external domain always have the secure attribute set"]
-    #[inline]
-    pub fn secure(self) -> &'a mut W {
-        self.variant(SECUREMAPPINGW::SECURE)
-    }
-    #[doc = "Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
-    #[inline]
-    pub fn user_selectable(self) -> &'a mut W {
-        self.variant(SECUREMAPPINGW::USERSELECTABLE)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SECATTR`"]
-pub enum SECATTRW {
-    #[doc = "Bus accesses from this domain have the non-secure attribute set"]
-    NONSECURE,
-    #[doc = "Bus accesses from this domain have secure attribute set"]
-    SECURE,
-}
-impl SECATTRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SECATTRW::NONSECURE => false,
-            SECATTRW::SECURE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SECATTRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SECATTRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SECATTRW) -> &'a mut W {
+impl<'a> LOCK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOCK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Bus accesses from this domain have the non-secure attribute set"]
-    #[inline]
-    pub fn non_secure(self) -> &'a mut W {
-        self.variant(SECATTRW::NONSECURE)
-    }
-    #[doc = "Bus accesses from this domain have secure attribute set"]
-    #[inline]
-    pub fn secure(self) -> &'a mut W {
-        self.variant(SECATTRW::SECURE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LOCK`"]
-pub enum LOCKW {
-    #[doc = "This register can be updated"]
-    UNLOCKED,
-    #[doc = "The content of this register can't be changed until the next reset"]
-    LOCKED,
-}
-impl LOCKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOCKW::UNLOCKED => false,
-            LOCKW::LOCKED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LOCKW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LOCKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOCKW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "This register can be updated"]
-    #[inline]
+    #[inline(always)]
     pub fn unlocked(self) -> &'a mut W {
-        self.variant(LOCKW::UNLOCKED)
+        self.variant(LOCK_A::UNLOCKED)
     }
     #[doc = "The content of this register can't be changed until the next reset"]
-    #[inline]
+    #[inline(always)]
     pub fn locked(self) -> &'a mut W {
-        self.variant(LOCKW::LOCKED)
+        self.variant(LOCK_A::LOCKED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Define configuration capabilities for TrustZone Cortex-M secure attribute"]
-    #[inline]
-    pub fn securemapping(&self) -> SECUREMAPPINGR {
-        SECUREMAPPINGR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn securemapping(&self) -> SECUREMAPPING_R {
+        SECUREMAPPING_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bit 4 - Peripheral security mapping"]
-    #[inline]
-    pub fn secattr(&self) -> SECATTRR {
-        SECATTRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn secattr(&self) -> SECATTR_R {
+        SECATTR_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 8"]
-    #[inline]
-    pub fn lock(&self) -> LOCKR {
-        LOCKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 8) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Define configuration capabilities for TrustZone Cortex-M secure attribute"]
-    #[inline]
-    pub fn securemapping(&mut self) -> _SECUREMAPPINGW {
-        _SECUREMAPPINGW { w: self }
+    #[inline(always)]
+    pub fn securemapping(&mut self) -> SECUREMAPPING_W {
+        SECUREMAPPING_W { w: self }
     }
     #[doc = "Bit 4 - Peripheral security mapping"]
-    #[inline]
-    pub fn secattr(&mut self) -> _SECATTRW {
-        _SECATTRW { w: self }
+    #[inline(always)]
+    pub fn secattr(&mut self) -> SECATTR_W {
+        SECATTR_W { w: self }
     }
     #[doc = "Bit 8"]
-    #[inline]
-    pub fn lock(&mut self) -> _LOCKW {
-        _LOCKW { w: self }
+    #[inline(always)]
+    pub fn lock(&mut self) -> LOCK_W {
+        LOCK_W { w: self }
     }
 }

@@ -1,84 +1,65 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TASKS_SAMPLE {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register TASKS_SAMPLE"]
+pub type W = crate::W<u32, super::TASKS_SAMPLE>;
+#[doc = "Register TASKS_SAMPLE `reset()`'s with value 0"]
+impl crate::ResetValue for super::TASKS_SAMPLE {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Values that can be written to the field `TASKS_SAMPLE`"]
-pub enum TASKS_SAMPLEW {
-    #[doc = "Trigger task"]
+#[doc = "Take one ADC sample, if scan is enabled all channels are sampled\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TASKS_SAMPLE_AW {
+    #[doc = "1: Trigger task"]
     TRIGGER,
 }
-impl TASKS_SAMPLEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TASKS_SAMPLEW::TRIGGER => true,
+impl From<TASKS_SAMPLE_AW> for bool {
+    #[inline(always)]
+    fn from(variant: TASKS_SAMPLE_AW) -> Self {
+        match variant {
+            TASKS_SAMPLE_AW::TRIGGER => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _TASKS_SAMPLEW<'a> {
+#[doc = "Write proxy for field `TASKS_SAMPLE`"]
+pub struct TASKS_SAMPLE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TASKS_SAMPLEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TASKS_SAMPLEW) -> &'a mut W {
+impl<'a> TASKS_SAMPLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TASKS_SAMPLE_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Trigger task"]
-    #[inline]
+    #[inline(always)]
     pub fn trigger(self) -> &'a mut W {
-        self.variant(TASKS_SAMPLEW::TRIGGER)
+        self.variant(TASKS_SAMPLE_AW::TRIGGER)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Take one ADC sample, if scan is enabled all channels are sampled"]
-    #[inline]
-    pub fn tasks_sample(&mut self) -> _TASKS_SAMPLEW {
-        _TASKS_SAMPLEW { w: self }
+    #[inline(always)]
+    pub fn tasks_sample(&mut self) -> TASKS_SAMPLE_W {
+        TASKS_SAMPLE_W { w: self }
     }
 }

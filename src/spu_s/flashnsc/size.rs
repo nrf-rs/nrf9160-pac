@@ -1,405 +1,280 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SIZE {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SIZE"]
+pub type R = crate::R<u32, super::SIZE>;
+#[doc = "Writer for register SIZE"]
+pub type W = crate::W<u32, super::SIZE>;
+#[doc = "Register SIZE `reset()`'s with value 0"]
+impl crate::ResetValue for super::SIZE {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `SIZE`"]
+#[doc = "Size of the non-secure callable (NSC) region n\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SIZER {
-    #[doc = "The region n is not defined as a non-secure callable region. Normal security attributes (secure or non-secure) are enforced."]
+pub enum SIZE_A {
+    #[doc = "0: The region n is not defined as a non-secure callable region. Normal security attributes (secure or non-secure) are enforced."]
     DISABLED,
-    #[doc = "The region n is defined as non-secure callable with a 32-byte size"]
+    #[doc = "1: The region n is defined as non-secure callable with a 32-byte size"]
     _32,
-    #[doc = "The region n is defined as non-secure callable with a 64-byte size"]
+    #[doc = "2: The region n is defined as non-secure callable with a 64-byte size"]
     _64,
-    #[doc = "The region n is defined as non-secure callable with a 128-byte size"]
+    #[doc = "3: The region n is defined as non-secure callable with a 128-byte size"]
     _128,
-    #[doc = "The region n is defined as non-secure callable with a 256-byte size"]
+    #[doc = "4: The region n is defined as non-secure callable with a 256-byte size"]
     _256,
-    #[doc = "The region n is defined as non-secure callable with a 512-byte size"]
+    #[doc = "5: The region n is defined as non-secure callable with a 512-byte size"]
     _512,
-    #[doc = "The region n is defined as non-secure callable with a 1024-byte size"]
+    #[doc = "6: The region n is defined as non-secure callable with a 1024-byte size"]
     _1024,
-    #[doc = "The region n is defined as non-secure callable with a 2048-byte size"]
+    #[doc = "7: The region n is defined as non-secure callable with a 2048-byte size"]
     _2048,
-    #[doc = "The region n is defined as non-secure callable with a 4096-byte size"]
+    #[doc = "8: The region n is defined as non-secure callable with a 4096-byte size"]
     _4096,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl SIZER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SIZER::DISABLED => 0,
-            SIZER::_32 => 1,
-            SIZER::_64 => 2,
-            SIZER::_128 => 3,
-            SIZER::_256 => 4,
-            SIZER::_512 => 5,
-            SIZER::_1024 => 6,
-            SIZER::_2048 => 7,
-            SIZER::_4096 => 8,
-            SIZER::_Reserved(bits) => bits,
+impl From<SIZE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SIZE_A) -> Self {
+        match variant {
+            SIZE_A::DISABLED => 0,
+            SIZE_A::_32 => 1,
+            SIZE_A::_64 => 2,
+            SIZE_A::_128 => 3,
+            SIZE_A::_256 => 4,
+            SIZE_A::_512 => 5,
+            SIZE_A::_1024 => 6,
+            SIZE_A::_2048 => 7,
+            SIZE_A::_4096 => 8,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SIZER {
-        match value {
-            0 => SIZER::DISABLED,
-            1 => SIZER::_32,
-            2 => SIZER::_64,
-            3 => SIZER::_128,
-            4 => SIZER::_256,
-            5 => SIZER::_512,
-            6 => SIZER::_1024,
-            7 => SIZER::_2048,
-            8 => SIZER::_4096,
-            i => SIZER::_Reserved(i),
+}
+#[doc = "Reader of field `SIZE`"]
+pub type SIZE_R = crate::R<u8, SIZE_A>;
+impl SIZE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, SIZE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(SIZE_A::DISABLED),
+            1 => Val(SIZE_A::_32),
+            2 => Val(SIZE_A::_64),
+            3 => Val(SIZE_A::_128),
+            4 => Val(SIZE_A::_256),
+            5 => Val(SIZE_A::_512),
+            6 => Val(SIZE_A::_1024),
+            7 => Val(SIZE_A::_2048),
+            8 => Val(SIZE_A::_4096),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SIZER::DISABLED
+        *self == SIZE_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `_32`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_32(&self) -> bool {
-        *self == SIZER::_32
+        *self == SIZE_A::_32
     }
     #[doc = "Checks if the value of the field is `_64`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_64(&self) -> bool {
-        *self == SIZER::_64
+        *self == SIZE_A::_64
     }
     #[doc = "Checks if the value of the field is `_128`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_128(&self) -> bool {
-        *self == SIZER::_128
+        *self == SIZE_A::_128
     }
     #[doc = "Checks if the value of the field is `_256`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_256(&self) -> bool {
-        *self == SIZER::_256
+        *self == SIZE_A::_256
     }
     #[doc = "Checks if the value of the field is `_512`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_512(&self) -> bool {
-        *self == SIZER::_512
+        *self == SIZE_A::_512
     }
     #[doc = "Checks if the value of the field is `_1024`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_1024(&self) -> bool {
-        *self == SIZER::_1024
+        *self == SIZE_A::_1024
     }
     #[doc = "Checks if the value of the field is `_2048`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_2048(&self) -> bool {
-        *self == SIZER::_2048
+        *self == SIZE_A::_2048
     }
     #[doc = "Checks if the value of the field is `_4096`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_4096(&self) -> bool {
-        *self == SIZER::_4096
+        *self == SIZE_A::_4096
     }
 }
-#[doc = "Possible values of the field `LOCK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOCKR {
-    #[doc = "This register can be updated"]
-    UNLOCKED,
-    #[doc = "The content of this register can't be changed until the next reset"]
-    LOCKED,
-}
-impl LOCKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOCKR::UNLOCKED => false,
-            LOCKR::LOCKED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOCKR {
-        match value {
-            false => LOCKR::UNLOCKED,
-            true => LOCKR::LOCKED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `UNLOCKED`"]
-    #[inline]
-    pub fn is_unlocked(&self) -> bool {
-        *self == LOCKR::UNLOCKED
-    }
-    #[doc = "Checks if the value of the field is `LOCKED`"]
-    #[inline]
-    pub fn is_locked(&self) -> bool {
-        *self == LOCKR::LOCKED
-    }
-}
-#[doc = "Values that can be written to the field `SIZE`"]
-pub enum SIZEW {
-    #[doc = "The region n is not defined as a non-secure callable region. Normal security attributes (secure or non-secure) are enforced."]
-    DISABLED,
-    #[doc = "The region n is defined as non-secure callable with a 32-byte size"]
-    _32,
-    #[doc = "The region n is defined as non-secure callable with a 64-byte size"]
-    _64,
-    #[doc = "The region n is defined as non-secure callable with a 128-byte size"]
-    _128,
-    #[doc = "The region n is defined as non-secure callable with a 256-byte size"]
-    _256,
-    #[doc = "The region n is defined as non-secure callable with a 512-byte size"]
-    _512,
-    #[doc = "The region n is defined as non-secure callable with a 1024-byte size"]
-    _1024,
-    #[doc = "The region n is defined as non-secure callable with a 2048-byte size"]
-    _2048,
-    #[doc = "The region n is defined as non-secure callable with a 4096-byte size"]
-    _4096,
-}
-impl SIZEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SIZEW::DISABLED => 0,
-            SIZEW::_32 => 1,
-            SIZEW::_64 => 2,
-            SIZEW::_128 => 3,
-            SIZEW::_256 => 4,
-            SIZEW::_512 => 5,
-            SIZEW::_1024 => 6,
-            SIZEW::_2048 => 7,
-            SIZEW::_4096 => 8,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SIZEW<'a> {
+#[doc = "Write proxy for field `SIZE`"]
+pub struct SIZE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SIZEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SIZEW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> SIZE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SIZE_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "The region n is not defined as a non-secure callable region. Normal security attributes (secure or non-secure) are enforced."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(SIZEW::DISABLED)
+        self.variant(SIZE_A::DISABLED)
     }
     #[doc = "The region n is defined as non-secure callable with a 32-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _32(self) -> &'a mut W {
-        self.variant(SIZEW::_32)
+        self.variant(SIZE_A::_32)
     }
     #[doc = "The region n is defined as non-secure callable with a 64-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _64(self) -> &'a mut W {
-        self.variant(SIZEW::_64)
+        self.variant(SIZE_A::_64)
     }
     #[doc = "The region n is defined as non-secure callable with a 128-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _128(self) -> &'a mut W {
-        self.variant(SIZEW::_128)
+        self.variant(SIZE_A::_128)
     }
     #[doc = "The region n is defined as non-secure callable with a 256-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _256(self) -> &'a mut W {
-        self.variant(SIZEW::_256)
+        self.variant(SIZE_A::_256)
     }
     #[doc = "The region n is defined as non-secure callable with a 512-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _512(self) -> &'a mut W {
-        self.variant(SIZEW::_512)
+        self.variant(SIZE_A::_512)
     }
     #[doc = "The region n is defined as non-secure callable with a 1024-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _1024(self) -> &'a mut W {
-        self.variant(SIZEW::_1024)
+        self.variant(SIZE_A::_1024)
     }
     #[doc = "The region n is defined as non-secure callable with a 2048-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _2048(self) -> &'a mut W {
-        self.variant(SIZEW::_2048)
+        self.variant(SIZE_A::_2048)
     }
     #[doc = "The region n is defined as non-secure callable with a 4096-byte size"]
-    #[inline]
+    #[inline(always)]
     pub fn _4096(self) -> &'a mut W {
-        self.variant(SIZEW::_4096)
+        self.variant(SIZE_A::_4096)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `LOCK`"]
-pub enum LOCKW {
-    #[doc = "This register can be updated"]
+#[doc = "\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOCK_A {
+    #[doc = "0: This register can be updated"]
     UNLOCKED,
-    #[doc = "The content of this register can't be changed until the next reset"]
+    #[doc = "1: The content of this register can't be changed until the next reset"]
     LOCKED,
 }
-impl LOCKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOCKW::UNLOCKED => false,
-            LOCKW::LOCKED => true,
+impl From<LOCK_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOCK_A) -> Self {
+        match variant {
+            LOCK_A::UNLOCKED => false,
+            LOCK_A::LOCKED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _LOCKW<'a> {
+#[doc = "Reader of field `LOCK`"]
+pub type LOCK_R = crate::R<bool, LOCK_A>;
+impl LOCK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOCK_A {
+        match self.bits {
+            false => LOCK_A::UNLOCKED,
+            true => LOCK_A::LOCKED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `UNLOCKED`"]
+    #[inline(always)]
+    pub fn is_unlocked(&self) -> bool {
+        *self == LOCK_A::UNLOCKED
+    }
+    #[doc = "Checks if the value of the field is `LOCKED`"]
+    #[inline(always)]
+    pub fn is_locked(&self) -> bool {
+        *self == LOCK_A::LOCKED
+    }
+}
+#[doc = "Write proxy for field `LOCK`"]
+pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LOCKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOCKW) -> &'a mut W {
+impl<'a> LOCK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOCK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "This register can be updated"]
-    #[inline]
+    #[inline(always)]
     pub fn unlocked(self) -> &'a mut W {
-        self.variant(LOCKW::UNLOCKED)
+        self.variant(LOCK_A::UNLOCKED)
     }
     #[doc = "The content of this register can't be changed until the next reset"]
-    #[inline]
+    #[inline(always)]
     pub fn locked(self) -> &'a mut W {
-        self.variant(LOCKW::LOCKED)
+        self.variant(LOCK_A::LOCKED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:3 - Size of the non-secure callable (NSC) region n"]
-    #[inline]
-    pub fn size(&self) -> SIZER {
-        SIZER::_from({
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn size(&self) -> SIZE_R {
+        SIZE_R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bit 8"]
-    #[inline]
-    pub fn lock(&self) -> LOCKR {
-        LOCKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 8) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:3 - Size of the non-secure callable (NSC) region n"]
-    #[inline]
-    pub fn size(&mut self) -> _SIZEW {
-        _SIZEW { w: self }
+    #[inline(always)]
+    pub fn size(&mut self) -> SIZE_W {
+        SIZE_W { w: self }
     }
     #[doc = "Bit 8"]
-    #[inline]
-    pub fn lock(&mut self) -> _LOCKW {
-        _LOCKW { w: self }
+    #[inline(always)]
+    pub fn lock(&mut self) -> LOCK_W {
+        LOCK_W { w: self }
     }
 }

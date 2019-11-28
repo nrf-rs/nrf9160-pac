@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::EVENTS_STOPPED {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register EVENTS_STOPPED"]
+pub type R = crate::R<u32, super::EVENTS_STOPPED>;
+#[doc = "Writer for register EVENTS_STOPPED"]
+pub type W = crate::W<u32, super::EVENTS_STOPPED>;
+#[doc = "Register EVENTS_STOPPED `reset()`'s with value 0"]
+impl crate::ResetValue for super::EVENTS_STOPPED {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `EVENTS_STOPPED`"]
+#[doc = "SPI transaction has stopped\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EVENTS_STOPPEDR {
-    #[doc = "Event not generated"]
+pub enum EVENTS_STOPPED_A {
+    #[doc = "0: Event not generated"]
     NOTGENERATED,
-    #[doc = "Event generated"]
+    #[doc = "1: Event generated"]
     GENERATED,
 }
-impl EVENTS_STOPPEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EVENTS_STOPPEDR::NOTGENERATED => false,
-            EVENTS_STOPPEDR::GENERATED => true,
+impl From<EVENTS_STOPPED_A> for bool {
+    #[inline(always)]
+    fn from(variant: EVENTS_STOPPED_A) -> Self {
+        match variant {
+            EVENTS_STOPPED_A::NOTGENERATED => false,
+            EVENTS_STOPPED_A::GENERATED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EVENTS_STOPPEDR {
-        match value {
-            false => EVENTS_STOPPEDR::NOTGENERATED,
-            true => EVENTS_STOPPEDR::GENERATED,
+}
+#[doc = "Reader of field `EVENTS_STOPPED`"]
+pub type EVENTS_STOPPED_R = crate::R<bool, EVENTS_STOPPED_A>;
+impl EVENTS_STOPPED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EVENTS_STOPPED_A {
+        match self.bits {
+            false => EVENTS_STOPPED_A::NOTGENERATED,
+            true => EVENTS_STOPPED_A::GENERATED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTGENERATED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_generated(&self) -> bool {
-        *self == EVENTS_STOPPEDR::NOTGENERATED
+        *self == EVENTS_STOPPED_A::NOTGENERATED
     }
     #[doc = "Checks if the value of the field is `GENERATED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_generated(&self) -> bool {
-        *self == EVENTS_STOPPEDR::GENERATED
+        *self == EVENTS_STOPPED_A::GENERATED
     }
 }
-#[doc = "Values that can be written to the field `EVENTS_STOPPED`"]
-pub enum EVENTS_STOPPEDW {
-    #[doc = "Event not generated"]
-    NOTGENERATED,
-    #[doc = "Event generated"]
-    GENERATED,
-}
-impl EVENTS_STOPPEDW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EVENTS_STOPPEDW::NOTGENERATED => false,
-            EVENTS_STOPPEDW::GENERATED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EVENTS_STOPPEDW<'a> {
+#[doc = "Write proxy for field `EVENTS_STOPPED`"]
+pub struct EVENTS_STOPPED_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EVENTS_STOPPEDW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EVENTS_STOPPEDW) -> &'a mut W {
+impl<'a> EVENTS_STOPPED_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EVENTS_STOPPED_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Event not generated"]
-    #[inline]
+    #[inline(always)]
     pub fn not_generated(self) -> &'a mut W {
-        self.variant(EVENTS_STOPPEDW::NOTGENERATED)
+        self.variant(EVENTS_STOPPED_A::NOTGENERATED)
     }
     #[doc = "Event generated"]
-    #[inline]
+    #[inline(always)]
     pub fn generated(self) -> &'a mut W {
-        self.variant(EVENTS_STOPPEDW::GENERATED)
+        self.variant(EVENTS_STOPPED_A::GENERATED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - SPI transaction has stopped"]
-    #[inline]
-    pub fn events_stopped(&self) -> EVENTS_STOPPEDR {
-        EVENTS_STOPPEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn events_stopped(&self) -> EVENTS_STOPPED_R {
+        EVENTS_STOPPED_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - SPI transaction has stopped"]
-    #[inline]
-    pub fn events_stopped(&mut self) -> _EVENTS_STOPPEDW {
-        _EVENTS_STOPPEDW { w: self }
+    #[inline(always)]
+    pub fn events_stopped(&mut self) -> EVENTS_STOPPED_W {
+        EVENTS_STOPPED_W { w: self }
     }
 }

@@ -1,397 +1,307 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTENCLR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INTENCLR"]
+pub type R = crate::R<u32, super::INTENCLR>;
+#[doc = "Writer for register INTENCLR"]
+pub type W = crate::W<u32, super::INTENCLR>;
+#[doc = "Register INTENCLR `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTENCLR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RAMACCERR`"]
+#[doc = "Write '1' to disable interrupt for event RAMACCERR\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RAMACCERRR {
-    #[doc = "Read: Disabled"]
+pub enum RAMACCERR_A {
+    #[doc = "0: Read: Disabled"]
     DISABLED,
-    #[doc = "Read: Enabled"]
+    #[doc = "1: Read: Enabled"]
     ENABLED,
 }
-impl RAMACCERRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RAMACCERRR::DISABLED => false,
-            RAMACCERRR::ENABLED => true,
+impl From<RAMACCERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RAMACCERR_A) -> Self {
+        match variant {
+            RAMACCERR_A::DISABLED => false,
+            RAMACCERR_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RAMACCERRR {
-        match value {
-            false => RAMACCERRR::DISABLED,
-            true => RAMACCERRR::ENABLED,
+}
+#[doc = "Reader of field `RAMACCERR`"]
+pub type RAMACCERR_R = crate::R<bool, RAMACCERR_A>;
+impl RAMACCERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RAMACCERR_A {
+        match self.bits {
+            false => RAMACCERR_A::DISABLED,
+            true => RAMACCERR_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == RAMACCERRR::DISABLED
+        *self == RAMACCERR_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == RAMACCERRR::ENABLED
+        *self == RAMACCERR_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `FLASHACCERR`"]
+#[doc = "Write '1' to disable interrupt for event RAMACCERR\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FLASHACCERRR {
-    #[doc = "Read: Disabled"]
-    DISABLED,
-    #[doc = "Read: Enabled"]
-    ENABLED,
-}
-impl FLASHACCERRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FLASHACCERRR::DISABLED => false,
-            FLASHACCERRR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FLASHACCERRR {
-        match value {
-            false => FLASHACCERRR::DISABLED,
-            true => FLASHACCERRR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == FLASHACCERRR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == FLASHACCERRR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `PERIPHACCERR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PERIPHACCERRR {
-    #[doc = "Read: Disabled"]
-    DISABLED,
-    #[doc = "Read: Enabled"]
-    ENABLED,
-}
-impl PERIPHACCERRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PERIPHACCERRR::DISABLED => false,
-            PERIPHACCERRR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PERIPHACCERRR {
-        match value {
-            false => PERIPHACCERRR::DISABLED,
-            true => PERIPHACCERRR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == PERIPHACCERRR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == PERIPHACCERRR::ENABLED
-    }
-}
-#[doc = "Values that can be written to the field `RAMACCERR`"]
-pub enum RAMACCERRW {
-    #[doc = "Disable"]
+pub enum RAMACCERR_AW {
+    #[doc = "1: Disable"]
     CLEAR,
 }
-impl RAMACCERRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RAMACCERRW::CLEAR => true,
+impl From<RAMACCERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: RAMACCERR_AW) -> Self {
+        match variant {
+            RAMACCERR_AW::CLEAR => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RAMACCERRW<'a> {
+#[doc = "Write proxy for field `RAMACCERR`"]
+pub struct RAMACCERR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RAMACCERRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RAMACCERRW) -> &'a mut W {
+impl<'a> RAMACCERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RAMACCERR_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable"]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(RAMACCERRW::CLEAR)
+        self.variant(RAMACCERR_AW::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `FLASHACCERR`"]
-pub enum FLASHACCERRW {
-    #[doc = "Disable"]
+#[doc = "Write '1' to disable interrupt for event FLASHACCERR\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FLASHACCERR_A {
+    #[doc = "0: Read: Disabled"]
+    DISABLED,
+    #[doc = "1: Read: Enabled"]
+    ENABLED,
+}
+impl From<FLASHACCERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: FLASHACCERR_A) -> Self {
+        match variant {
+            FLASHACCERR_A::DISABLED => false,
+            FLASHACCERR_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `FLASHACCERR`"]
+pub type FLASHACCERR_R = crate::R<bool, FLASHACCERR_A>;
+impl FLASHACCERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FLASHACCERR_A {
+        match self.bits {
+            false => FLASHACCERR_A::DISABLED,
+            true => FLASHACCERR_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == FLASHACCERR_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == FLASHACCERR_A::ENABLED
+    }
+}
+#[doc = "Write '1' to disable interrupt for event FLASHACCERR\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FLASHACCERR_AW {
+    #[doc = "1: Disable"]
     CLEAR,
 }
-impl FLASHACCERRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FLASHACCERRW::CLEAR => true,
+impl From<FLASHACCERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: FLASHACCERR_AW) -> Self {
+        match variant {
+            FLASHACCERR_AW::CLEAR => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _FLASHACCERRW<'a> {
+#[doc = "Write proxy for field `FLASHACCERR`"]
+pub struct FLASHACCERR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FLASHACCERRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FLASHACCERRW) -> &'a mut W {
+impl<'a> FLASHACCERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FLASHACCERR_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable"]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(FLASHACCERRW::CLEAR)
+        self.variant(FLASHACCERR_AW::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PERIPHACCERR`"]
-pub enum PERIPHACCERRW {
-    #[doc = "Disable"]
+#[doc = "Write '1' to disable interrupt for event PERIPHACCERR\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PERIPHACCERR_A {
+    #[doc = "0: Read: Disabled"]
+    DISABLED,
+    #[doc = "1: Read: Enabled"]
+    ENABLED,
+}
+impl From<PERIPHACCERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: PERIPHACCERR_A) -> Self {
+        match variant {
+            PERIPHACCERR_A::DISABLED => false,
+            PERIPHACCERR_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `PERIPHACCERR`"]
+pub type PERIPHACCERR_R = crate::R<bool, PERIPHACCERR_A>;
+impl PERIPHACCERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PERIPHACCERR_A {
+        match self.bits {
+            false => PERIPHACCERR_A::DISABLED,
+            true => PERIPHACCERR_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == PERIPHACCERR_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == PERIPHACCERR_A::ENABLED
+    }
+}
+#[doc = "Write '1' to disable interrupt for event PERIPHACCERR\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PERIPHACCERR_AW {
+    #[doc = "1: Disable"]
     CLEAR,
 }
-impl PERIPHACCERRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PERIPHACCERRW::CLEAR => true,
+impl From<PERIPHACCERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: PERIPHACCERR_AW) -> Self {
+        match variant {
+            PERIPHACCERR_AW::CLEAR => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PERIPHACCERRW<'a> {
+#[doc = "Write proxy for field `PERIPHACCERR`"]
+pub struct PERIPHACCERR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PERIPHACCERRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PERIPHACCERRW) -> &'a mut W {
+impl<'a> PERIPHACCERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PERIPHACCERR_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable"]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(PERIPHACCERRW::CLEAR)
+        self.variant(PERIPHACCERR_AW::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Write '1' to disable interrupt for event RAMACCERR"]
-    #[inline]
-    pub fn ramaccerr(&self) -> RAMACCERRR {
-        RAMACCERRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ramaccerr(&self) -> RAMACCERR_R {
+        RAMACCERR_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Write '1' to disable interrupt for event FLASHACCERR"]
-    #[inline]
-    pub fn flashaccerr(&self) -> FLASHACCERRR {
-        FLASHACCERRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn flashaccerr(&self) -> FLASHACCERR_R {
+        FLASHACCERR_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Write '1' to disable interrupt for event PERIPHACCERR"]
-    #[inline]
-    pub fn periphaccerr(&self) -> PERIPHACCERRR {
-        PERIPHACCERRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn periphaccerr(&self) -> PERIPHACCERR_R {
+        PERIPHACCERR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Write '1' to disable interrupt for event RAMACCERR"]
-    #[inline]
-    pub fn ramaccerr(&mut self) -> _RAMACCERRW {
-        _RAMACCERRW { w: self }
+    #[inline(always)]
+    pub fn ramaccerr(&mut self) -> RAMACCERR_W {
+        RAMACCERR_W { w: self }
     }
     #[doc = "Bit 1 - Write '1' to disable interrupt for event FLASHACCERR"]
-    #[inline]
-    pub fn flashaccerr(&mut self) -> _FLASHACCERRW {
-        _FLASHACCERRW { w: self }
+    #[inline(always)]
+    pub fn flashaccerr(&mut self) -> FLASHACCERR_W {
+        FLASHACCERR_W { w: self }
     }
     #[doc = "Bit 2 - Write '1' to disable interrupt for event PERIPHACCERR"]
-    #[inline]
-    pub fn periphaccerr(&mut self) -> _PERIPHACCERRW {
-        _PERIPHACCERRW { w: self }
+    #[inline(always)]
+    pub fn periphaccerr(&mut self) -> PERIPHACCERR_W {
+        PERIPHACCERR_W { w: self }
     }
 }

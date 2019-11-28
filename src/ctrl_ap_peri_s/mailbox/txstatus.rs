@@ -1,76 +1,48 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::TXSTATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `TXSTATUS`"]
+#[doc = "Reader of register TXSTATUS"]
+pub type R = crate::R<u32, super::TXSTATUS>;
+#[doc = "Status of data in register TXDATA\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXSTATUSR {
-    #[doc = "No data pending in register TXDATA"]
+pub enum TXSTATUS_A {
+    #[doc = "0: No data pending in register TXDATA"]
     NODATAPENDING,
-    #[doc = "Data pending in register TXDATA"]
+    #[doc = "1: Data pending in register TXDATA"]
     DATAPENDING,
 }
-impl TXSTATUSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TXSTATUSR::NODATAPENDING => false,
-            TXSTATUSR::DATAPENDING => true,
+impl From<TXSTATUS_A> for bool {
+    #[inline(always)]
+    fn from(variant: TXSTATUS_A) -> Self {
+        match variant {
+            TXSTATUS_A::NODATAPENDING => false,
+            TXSTATUS_A::DATAPENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TXSTATUSR {
-        match value {
-            false => TXSTATUSR::NODATAPENDING,
-            true => TXSTATUSR::DATAPENDING,
+}
+#[doc = "Reader of field `TXSTATUS`"]
+pub type TXSTATUS_R = crate::R<bool, TXSTATUS_A>;
+impl TXSTATUS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TXSTATUS_A {
+        match self.bits {
+            false => TXSTATUS_A::NODATAPENDING,
+            true => TXSTATUS_A::DATAPENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NODATAPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_data_pending(&self) -> bool {
-        *self == TXSTATUSR::NODATAPENDING
+        *self == TXSTATUS_A::NODATAPENDING
     }
     #[doc = "Checks if the value of the field is `DATAPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_pending(&self) -> bool {
-        *self == TXSTATUSR::DATAPENDING
+        *self == TXSTATUS_A::DATAPENDING
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Status of data in register TXDATA"]
-    #[inline]
-    pub fn txstatus(&self) -> TXSTATUSR {
-        TXSTATUSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn txstatus(&self) -> TXSTATUS_R {
+        TXSTATUS_R::new((self.bits & 0x01) != 0)
     }
 }

@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     _reserved0: [u8; 1536usize],
@@ -26,7 +26,7 @@ pub struct RegisterBlock {
     #[doc = "0x670 - Unspecified"]
     pub ram7: RAM,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RAM {
     #[doc = "0x00 - Description cluster: RAMn power control register"]
@@ -36,6 +36,6 @@ pub struct RAM {
     #[doc = "0x08 - Description cluster: RAMn power control clear register"]
     pub powerclr: self::ram::POWERCLR,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Unspecified"]
 pub mod ram;

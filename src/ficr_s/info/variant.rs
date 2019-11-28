@@ -1,70 +1,50 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::VARIANT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `VARIANT`"]
+#[doc = "Reader of register VARIANT"]
+pub type R = crate::R<u32, super::VARIANT>;
+#[doc = "Part Variant, Hardware version and Production configuration, encoded as ASCII\n\nValue on reset: 268435455"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum VARIANTR {
-    #[doc = "AAAA"]
+pub enum VARIANT_A {
+    #[doc = "1094795585: AAAA"]
     AAAA,
-    #[doc = "AAA0"]
+    #[doc = "1094795568: AAA0"]
     AAA0,
-    #[doc = r" Reserved"]
-    _Reserved(u32),
 }
-impl VARIANTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        match *self {
-            VARIANTR::AAAA => 1094795585,
-            VARIANTR::AAA0 => 1094795568,
-            VARIANTR::_Reserved(bits) => bits,
+impl From<VARIANT_A> for u32 {
+    #[inline(always)]
+    fn from(variant: VARIANT_A) -> Self {
+        match variant {
+            VARIANT_A::AAAA => 1094795585,
+            VARIANT_A::AAA0 => 1094795568,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u32) -> VARIANTR {
-        match value {
-            1094795585 => VARIANTR::AAAA,
-            1094795568 => VARIANTR::AAA0,
-            i => VARIANTR::_Reserved(i),
+}
+#[doc = "Reader of field `VARIANT`"]
+pub type VARIANT_R = crate::R<u32, VARIANT_A>;
+impl VARIANT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u32, VARIANT_A> {
+        use crate::Variant::*;
+        match self.bits {
+            1094795585 => Val(VARIANT_A::AAAA),
+            1094795568 => Val(VARIANT_A::AAA0),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `AAAA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_aaaa(&self) -> bool {
-        *self == VARIANTR::AAAA
+        *self == VARIANT_A::AAAA
     }
     #[doc = "Checks if the value of the field is `AAA0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_aaa0(&self) -> bool {
-        *self == VARIANTR::AAA0
+        *self == VARIANT_A::AAA0
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:31 - Part Variant, Hardware version and Production configuration, encoded as ASCII"]
-    #[inline]
-    pub fn variant(&self) -> VARIANTR {
-        VARIANTR::_from({
-            const MASK: u32 = 4294967295;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        })
+    #[inline(always)]
+    pub fn variant(&self) -> VARIANT_R {
+        VARIANT_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }

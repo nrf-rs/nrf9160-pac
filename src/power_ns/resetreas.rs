@@ -1,897 +1,632 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::RESETREAS {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register RESETREAS"]
+pub type R = crate::R<u32, super::RESETREAS>;
+#[doc = "Writer for register RESETREAS"]
+pub type W = crate::W<u32, super::RESETREAS>;
+#[doc = "Register RESETREAS `reset()`'s with value 0"]
+impl crate::ResetValue for super::RESETREAS {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RESETPIN`"]
+#[doc = "Reset from pin reset detected\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RESETPINR {
-    #[doc = "Not detected"]
+pub enum RESETPIN_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl RESETPINR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RESETPINR::NOTDETECTED => false,
-            RESETPINR::DETECTED => true,
+impl From<RESETPIN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RESETPIN_A) -> Self {
+        match variant {
+            RESETPIN_A::NOTDETECTED => false,
+            RESETPIN_A::DETECTED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RESETPINR {
-        match value {
-            false => RESETPINR::NOTDETECTED,
-            true => RESETPINR::DETECTED,
+}
+#[doc = "Reader of field `RESETPIN`"]
+pub type RESETPIN_R = crate::R<bool, RESETPIN_A>;
+impl RESETPIN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RESETPIN_A {
+        match self.bits {
+            false => RESETPIN_A::NOTDETECTED,
+            true => RESETPIN_A::DETECTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_detected(&self) -> bool {
-        *self == RESETPINR::NOTDETECTED
+        *self == RESETPIN_A::NOTDETECTED
     }
     #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_detected(&self) -> bool {
-        *self == RESETPINR::DETECTED
+        *self == RESETPIN_A::DETECTED
     }
 }
-#[doc = "Possible values of the field `DOG`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DOGR {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl DOGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DOGR::NOTDETECTED => false,
-            DOGR::DETECTED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DOGR {
-        match value {
-            false => DOGR::NOTDETECTED,
-            true => DOGR::DETECTED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
-    pub fn is_not_detected(&self) -> bool {
-        *self == DOGR::NOTDETECTED
-    }
-    #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
-    pub fn is_detected(&self) -> bool {
-        *self == DOGR::DETECTED
-    }
-}
-#[doc = "Possible values of the field `OFF`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OFFR {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl OFFR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OFFR::NOTDETECTED => false,
-            OFFR::DETECTED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OFFR {
-        match value {
-            false => OFFR::NOTDETECTED,
-            true => OFFR::DETECTED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
-    pub fn is_not_detected(&self) -> bool {
-        *self == OFFR::NOTDETECTED
-    }
-    #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
-    pub fn is_detected(&self) -> bool {
-        *self == OFFR::DETECTED
-    }
-}
-#[doc = "Possible values of the field `DIF`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DIFR {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl DIFR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DIFR::NOTDETECTED => false,
-            DIFR::DETECTED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DIFR {
-        match value {
-            false => DIFR::NOTDETECTED,
-            true => DIFR::DETECTED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
-    pub fn is_not_detected(&self) -> bool {
-        *self == DIFR::NOTDETECTED
-    }
-    #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
-    pub fn is_detected(&self) -> bool {
-        *self == DIFR::DETECTED
-    }
-}
-#[doc = "Possible values of the field `SREQ`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SREQR {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl SREQR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SREQR::NOTDETECTED => false,
-            SREQR::DETECTED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SREQR {
-        match value {
-            false => SREQR::NOTDETECTED,
-            true => SREQR::DETECTED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
-    pub fn is_not_detected(&self) -> bool {
-        *self == SREQR::NOTDETECTED
-    }
-    #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
-    pub fn is_detected(&self) -> bool {
-        *self == SREQR::DETECTED
-    }
-}
-#[doc = "Possible values of the field `LOCKUP`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOCKUPR {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl LOCKUPR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOCKUPR::NOTDETECTED => false,
-            LOCKUPR::DETECTED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOCKUPR {
-        match value {
-            false => LOCKUPR::NOTDETECTED,
-            true => LOCKUPR::DETECTED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
-    pub fn is_not_detected(&self) -> bool {
-        *self == LOCKUPR::NOTDETECTED
-    }
-    #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
-    pub fn is_detected(&self) -> bool {
-        *self == LOCKUPR::DETECTED
-    }
-}
-#[doc = "Possible values of the field `CTRLAP`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CTRLAPR {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl CTRLAPR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CTRLAPR::NOTDETECTED => false,
-            CTRLAPR::DETECTED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CTRLAPR {
-        match value {
-            false => CTRLAPR::NOTDETECTED,
-            true => CTRLAPR::DETECTED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
-    #[inline]
-    pub fn is_not_detected(&self) -> bool {
-        *self == CTRLAPR::NOTDETECTED
-    }
-    #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
-    pub fn is_detected(&self) -> bool {
-        *self == CTRLAPR::DETECTED
-    }
-}
-#[doc = "Values that can be written to the field `RESETPIN`"]
-pub enum RESETPINW {
-    #[doc = "Not detected"]
-    NOTDETECTED,
-    #[doc = "Detected"]
-    DETECTED,
-}
-impl RESETPINW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RESETPINW::NOTDETECTED => false,
-            RESETPINW::DETECTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RESETPINW<'a> {
+#[doc = "Write proxy for field `RESETPIN`"]
+pub struct RESETPIN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RESETPINW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RESETPINW) -> &'a mut W {
+impl<'a> RESETPIN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RESETPIN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(RESETPINW::NOTDETECTED)
+        self.variant(RESETPIN_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(RESETPINW::DETECTED)
+        self.variant(RESETPIN_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DOG`"]
-pub enum DOGW {
-    #[doc = "Not detected"]
+#[doc = "Reset from global watchdog detected\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DOG_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl DOGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DOGW::NOTDETECTED => false,
-            DOGW::DETECTED => true,
+impl From<DOG_A> for bool {
+    #[inline(always)]
+    fn from(variant: DOG_A) -> Self {
+        match variant {
+            DOG_A::NOTDETECTED => false,
+            DOG_A::DETECTED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _DOGW<'a> {
+#[doc = "Reader of field `DOG`"]
+pub type DOG_R = crate::R<bool, DOG_A>;
+impl DOG_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DOG_A {
+        match self.bits {
+            false => DOG_A::NOTDETECTED,
+            true => DOG_A::DETECTED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
+    #[inline(always)]
+    pub fn is_not_detected(&self) -> bool {
+        *self == DOG_A::NOTDETECTED
+    }
+    #[doc = "Checks if the value of the field is `DETECTED`"]
+    #[inline(always)]
+    pub fn is_detected(&self) -> bool {
+        *self == DOG_A::DETECTED
+    }
+}
+#[doc = "Write proxy for field `DOG`"]
+pub struct DOG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DOGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DOGW) -> &'a mut W {
+impl<'a> DOG_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DOG_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(DOGW::NOTDETECTED)
+        self.variant(DOG_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(DOGW::DETECTED)
+        self.variant(DOG_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `OFF`"]
-pub enum OFFW {
-    #[doc = "Not detected"]
+#[doc = "Reset due to wakeup from System OFF mode, when wakeup is triggered by DETECT signal from GPIO\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OFF_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl OFFW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OFFW::NOTDETECTED => false,
-            OFFW::DETECTED => true,
+impl From<OFF_A> for bool {
+    #[inline(always)]
+    fn from(variant: OFF_A) -> Self {
+        match variant {
+            OFF_A::NOTDETECTED => false,
+            OFF_A::DETECTED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _OFFW<'a> {
+#[doc = "Reader of field `OFF`"]
+pub type OFF_R = crate::R<bool, OFF_A>;
+impl OFF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OFF_A {
+        match self.bits {
+            false => OFF_A::NOTDETECTED,
+            true => OFF_A::DETECTED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
+    #[inline(always)]
+    pub fn is_not_detected(&self) -> bool {
+        *self == OFF_A::NOTDETECTED
+    }
+    #[doc = "Checks if the value of the field is `DETECTED`"]
+    #[inline(always)]
+    pub fn is_detected(&self) -> bool {
+        *self == OFF_A::DETECTED
+    }
+}
+#[doc = "Write proxy for field `OFF`"]
+pub struct OFF_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OFFW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OFFW) -> &'a mut W {
+impl<'a> OFF_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OFF_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(OFFW::NOTDETECTED)
+        self.variant(OFF_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(OFFW::DETECTED)
+        self.variant(OFF_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DIF`"]
-pub enum DIFW {
-    #[doc = "Not detected"]
+#[doc = "Reset due to wakeup from System OFF mode, when wakeup is triggered by entering debug interface mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DIF_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl DIFW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DIFW::NOTDETECTED => false,
-            DIFW::DETECTED => true,
+impl From<DIF_A> for bool {
+    #[inline(always)]
+    fn from(variant: DIF_A) -> Self {
+        match variant {
+            DIF_A::NOTDETECTED => false,
+            DIF_A::DETECTED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _DIFW<'a> {
+#[doc = "Reader of field `DIF`"]
+pub type DIF_R = crate::R<bool, DIF_A>;
+impl DIF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DIF_A {
+        match self.bits {
+            false => DIF_A::NOTDETECTED,
+            true => DIF_A::DETECTED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
+    #[inline(always)]
+    pub fn is_not_detected(&self) -> bool {
+        *self == DIF_A::NOTDETECTED
+    }
+    #[doc = "Checks if the value of the field is `DETECTED`"]
+    #[inline(always)]
+    pub fn is_detected(&self) -> bool {
+        *self == DIF_A::DETECTED
+    }
+}
+#[doc = "Write proxy for field `DIF`"]
+pub struct DIF_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DIFW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DIFW) -> &'a mut W {
+impl<'a> DIF_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DIF_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(DIFW::NOTDETECTED)
+        self.variant(DIF_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(DIFW::DETECTED)
+        self.variant(DIF_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `SREQ`"]
-pub enum SREQW {
-    #[doc = "Not detected"]
+#[doc = "Reset from AIRCR.SYSRESETREQ detected\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SREQ_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl SREQW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SREQW::NOTDETECTED => false,
-            SREQW::DETECTED => true,
+impl From<SREQ_A> for bool {
+    #[inline(always)]
+    fn from(variant: SREQ_A) -> Self {
+        match variant {
+            SREQ_A::NOTDETECTED => false,
+            SREQ_A::DETECTED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _SREQW<'a> {
+#[doc = "Reader of field `SREQ`"]
+pub type SREQ_R = crate::R<bool, SREQ_A>;
+impl SREQ_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SREQ_A {
+        match self.bits {
+            false => SREQ_A::NOTDETECTED,
+            true => SREQ_A::DETECTED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
+    #[inline(always)]
+    pub fn is_not_detected(&self) -> bool {
+        *self == SREQ_A::NOTDETECTED
+    }
+    #[doc = "Checks if the value of the field is `DETECTED`"]
+    #[inline(always)]
+    pub fn is_detected(&self) -> bool {
+        *self == SREQ_A::DETECTED
+    }
+}
+#[doc = "Write proxy for field `SREQ`"]
+pub struct SREQ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SREQW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SREQW) -> &'a mut W {
+impl<'a> SREQ_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SREQ_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(SREQW::NOTDETECTED)
+        self.variant(SREQ_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(SREQW::DETECTED)
+        self.variant(SREQ_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `LOCKUP`"]
-pub enum LOCKUPW {
-    #[doc = "Not detected"]
+#[doc = "Reset from CPU lock-up detected\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOCKUP_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl LOCKUPW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOCKUPW::NOTDETECTED => false,
-            LOCKUPW::DETECTED => true,
+impl From<LOCKUP_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOCKUP_A) -> Self {
+        match variant {
+            LOCKUP_A::NOTDETECTED => false,
+            LOCKUP_A::DETECTED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _LOCKUPW<'a> {
+#[doc = "Reader of field `LOCKUP`"]
+pub type LOCKUP_R = crate::R<bool, LOCKUP_A>;
+impl LOCKUP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOCKUP_A {
+        match self.bits {
+            false => LOCKUP_A::NOTDETECTED,
+            true => LOCKUP_A::DETECTED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
+    #[inline(always)]
+    pub fn is_not_detected(&self) -> bool {
+        *self == LOCKUP_A::NOTDETECTED
+    }
+    #[doc = "Checks if the value of the field is `DETECTED`"]
+    #[inline(always)]
+    pub fn is_detected(&self) -> bool {
+        *self == LOCKUP_A::DETECTED
+    }
+}
+#[doc = "Write proxy for field `LOCKUP`"]
+pub struct LOCKUP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LOCKUPW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOCKUPW) -> &'a mut W {
+impl<'a> LOCKUP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOCKUP_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(LOCKUPW::NOTDETECTED)
+        self.variant(LOCKUP_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(LOCKUPW::DETECTED)
+        self.variant(LOCKUP_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CTRLAP`"]
-pub enum CTRLAPW {
-    #[doc = "Not detected"]
+#[doc = "Reset triggered through CTRL-AP\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CTRLAP_A {
+    #[doc = "0: Not detected"]
     NOTDETECTED,
-    #[doc = "Detected"]
+    #[doc = "1: Detected"]
     DETECTED,
 }
-impl CTRLAPW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CTRLAPW::NOTDETECTED => false,
-            CTRLAPW::DETECTED => true,
+impl From<CTRLAP_A> for bool {
+    #[inline(always)]
+    fn from(variant: CTRLAP_A) -> Self {
+        match variant {
+            CTRLAP_A::NOTDETECTED => false,
+            CTRLAP_A::DETECTED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CTRLAPW<'a> {
+#[doc = "Reader of field `CTRLAP`"]
+pub type CTRLAP_R = crate::R<bool, CTRLAP_A>;
+impl CTRLAP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CTRLAP_A {
+        match self.bits {
+            false => CTRLAP_A::NOTDETECTED,
+            true => CTRLAP_A::DETECTED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTDETECTED`"]
+    #[inline(always)]
+    pub fn is_not_detected(&self) -> bool {
+        *self == CTRLAP_A::NOTDETECTED
+    }
+    #[doc = "Checks if the value of the field is `DETECTED`"]
+    #[inline(always)]
+    pub fn is_detected(&self) -> bool {
+        *self == CTRLAP_A::DETECTED
+    }
+}
+#[doc = "Write proxy for field `CTRLAP`"]
+pub struct CTRLAP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CTRLAPW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CTRLAPW) -> &'a mut W {
+impl<'a> CTRLAP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CTRLAP_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not detected"]
-    #[inline]
+    #[inline(always)]
     pub fn not_detected(self) -> &'a mut W {
-        self.variant(CTRLAPW::NOTDETECTED)
+        self.variant(CTRLAP_A::NOTDETECTED)
     }
     #[doc = "Detected"]
-    #[inline]
+    #[inline(always)]
     pub fn detected(self) -> &'a mut W {
-        self.variant(CTRLAPW::DETECTED)
+        self.variant(CTRLAP_A::DETECTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Reset from pin reset detected"]
-    #[inline]
-    pub fn resetpin(&self) -> RESETPINR {
-        RESETPINR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn resetpin(&self) -> RESETPIN_R {
+        RESETPIN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Reset from global watchdog detected"]
-    #[inline]
-    pub fn dog(&self) -> DOGR {
-        DOGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dog(&self) -> DOG_R {
+        DOG_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Reset due to wakeup from System OFF mode, when wakeup is triggered by DETECT signal from GPIO"]
-    #[inline]
-    pub fn off(&self) -> OFFR {
-        OFFR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn off(&self) -> OFF_R {
+        OFF_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Reset due to wakeup from System OFF mode, when wakeup is triggered by entering debug interface mode"]
-    #[inline]
-    pub fn dif(&self) -> DIFR {
-        DIFR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dif(&self) -> DIF_R {
+        DIF_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Reset from AIRCR.SYSRESETREQ detected"]
-    #[inline]
-    pub fn sreq(&self) -> SREQR {
-        SREQR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sreq(&self) -> SREQ_R {
+        SREQ_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Reset from CPU lock-up detected"]
-    #[inline]
-    pub fn lockup(&self) -> LOCKUPR {
-        LOCKUPR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lockup(&self) -> LOCKUP_R {
+        LOCKUP_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Reset triggered through CTRL-AP"]
-    #[inline]
-    pub fn ctrlap(&self) -> CTRLAPR {
-        CTRLAPR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ctrlap(&self) -> CTRLAP_R {
+        CTRLAP_R::new(((self.bits >> 18) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Reset from pin reset detected"]
-    #[inline]
-    pub fn resetpin(&mut self) -> _RESETPINW {
-        _RESETPINW { w: self }
+    #[inline(always)]
+    pub fn resetpin(&mut self) -> RESETPIN_W {
+        RESETPIN_W { w: self }
     }
     #[doc = "Bit 1 - Reset from global watchdog detected"]
-    #[inline]
-    pub fn dog(&mut self) -> _DOGW {
-        _DOGW { w: self }
+    #[inline(always)]
+    pub fn dog(&mut self) -> DOG_W {
+        DOG_W { w: self }
     }
     #[doc = "Bit 2 - Reset due to wakeup from System OFF mode, when wakeup is triggered by DETECT signal from GPIO"]
-    #[inline]
-    pub fn off(&mut self) -> _OFFW {
-        _OFFW { w: self }
+    #[inline(always)]
+    pub fn off(&mut self) -> OFF_W {
+        OFF_W { w: self }
     }
     #[doc = "Bit 4 - Reset due to wakeup from System OFF mode, when wakeup is triggered by entering debug interface mode"]
-    #[inline]
-    pub fn dif(&mut self) -> _DIFW {
-        _DIFW { w: self }
+    #[inline(always)]
+    pub fn dif(&mut self) -> DIF_W {
+        DIF_W { w: self }
     }
     #[doc = "Bit 16 - Reset from AIRCR.SYSRESETREQ detected"]
-    #[inline]
-    pub fn sreq(&mut self) -> _SREQW {
-        _SREQW { w: self }
+    #[inline(always)]
+    pub fn sreq(&mut self) -> SREQ_W {
+        SREQ_W { w: self }
     }
     #[doc = "Bit 17 - Reset from CPU lock-up detected"]
-    #[inline]
-    pub fn lockup(&mut self) -> _LOCKUPW {
-        _LOCKUPW { w: self }
+    #[inline(always)]
+    pub fn lockup(&mut self) -> LOCKUP_W {
+        LOCKUP_W { w: self }
     }
     #[doc = "Bit 18 - Reset triggered through CTRL-AP"]
-    #[inline]
-    pub fn ctrlap(&mut self) -> _CTRLAPW {
-        _CTRLAPW { w: self }
+    #[inline(always)]
+    pub fn ctrlap(&mut self) -> CTRLAP_W {
+        CTRLAP_W { w: self }
     }
 }

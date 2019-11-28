@@ -1,76 +1,48 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::POWERSTATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `LTEMODEM`"]
+#[doc = "Reader of register POWERSTATUS"]
+pub type R = crate::R<u32, super::POWERSTATUS>;
+#[doc = "LTE modem domain status\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LTEMODEMR {
-    #[doc = "LTE modem domain is powered off"]
+pub enum LTEMODEM_A {
+    #[doc = "0: LTE modem domain is powered off"]
     OFF,
-    #[doc = "LTE modem domain is powered on"]
+    #[doc = "1: LTE modem domain is powered on"]
     ON,
 }
-impl LTEMODEMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LTEMODEMR::OFF => false,
-            LTEMODEMR::ON => true,
+impl From<LTEMODEM_A> for bool {
+    #[inline(always)]
+    fn from(variant: LTEMODEM_A) -> Self {
+        match variant {
+            LTEMODEM_A::OFF => false,
+            LTEMODEM_A::ON => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LTEMODEMR {
-        match value {
-            false => LTEMODEMR::OFF,
-            true => LTEMODEMR::ON,
+}
+#[doc = "Reader of field `LTEMODEM`"]
+pub type LTEMODEM_R = crate::R<bool, LTEMODEM_A>;
+impl LTEMODEM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LTEMODEM_A {
+        match self.bits {
+            false => LTEMODEM_A::OFF,
+            true => LTEMODEM_A::ON,
         }
     }
     #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_off(&self) -> bool {
-        *self == LTEMODEMR::OFF
+        *self == LTEMODEM_A::OFF
     }
     #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_on(&self) -> bool {
-        *self == LTEMODEMR::ON
+        *self == LTEMODEM_A::ON
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - LTE modem domain status"]
-    #[inline]
-    pub fn ltemodem(&self) -> LTEMODEMR {
-        LTEMODEMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ltemodem(&self) -> LTEMODEM_R {
+        LTEMODEM_R::new((self.bits & 0x01) != 0)
     }
 }

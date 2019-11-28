@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::HFXOSRC {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register HFXOSRC"]
+pub type R = crate::R<u32, super::HFXOSRC>;
+#[doc = "Writer for register HFXOSRC"]
+pub type W = crate::W<u32, super::HFXOSRC>;
+#[doc = "Register HFXOSRC `reset()`'s with value 0xffff_ffff"]
+impl crate::ResetValue for super::HFXOSRC {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff_ffff
     }
 }
-#[doc = "Possible values of the field `HFXOSRC`"]
+#[doc = "HFXO clock source selection\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum HFXOSRCR {
-    #[doc = "32 MHz crystal oscillator"]
+pub enum HFXOSRC_A {
+    #[doc = "1: 32 MHz crystal oscillator"]
     XTAL,
-    #[doc = "32 MHz temperature compensated crystal oscillator (TCXO)"]
+    #[doc = "0: 32 MHz temperature compensated crystal oscillator (TCXO)"]
     TCXO,
 }
-impl HFXOSRCR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            HFXOSRCR::XTAL => true,
-            HFXOSRCR::TCXO => false,
+impl From<HFXOSRC_A> for bool {
+    #[inline(always)]
+    fn from(variant: HFXOSRC_A) -> Self {
+        match variant {
+            HFXOSRC_A::XTAL => true,
+            HFXOSRC_A::TCXO => false,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> HFXOSRCR {
-        match value {
-            true => HFXOSRCR::XTAL,
-            false => HFXOSRCR::TCXO,
+}
+#[doc = "Reader of field `HFXOSRC`"]
+pub type HFXOSRC_R = crate::R<bool, HFXOSRC_A>;
+impl HFXOSRC_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> HFXOSRC_A {
+        match self.bits {
+            true => HFXOSRC_A::XTAL,
+            false => HFXOSRC_A::TCXO,
         }
     }
     #[doc = "Checks if the value of the field is `XTAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_xtal(&self) -> bool {
-        *self == HFXOSRCR::XTAL
+        *self == HFXOSRC_A::XTAL
     }
     #[doc = "Checks if the value of the field is `TCXO`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_tcxo(&self) -> bool {
-        *self == HFXOSRCR::TCXO
+        *self == HFXOSRC_A::TCXO
     }
 }
-#[doc = "Values that can be written to the field `HFXOSRC`"]
-pub enum HFXOSRCW {
-    #[doc = "32 MHz crystal oscillator"]
-    XTAL,
-    #[doc = "32 MHz temperature compensated crystal oscillator (TCXO)"]
-    TCXO,
-}
-impl HFXOSRCW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            HFXOSRCW::XTAL => true,
-            HFXOSRCW::TCXO => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _HFXOSRCW<'a> {
+#[doc = "Write proxy for field `HFXOSRC`"]
+pub struct HFXOSRC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _HFXOSRCW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: HFXOSRCW) -> &'a mut W {
+impl<'a> HFXOSRC_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: HFXOSRC_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "32 MHz crystal oscillator"]
-    #[inline]
+    #[inline(always)]
     pub fn xtal(self) -> &'a mut W {
-        self.variant(HFXOSRCW::XTAL)
+        self.variant(HFXOSRC_A::XTAL)
     }
     #[doc = "32 MHz temperature compensated crystal oscillator (TCXO)"]
-    #[inline]
+    #[inline(always)]
     pub fn tcxo(self) -> &'a mut W {
-        self.variant(HFXOSRCW::TCXO)
+        self.variant(HFXOSRC_A::TCXO)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - HFXO clock source selection"]
-    #[inline]
-    pub fn hfxosrc(&self) -> HFXOSRCR {
-        HFXOSRCR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn hfxosrc(&self) -> HFXOSRC_R {
+        HFXOSRC_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 4294967295 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - HFXO clock source selection"]
-    #[inline]
-    pub fn hfxosrc(&mut self) -> _HFXOSRCW {
-        _HFXOSRCW { w: self }
+    #[inline(always)]
+    pub fn hfxosrc(&mut self) -> HFXOSRC_W {
+        HFXOSRC_W { w: self }
     }
 }

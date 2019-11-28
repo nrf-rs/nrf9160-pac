@@ -1,659 +1,456 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PERM {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
+#[doc = "Reader of register PERM"]
+pub type R = crate::R<u32, super::PERM>;
+#[doc = "Writer for register PERM"]
+pub type W = crate::W<u32, super::PERM>;
+#[doc = "Register PERM `reset()`'s with value 0x17"]
+impl crate::ResetValue for super::PERM {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x17
     }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
+}
+#[doc = "Configure instruction fetch permissions from flash region n\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EXECUTE_A {
+    #[doc = "1: Allow instruction fetches from flash region n"]
+    ENABLE,
+    #[doc = "0: Block instruction fetches from flash region n"]
+    DISABLE,
+}
+impl From<EXECUTE_A> for bool {
+    #[inline(always)]
+    fn from(variant: EXECUTE_A) -> Self {
+        match variant {
+            EXECUTE_A::ENABLE => true,
+            EXECUTE_A::DISABLE => false,
         }
     }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+}
+#[doc = "Reader of field `EXECUTE`"]
+pub type EXECUTE_R = crate::R<bool, EXECUTE_A>;
+impl EXECUTE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EXECUTE_A {
+        match self.bits {
+            true => EXECUTE_A::ENABLE,
+            false => EXECUTE_A::DISABLE,
+        }
     }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == EXECUTE_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        *self == EXECUTE_A::DISABLE
     }
 }
-#[doc = "Possible values of the field `EXECUTE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EXECUTER {
+#[doc = "Write proxy for field `EXECUTE`"]
+pub struct EXECUTE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> EXECUTE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EXECUTE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Allow instruction fetches from flash region n"]
-    ENABLE,
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(EXECUTE_A::ENABLE)
+    }
     #[doc = "Block instruction fetches from flash region n"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(EXECUTE_A::DISABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Configure write permission for flash region n\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WRITE_A {
+    #[doc = "1: Allow write operation to region n"]
+    ENABLE,
+    #[doc = "0: Block write operation to region n"]
     DISABLE,
 }
-impl EXECUTER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EXECUTER::ENABLE => true,
-            EXECUTER::DISABLE => false,
+impl From<WRITE_A> for bool {
+    #[inline(always)]
+    fn from(variant: WRITE_A) -> Self {
+        match variant {
+            WRITE_A::ENABLE => true,
+            WRITE_A::DISABLE => false,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EXECUTER {
-        match value {
-            true => EXECUTER::ENABLE,
-            false => EXECUTER::DISABLE,
+}
+#[doc = "Reader of field `WRITE`"]
+pub type WRITE_R = crate::R<bool, WRITE_A>;
+impl WRITE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WRITE_A {
+        match self.bits {
+            true => WRITE_A::ENABLE,
+            false => WRITE_A::DISABLE,
         }
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == EXECUTER::ENABLE
+        *self == WRITE_A::ENABLE
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == EXECUTER::DISABLE
+        *self == WRITE_A::DISABLE
     }
 }
-#[doc = "Possible values of the field `WRITE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WRITER {
+#[doc = "Write proxy for field `WRITE`"]
+pub struct WRITE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> WRITE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WRITE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Allow write operation to region n"]
-    ENABLE,
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(WRITE_A::ENABLE)
+    }
     #[doc = "Block write operation to region n"]
-    DISABLE,
-}
-impl WRITER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(WRITE_A::DISABLE)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WRITER::ENABLE => true,
-            WRITER::DISABLE => false,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WRITER {
-        match value {
-            true => WRITER::ENABLE,
-            false => WRITER::DISABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == WRITER::ENABLE
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == WRITER::DISABLE
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
     }
 }
-#[doc = "Possible values of the field `READ`"]
+#[doc = "Configure read permissions for flash region n\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum READR {
-    #[doc = "Allow read operation from flash region n"]
+pub enum READ_A {
+    #[doc = "1: Allow read operation from flash region n"]
     ENABLE,
-    #[doc = "Block read operation from flash region n"]
+    #[doc = "0: Block read operation from flash region n"]
     DISABLE,
 }
-impl READR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            READR::ENABLE => true,
-            READR::DISABLE => false,
+impl From<READ_A> for bool {
+    #[inline(always)]
+    fn from(variant: READ_A) -> Self {
+        match variant {
+            READ_A::ENABLE => true,
+            READ_A::DISABLE => false,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> READR {
-        match value {
-            true => READR::ENABLE,
-            false => READR::DISABLE,
+}
+#[doc = "Reader of field `READ`"]
+pub type READ_R = crate::R<bool, READ_A>;
+impl READ_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> READ_A {
+        match self.bits {
+            true => READ_A::ENABLE,
+            false => READ_A::DISABLE,
         }
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == READR::ENABLE
+        *self == READ_A::ENABLE
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == READR::DISABLE
+        *self == READ_A::DISABLE
     }
 }
-#[doc = "Possible values of the field `SECATTR`"]
+#[doc = "Write proxy for field `READ`"]
+pub struct READ_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> READ_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: READ_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Allow read operation from flash region n"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(READ_A::ENABLE)
+    }
+    #[doc = "Block read operation from flash region n"]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(READ_A::DISABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Security attribute for flash region n\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SECATTRR {
-    #[doc = "Flash region n security attribute is non-secure"]
+pub enum SECATTR_A {
+    #[doc = "0: Flash region n security attribute is non-secure"]
     NON_SECURE,
-    #[doc = "Flash region n security attribute is secure"]
+    #[doc = "1: Flash region n security attribute is secure"]
     SECURE,
 }
-impl SECATTRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SECATTRR::NON_SECURE => false,
-            SECATTRR::SECURE => true,
+impl From<SECATTR_A> for bool {
+    #[inline(always)]
+    fn from(variant: SECATTR_A) -> Self {
+        match variant {
+            SECATTR_A::NON_SECURE => false,
+            SECATTR_A::SECURE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SECATTRR {
-        match value {
-            false => SECATTRR::NON_SECURE,
-            true => SECATTRR::SECURE,
+}
+#[doc = "Reader of field `SECATTR`"]
+pub type SECATTR_R = crate::R<bool, SECATTR_A>;
+impl SECATTR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SECATTR_A {
+        match self.bits {
+            false => SECATTR_A::NON_SECURE,
+            true => SECATTR_A::SECURE,
         }
     }
     #[doc = "Checks if the value of the field is `NON_SECURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_non_secure(&self) -> bool {
-        *self == SECATTRR::NON_SECURE
+        *self == SECATTR_A::NON_SECURE
     }
     #[doc = "Checks if the value of the field is `SECURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_secure(&self) -> bool {
-        *self == SECATTRR::SECURE
+        *self == SECATTR_A::SECURE
     }
 }
-#[doc = "Possible values of the field `LOCK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOCKR {
-    #[doc = "This register can be updated"]
-    UNLOCKED,
-    #[doc = "The content of this register can't be changed until the next reset"]
-    LOCKED,
+#[doc = "Write proxy for field `SECATTR`"]
+pub struct SECATTR_W<'a> {
+    w: &'a mut W,
 }
-impl LOCKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOCKR::UNLOCKED => false,
-            LOCKR::LOCKED => true,
+impl<'a> SECATTR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SECATTR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOCKR {
-        match value {
-            false => LOCKR::UNLOCKED,
-            true => LOCKR::LOCKED,
+    #[doc = "Flash region n security attribute is non-secure"]
+    #[inline(always)]
+    pub fn non_secure(self) -> &'a mut W {
+        self.variant(SECATTR_A::NON_SECURE)
+    }
+    #[doc = "Flash region n security attribute is secure"]
+    #[inline(always)]
+    pub fn secure(self) -> &'a mut W {
+        self.variant(SECATTR_A::SECURE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOCK_A {
+    #[doc = "0: This register can be updated"]
+    UNLOCKED,
+    #[doc = "1: The content of this register can't be changed until the next reset"]
+    LOCKED,
+}
+impl From<LOCK_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOCK_A) -> Self {
+        match variant {
+            LOCK_A::UNLOCKED => false,
+            LOCK_A::LOCKED => true,
+        }
+    }
+}
+#[doc = "Reader of field `LOCK`"]
+pub type LOCK_R = crate::R<bool, LOCK_A>;
+impl LOCK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOCK_A {
+        match self.bits {
+            false => LOCK_A::UNLOCKED,
+            true => LOCK_A::LOCKED,
         }
     }
     #[doc = "Checks if the value of the field is `UNLOCKED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_unlocked(&self) -> bool {
-        *self == LOCKR::UNLOCKED
+        *self == LOCK_A::UNLOCKED
     }
     #[doc = "Checks if the value of the field is `LOCKED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_locked(&self) -> bool {
-        *self == LOCKR::LOCKED
+        *self == LOCK_A::LOCKED
     }
 }
-#[doc = "Values that can be written to the field `EXECUTE`"]
-pub enum EXECUTEW {
-    #[doc = "Allow instruction fetches from flash region n"]
-    ENABLE,
-    #[doc = "Block instruction fetches from flash region n"]
-    DISABLE,
-}
-impl EXECUTEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EXECUTEW::ENABLE => true,
-            EXECUTEW::DISABLE => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EXECUTEW<'a> {
+#[doc = "Write proxy for field `LOCK`"]
+pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXECUTEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EXECUTEW) -> &'a mut W {
+impl<'a> LOCK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOCK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Allow instruction fetches from flash region n"]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(EXECUTEW::ENABLE)
-    }
-    #[doc = "Block instruction fetches from flash region n"]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(EXECUTEW::DISABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WRITE`"]
-pub enum WRITEW {
-    #[doc = "Allow write operation to region n"]
-    ENABLE,
-    #[doc = "Block write operation to region n"]
-    DISABLE,
-}
-impl WRITEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WRITEW::ENABLE => true,
-            WRITEW::DISABLE => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WRITEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WRITEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WRITEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Allow write operation to region n"]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WRITEW::ENABLE)
-    }
-    #[doc = "Block write operation to region n"]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WRITEW::DISABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `READ`"]
-pub enum READW {
-    #[doc = "Allow read operation from flash region n"]
-    ENABLE,
-    #[doc = "Block read operation from flash region n"]
-    DISABLE,
-}
-impl READW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            READW::ENABLE => true,
-            READW::DISABLE => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _READW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _READW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: READW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Allow read operation from flash region n"]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(READW::ENABLE)
-    }
-    #[doc = "Block read operation from flash region n"]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(READW::DISABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SECATTR`"]
-pub enum SECATTRW {
-    #[doc = "Flash region n security attribute is non-secure"]
-    NON_SECURE,
-    #[doc = "Flash region n security attribute is secure"]
-    SECURE,
-}
-impl SECATTRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SECATTRW::NON_SECURE => false,
-            SECATTRW::SECURE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SECATTRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SECATTRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SECATTRW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Flash region n security attribute is non-secure"]
-    #[inline]
-    pub fn non_secure(self) -> &'a mut W {
-        self.variant(SECATTRW::NON_SECURE)
-    }
-    #[doc = "Flash region n security attribute is secure"]
-    #[inline]
-    pub fn secure(self) -> &'a mut W {
-        self.variant(SECATTRW::SECURE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LOCK`"]
-pub enum LOCKW {
-    #[doc = "This register can be updated"]
-    UNLOCKED,
-    #[doc = "The content of this register can't be changed until the next reset"]
-    LOCKED,
-}
-impl LOCKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOCKW::UNLOCKED => false,
-            LOCKW::LOCKED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LOCKW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LOCKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOCKW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "This register can be updated"]
-    #[inline]
+    #[inline(always)]
     pub fn unlocked(self) -> &'a mut W {
-        self.variant(LOCKW::UNLOCKED)
+        self.variant(LOCK_A::UNLOCKED)
     }
     #[doc = "The content of this register can't be changed until the next reset"]
-    #[inline]
+    #[inline(always)]
     pub fn locked(self) -> &'a mut W {
-        self.variant(LOCKW::LOCKED)
+        self.variant(LOCK_A::LOCKED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Configure instruction fetch permissions from flash region n"]
-    #[inline]
-    pub fn execute(&self) -> EXECUTER {
-        EXECUTER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn execute(&self) -> EXECUTE_R {
+        EXECUTE_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Configure write permission for flash region n"]
-    #[inline]
-    pub fn write(&self) -> WRITER {
-        WRITER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn write(&self) -> WRITE_R {
+        WRITE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Configure read permissions for flash region n"]
-    #[inline]
-    pub fn read(&self) -> READR {
-        READR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn read(&self) -> READ_R {
+        READ_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Security attribute for flash region n"]
-    #[inline]
-    pub fn secattr(&self) -> SECATTRR {
-        SECATTRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn secattr(&self) -> SECATTR_R {
+        SECATTR_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 8"]
-    #[inline]
-    pub fn lock(&self) -> LOCKR {
-        LOCKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 8) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 23 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Configure instruction fetch permissions from flash region n"]
-    #[inline]
-    pub fn execute(&mut self) -> _EXECUTEW {
-        _EXECUTEW { w: self }
+    #[inline(always)]
+    pub fn execute(&mut self) -> EXECUTE_W {
+        EXECUTE_W { w: self }
     }
     #[doc = "Bit 1 - Configure write permission for flash region n"]
-    #[inline]
-    pub fn write(&mut self) -> _WRITEW {
-        _WRITEW { w: self }
+    #[inline(always)]
+    pub fn write(&mut self) -> WRITE_W {
+        WRITE_W { w: self }
     }
     #[doc = "Bit 2 - Configure read permissions for flash region n"]
-    #[inline]
-    pub fn read(&mut self) -> _READW {
-        _READW { w: self }
+    #[inline(always)]
+    pub fn read(&mut self) -> READ_W {
+        READ_W { w: self }
     }
     #[doc = "Bit 4 - Security attribute for flash region n"]
-    #[inline]
-    pub fn secattr(&mut self) -> _SECATTRW {
-        _SECATTRW { w: self }
+    #[inline(always)]
+    pub fn secattr(&mut self) -> SECATTR_W {
+        SECATTR_W { w: self }
     }
     #[doc = "Bit 8"]
-    #[inline]
-    pub fn lock(&mut self) -> _LOCKW {
-        _LOCKW { w: self }
+    #[inline(always)]
+    pub fn lock(&mut self) -> LOCK_W {
+        LOCK_W { w: self }
     }
 }

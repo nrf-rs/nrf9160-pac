@@ -1,1968 +1,1424 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CHG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CHG[%s]"]
+pub type R = crate::R<u32, super::CHG>;
+#[doc = "Writer for register CHG[%s]"]
+pub type W = crate::W<u32, super::CHG>;
+#[doc = "Register CHG[%s] `reset()`'s with value 0"]
+impl crate::ResetValue for super::CHG {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CH0`"]
+#[doc = "Include or exclude channel 0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH0R {
-    #[doc = "Exclude"]
+pub enum CH0_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH0R::EXCLUDED => false,
-            CH0R::INCLUDED => true,
+impl From<CH0_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH0_A) -> Self {
+        match variant {
+            CH0_A::EXCLUDED => false,
+            CH0_A::INCLUDED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH0R {
-        match value {
-            false => CH0R::EXCLUDED,
-            true => CH0R::INCLUDED,
+}
+#[doc = "Reader of field `CH0`"]
+pub type CH0_R = crate::R<bool, CH0_A>;
+impl CH0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH0_A {
+        match self.bits {
+            false => CH0_A::EXCLUDED,
+            true => CH0_A::INCLUDED,
         }
     }
     #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_excluded(&self) -> bool {
-        *self == CH0R::EXCLUDED
+        *self == CH0_A::EXCLUDED
     }
     #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_included(&self) -> bool {
-        *self == CH0R::INCLUDED
+        *self == CH0_A::INCLUDED
     }
 }
-#[doc = "Possible values of the field `CH1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH1R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH1R::EXCLUDED => false,
-            CH1R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH1R {
-        match value {
-            false => CH1R::EXCLUDED,
-            true => CH1R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH1R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH1R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH2R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH2R::EXCLUDED => false,
-            CH2R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH2R {
-        match value {
-            false => CH2R::EXCLUDED,
-            true => CH2R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH2R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH2R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH3R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH3R::EXCLUDED => false,
-            CH3R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH3R {
-        match value {
-            false => CH3R::EXCLUDED,
-            true => CH3R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH3R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH3R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH4R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH4R::EXCLUDED => false,
-            CH4R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH4R {
-        match value {
-            false => CH4R::EXCLUDED,
-            true => CH4R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH4R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH4R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH5R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH5R::EXCLUDED => false,
-            CH5R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH5R {
-        match value {
-            false => CH5R::EXCLUDED,
-            true => CH5R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH5R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH5R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH6R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH6R::EXCLUDED => false,
-            CH6R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH6R {
-        match value {
-            false => CH6R::EXCLUDED,
-            true => CH6R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH6R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH6R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH7`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH7R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH7R::EXCLUDED => false,
-            CH7R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH7R {
-        match value {
-            false => CH7R::EXCLUDED,
-            true => CH7R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH7R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH7R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH8`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH8R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH8R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH8R::EXCLUDED => false,
-            CH8R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH8R {
-        match value {
-            false => CH8R::EXCLUDED,
-            true => CH8R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH8R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH8R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH9`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH9R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH9R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH9R::EXCLUDED => false,
-            CH9R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH9R {
-        match value {
-            false => CH9R::EXCLUDED,
-            true => CH9R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH9R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH9R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH10`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH10R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH10R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH10R::EXCLUDED => false,
-            CH10R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH10R {
-        match value {
-            false => CH10R::EXCLUDED,
-            true => CH10R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH10R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH10R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH11`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH11R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH11R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH11R::EXCLUDED => false,
-            CH11R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH11R {
-        match value {
-            false => CH11R::EXCLUDED,
-            true => CH11R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH11R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH11R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH12`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH12R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH12R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH12R::EXCLUDED => false,
-            CH12R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH12R {
-        match value {
-            false => CH12R::EXCLUDED,
-            true => CH12R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH12R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH12R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH13`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH13R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH13R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH13R::EXCLUDED => false,
-            CH13R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH13R {
-        match value {
-            false => CH13R::EXCLUDED,
-            true => CH13R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH13R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH13R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH14`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH14R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH14R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH14R::EXCLUDED => false,
-            CH14R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH14R {
-        match value {
-            false => CH14R::EXCLUDED,
-            true => CH14R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH14R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH14R::INCLUDED
-    }
-}
-#[doc = "Possible values of the field `CH15`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH15R {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH15R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH15R::EXCLUDED => false,
-            CH15R::INCLUDED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH15R {
-        match value {
-            false => CH15R::EXCLUDED,
-            true => CH15R::INCLUDED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `EXCLUDED`"]
-    #[inline]
-    pub fn is_excluded(&self) -> bool {
-        *self == CH15R::EXCLUDED
-    }
-    #[doc = "Checks if the value of the field is `INCLUDED`"]
-    #[inline]
-    pub fn is_included(&self) -> bool {
-        *self == CH15R::INCLUDED
-    }
-}
-#[doc = "Values that can be written to the field `CH0`"]
-pub enum CH0W {
-    #[doc = "Exclude"]
-    EXCLUDED,
-    #[doc = "Include"]
-    INCLUDED,
-}
-impl CH0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH0W::EXCLUDED => false,
-            CH0W::INCLUDED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CH0W<'a> {
+#[doc = "Write proxy for field `CH0`"]
+pub struct CH0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH0W) -> &'a mut W {
+impl<'a> CH0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH0_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH0W::EXCLUDED)
+        self.variant(CH0_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH0W::INCLUDED)
+        self.variant(CH0_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH1`"]
-pub enum CH1W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 1\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH1_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH1W::EXCLUDED => false,
-            CH1W::INCLUDED => true,
+impl From<CH1_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH1_A) -> Self {
+        match variant {
+            CH1_A::EXCLUDED => false,
+            CH1_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH1W<'a> {
+#[doc = "Reader of field `CH1`"]
+pub type CH1_R = crate::R<bool, CH1_A>;
+impl CH1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH1_A {
+        match self.bits {
+            false => CH1_A::EXCLUDED,
+            true => CH1_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH1_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH1_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH1`"]
+pub struct CH1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH1W) -> &'a mut W {
+impl<'a> CH1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH1_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH1W::EXCLUDED)
+        self.variant(CH1_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH1W::INCLUDED)
+        self.variant(CH1_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH2`"]
-pub enum CH2W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 2\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH2_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH2W::EXCLUDED => false,
-            CH2W::INCLUDED => true,
+impl From<CH2_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH2_A) -> Self {
+        match variant {
+            CH2_A::EXCLUDED => false,
+            CH2_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH2W<'a> {
+#[doc = "Reader of field `CH2`"]
+pub type CH2_R = crate::R<bool, CH2_A>;
+impl CH2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH2_A {
+        match self.bits {
+            false => CH2_A::EXCLUDED,
+            true => CH2_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH2_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH2_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH2`"]
+pub struct CH2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH2W) -> &'a mut W {
+impl<'a> CH2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH2_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH2W::EXCLUDED)
+        self.variant(CH2_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH2W::INCLUDED)
+        self.variant(CH2_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH3`"]
-pub enum CH3W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 3\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH3_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH3W::EXCLUDED => false,
-            CH3W::INCLUDED => true,
+impl From<CH3_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH3_A) -> Self {
+        match variant {
+            CH3_A::EXCLUDED => false,
+            CH3_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH3W<'a> {
+#[doc = "Reader of field `CH3`"]
+pub type CH3_R = crate::R<bool, CH3_A>;
+impl CH3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH3_A {
+        match self.bits {
+            false => CH3_A::EXCLUDED,
+            true => CH3_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH3_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH3_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH3`"]
+pub struct CH3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH3W) -> &'a mut W {
+impl<'a> CH3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH3_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH3W::EXCLUDED)
+        self.variant(CH3_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH3W::INCLUDED)
+        self.variant(CH3_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH4`"]
-pub enum CH4W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 4\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH4_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH4W::EXCLUDED => false,
-            CH4W::INCLUDED => true,
+impl From<CH4_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH4_A) -> Self {
+        match variant {
+            CH4_A::EXCLUDED => false,
+            CH4_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH4W<'a> {
+#[doc = "Reader of field `CH4`"]
+pub type CH4_R = crate::R<bool, CH4_A>;
+impl CH4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH4_A {
+        match self.bits {
+            false => CH4_A::EXCLUDED,
+            true => CH4_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH4_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH4_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH4`"]
+pub struct CH4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH4W) -> &'a mut W {
+impl<'a> CH4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH4_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH4W::EXCLUDED)
+        self.variant(CH4_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH4W::INCLUDED)
+        self.variant(CH4_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH5`"]
-pub enum CH5W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 5\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH5_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH5W::EXCLUDED => false,
-            CH5W::INCLUDED => true,
+impl From<CH5_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH5_A) -> Self {
+        match variant {
+            CH5_A::EXCLUDED => false,
+            CH5_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH5W<'a> {
+#[doc = "Reader of field `CH5`"]
+pub type CH5_R = crate::R<bool, CH5_A>;
+impl CH5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH5_A {
+        match self.bits {
+            false => CH5_A::EXCLUDED,
+            true => CH5_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH5_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH5_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH5`"]
+pub struct CH5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH5W) -> &'a mut W {
+impl<'a> CH5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH5_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH5W::EXCLUDED)
+        self.variant(CH5_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH5W::INCLUDED)
+        self.variant(CH5_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH6`"]
-pub enum CH6W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 6\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH6_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH6W::EXCLUDED => false,
-            CH6W::INCLUDED => true,
+impl From<CH6_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH6_A) -> Self {
+        match variant {
+            CH6_A::EXCLUDED => false,
+            CH6_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH6W<'a> {
+#[doc = "Reader of field `CH6`"]
+pub type CH6_R = crate::R<bool, CH6_A>;
+impl CH6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH6_A {
+        match self.bits {
+            false => CH6_A::EXCLUDED,
+            true => CH6_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH6_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH6_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH6`"]
+pub struct CH6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH6W) -> &'a mut W {
+impl<'a> CH6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH6_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH6W::EXCLUDED)
+        self.variant(CH6_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH6W::INCLUDED)
+        self.variant(CH6_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH7`"]
-pub enum CH7W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 7\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH7_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH7W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH7W::EXCLUDED => false,
-            CH7W::INCLUDED => true,
+impl From<CH7_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH7_A) -> Self {
+        match variant {
+            CH7_A::EXCLUDED => false,
+            CH7_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH7W<'a> {
+#[doc = "Reader of field `CH7`"]
+pub type CH7_R = crate::R<bool, CH7_A>;
+impl CH7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH7_A {
+        match self.bits {
+            false => CH7_A::EXCLUDED,
+            true => CH7_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH7_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH7_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH7`"]
+pub struct CH7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH7W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH7W) -> &'a mut W {
+impl<'a> CH7_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH7_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH7W::EXCLUDED)
+        self.variant(CH7_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH7W::INCLUDED)
+        self.variant(CH7_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH8`"]
-pub enum CH8W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 8\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH8_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH8W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH8W::EXCLUDED => false,
-            CH8W::INCLUDED => true,
+impl From<CH8_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH8_A) -> Self {
+        match variant {
+            CH8_A::EXCLUDED => false,
+            CH8_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH8W<'a> {
+#[doc = "Reader of field `CH8`"]
+pub type CH8_R = crate::R<bool, CH8_A>;
+impl CH8_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH8_A {
+        match self.bits {
+            false => CH8_A::EXCLUDED,
+            true => CH8_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH8_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH8_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH8`"]
+pub struct CH8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH8W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH8W) -> &'a mut W {
+impl<'a> CH8_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH8_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH8W::EXCLUDED)
+        self.variant(CH8_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH8W::INCLUDED)
+        self.variant(CH8_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH9`"]
-pub enum CH9W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 9\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH9_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH9W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH9W::EXCLUDED => false,
-            CH9W::INCLUDED => true,
+impl From<CH9_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH9_A) -> Self {
+        match variant {
+            CH9_A::EXCLUDED => false,
+            CH9_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH9W<'a> {
+#[doc = "Reader of field `CH9`"]
+pub type CH9_R = crate::R<bool, CH9_A>;
+impl CH9_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH9_A {
+        match self.bits {
+            false => CH9_A::EXCLUDED,
+            true => CH9_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH9_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH9_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH9`"]
+pub struct CH9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH9W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH9W) -> &'a mut W {
+impl<'a> CH9_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH9_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH9W::EXCLUDED)
+        self.variant(CH9_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH9W::INCLUDED)
+        self.variant(CH9_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH10`"]
-pub enum CH10W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 10\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH10_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH10W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH10W::EXCLUDED => false,
-            CH10W::INCLUDED => true,
+impl From<CH10_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH10_A) -> Self {
+        match variant {
+            CH10_A::EXCLUDED => false,
+            CH10_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH10W<'a> {
+#[doc = "Reader of field `CH10`"]
+pub type CH10_R = crate::R<bool, CH10_A>;
+impl CH10_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH10_A {
+        match self.bits {
+            false => CH10_A::EXCLUDED,
+            true => CH10_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH10_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH10_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH10`"]
+pub struct CH10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH10W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH10W) -> &'a mut W {
+impl<'a> CH10_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH10_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH10W::EXCLUDED)
+        self.variant(CH10_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH10W::INCLUDED)
+        self.variant(CH10_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH11`"]
-pub enum CH11W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 11\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH11_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH11W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH11W::EXCLUDED => false,
-            CH11W::INCLUDED => true,
+impl From<CH11_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH11_A) -> Self {
+        match variant {
+            CH11_A::EXCLUDED => false,
+            CH11_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH11W<'a> {
+#[doc = "Reader of field `CH11`"]
+pub type CH11_R = crate::R<bool, CH11_A>;
+impl CH11_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH11_A {
+        match self.bits {
+            false => CH11_A::EXCLUDED,
+            true => CH11_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH11_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH11_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH11`"]
+pub struct CH11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH11W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH11W) -> &'a mut W {
+impl<'a> CH11_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH11_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH11W::EXCLUDED)
+        self.variant(CH11_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH11W::INCLUDED)
+        self.variant(CH11_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH12`"]
-pub enum CH12W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 12\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH12_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH12W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH12W::EXCLUDED => false,
-            CH12W::INCLUDED => true,
+impl From<CH12_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH12_A) -> Self {
+        match variant {
+            CH12_A::EXCLUDED => false,
+            CH12_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH12W<'a> {
+#[doc = "Reader of field `CH12`"]
+pub type CH12_R = crate::R<bool, CH12_A>;
+impl CH12_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH12_A {
+        match self.bits {
+            false => CH12_A::EXCLUDED,
+            true => CH12_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH12_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH12_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH12`"]
+pub struct CH12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH12W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH12W) -> &'a mut W {
+impl<'a> CH12_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH12_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH12W::EXCLUDED)
+        self.variant(CH12_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH12W::INCLUDED)
+        self.variant(CH12_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH13`"]
-pub enum CH13W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 13\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH13_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH13W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH13W::EXCLUDED => false,
-            CH13W::INCLUDED => true,
+impl From<CH13_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH13_A) -> Self {
+        match variant {
+            CH13_A::EXCLUDED => false,
+            CH13_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH13W<'a> {
+#[doc = "Reader of field `CH13`"]
+pub type CH13_R = crate::R<bool, CH13_A>;
+impl CH13_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH13_A {
+        match self.bits {
+            false => CH13_A::EXCLUDED,
+            true => CH13_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH13_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH13_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH13`"]
+pub struct CH13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH13W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH13W) -> &'a mut W {
+impl<'a> CH13_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH13_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH13W::EXCLUDED)
+        self.variant(CH13_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH13W::INCLUDED)
+        self.variant(CH13_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH14`"]
-pub enum CH14W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 14\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH14_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH14W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH14W::EXCLUDED => false,
-            CH14W::INCLUDED => true,
+impl From<CH14_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH14_A) -> Self {
+        match variant {
+            CH14_A::EXCLUDED => false,
+            CH14_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH14W<'a> {
+#[doc = "Reader of field `CH14`"]
+pub type CH14_R = crate::R<bool, CH14_A>;
+impl CH14_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH14_A {
+        match self.bits {
+            false => CH14_A::EXCLUDED,
+            true => CH14_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH14_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH14_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH14`"]
+pub struct CH14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH14W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH14W) -> &'a mut W {
+impl<'a> CH14_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH14_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH14W::EXCLUDED)
+        self.variant(CH14_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH14W::INCLUDED)
+        self.variant(CH14_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CH15`"]
-pub enum CH15W {
-    #[doc = "Exclude"]
+#[doc = "Include or exclude channel 15\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CH15_A {
+    #[doc = "0: Exclude"]
     EXCLUDED,
-    #[doc = "Include"]
+    #[doc = "1: Include"]
     INCLUDED,
 }
-impl CH15W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH15W::EXCLUDED => false,
-            CH15W::INCLUDED => true,
+impl From<CH15_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH15_A) -> Self {
+        match variant {
+            CH15_A::EXCLUDED => false,
+            CH15_A::INCLUDED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH15W<'a> {
+#[doc = "Reader of field `CH15`"]
+pub type CH15_R = crate::R<bool, CH15_A>;
+impl CH15_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH15_A {
+        match self.bits {
+            false => CH15_A::EXCLUDED,
+            true => CH15_A::INCLUDED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `EXCLUDED`"]
+    #[inline(always)]
+    pub fn is_excluded(&self) -> bool {
+        *self == CH15_A::EXCLUDED
+    }
+    #[doc = "Checks if the value of the field is `INCLUDED`"]
+    #[inline(always)]
+    pub fn is_included(&self) -> bool {
+        *self == CH15_A::INCLUDED
+    }
+}
+#[doc = "Write proxy for field `CH15`"]
+pub struct CH15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH15W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH15W) -> &'a mut W {
+impl<'a> CH15_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH15_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Exclude"]
-    #[inline]
+    #[inline(always)]
     pub fn excluded(self) -> &'a mut W {
-        self.variant(CH15W::EXCLUDED)
+        self.variant(CH15_A::EXCLUDED)
     }
     #[doc = "Include"]
-    #[inline]
+    #[inline(always)]
     pub fn included(self) -> &'a mut W {
-        self.variant(CH15W::INCLUDED)
+        self.variant(CH15_A::INCLUDED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Include or exclude channel 0"]
-    #[inline]
-    pub fn ch0(&self) -> CH0R {
-        CH0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch0(&self) -> CH0_R {
+        CH0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Include or exclude channel 1"]
-    #[inline]
-    pub fn ch1(&self) -> CH1R {
-        CH1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch1(&self) -> CH1_R {
+        CH1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Include or exclude channel 2"]
-    #[inline]
-    pub fn ch2(&self) -> CH2R {
-        CH2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch2(&self) -> CH2_R {
+        CH2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Include or exclude channel 3"]
-    #[inline]
-    pub fn ch3(&self) -> CH3R {
-        CH3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch3(&self) -> CH3_R {
+        CH3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Include or exclude channel 4"]
-    #[inline]
-    pub fn ch4(&self) -> CH4R {
-        CH4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch4(&self) -> CH4_R {
+        CH4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Include or exclude channel 5"]
-    #[inline]
-    pub fn ch5(&self) -> CH5R {
-        CH5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch5(&self) -> CH5_R {
+        CH5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Include or exclude channel 6"]
-    #[inline]
-    pub fn ch6(&self) -> CH6R {
-        CH6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch6(&self) -> CH6_R {
+        CH6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Include or exclude channel 7"]
-    #[inline]
-    pub fn ch7(&self) -> CH7R {
-        CH7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch7(&self) -> CH7_R {
+        CH7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Include or exclude channel 8"]
-    #[inline]
-    pub fn ch8(&self) -> CH8R {
-        CH8R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch8(&self) -> CH8_R {
+        CH8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Include or exclude channel 9"]
-    #[inline]
-    pub fn ch9(&self) -> CH9R {
-        CH9R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch9(&self) -> CH9_R {
+        CH9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Include or exclude channel 10"]
-    #[inline]
-    pub fn ch10(&self) -> CH10R {
-        CH10R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch10(&self) -> CH10_R {
+        CH10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Include or exclude channel 11"]
-    #[inline]
-    pub fn ch11(&self) -> CH11R {
-        CH11R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch11(&self) -> CH11_R {
+        CH11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Include or exclude channel 12"]
-    #[inline]
-    pub fn ch12(&self) -> CH12R {
-        CH12R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch12(&self) -> CH12_R {
+        CH12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Include or exclude channel 13"]
-    #[inline]
-    pub fn ch13(&self) -> CH13R {
-        CH13R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch13(&self) -> CH13_R {
+        CH13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Include or exclude channel 14"]
-    #[inline]
-    pub fn ch14(&self) -> CH14R {
-        CH14R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch14(&self) -> CH14_R {
+        CH14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Include or exclude channel 15"]
-    #[inline]
-    pub fn ch15(&self) -> CH15R {
-        CH15R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch15(&self) -> CH15_R {
+        CH15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Include or exclude channel 0"]
-    #[inline]
-    pub fn ch0(&mut self) -> _CH0W {
-        _CH0W { w: self }
+    #[inline(always)]
+    pub fn ch0(&mut self) -> CH0_W {
+        CH0_W { w: self }
     }
     #[doc = "Bit 1 - Include or exclude channel 1"]
-    #[inline]
-    pub fn ch1(&mut self) -> _CH1W {
-        _CH1W { w: self }
+    #[inline(always)]
+    pub fn ch1(&mut self) -> CH1_W {
+        CH1_W { w: self }
     }
     #[doc = "Bit 2 - Include or exclude channel 2"]
-    #[inline]
-    pub fn ch2(&mut self) -> _CH2W {
-        _CH2W { w: self }
+    #[inline(always)]
+    pub fn ch2(&mut self) -> CH2_W {
+        CH2_W { w: self }
     }
     #[doc = "Bit 3 - Include or exclude channel 3"]
-    #[inline]
-    pub fn ch3(&mut self) -> _CH3W {
-        _CH3W { w: self }
+    #[inline(always)]
+    pub fn ch3(&mut self) -> CH3_W {
+        CH3_W { w: self }
     }
     #[doc = "Bit 4 - Include or exclude channel 4"]
-    #[inline]
-    pub fn ch4(&mut self) -> _CH4W {
-        _CH4W { w: self }
+    #[inline(always)]
+    pub fn ch4(&mut self) -> CH4_W {
+        CH4_W { w: self }
     }
     #[doc = "Bit 5 - Include or exclude channel 5"]
-    #[inline]
-    pub fn ch5(&mut self) -> _CH5W {
-        _CH5W { w: self }
+    #[inline(always)]
+    pub fn ch5(&mut self) -> CH5_W {
+        CH5_W { w: self }
     }
     #[doc = "Bit 6 - Include or exclude channel 6"]
-    #[inline]
-    pub fn ch6(&mut self) -> _CH6W {
-        _CH6W { w: self }
+    #[inline(always)]
+    pub fn ch6(&mut self) -> CH6_W {
+        CH6_W { w: self }
     }
     #[doc = "Bit 7 - Include or exclude channel 7"]
-    #[inline]
-    pub fn ch7(&mut self) -> _CH7W {
-        _CH7W { w: self }
+    #[inline(always)]
+    pub fn ch7(&mut self) -> CH7_W {
+        CH7_W { w: self }
     }
     #[doc = "Bit 8 - Include or exclude channel 8"]
-    #[inline]
-    pub fn ch8(&mut self) -> _CH8W {
-        _CH8W { w: self }
+    #[inline(always)]
+    pub fn ch8(&mut self) -> CH8_W {
+        CH8_W { w: self }
     }
     #[doc = "Bit 9 - Include or exclude channel 9"]
-    #[inline]
-    pub fn ch9(&mut self) -> _CH9W {
-        _CH9W { w: self }
+    #[inline(always)]
+    pub fn ch9(&mut self) -> CH9_W {
+        CH9_W { w: self }
     }
     #[doc = "Bit 10 - Include or exclude channel 10"]
-    #[inline]
-    pub fn ch10(&mut self) -> _CH10W {
-        _CH10W { w: self }
+    #[inline(always)]
+    pub fn ch10(&mut self) -> CH10_W {
+        CH10_W { w: self }
     }
     #[doc = "Bit 11 - Include or exclude channel 11"]
-    #[inline]
-    pub fn ch11(&mut self) -> _CH11W {
-        _CH11W { w: self }
+    #[inline(always)]
+    pub fn ch11(&mut self) -> CH11_W {
+        CH11_W { w: self }
     }
     #[doc = "Bit 12 - Include or exclude channel 12"]
-    #[inline]
-    pub fn ch12(&mut self) -> _CH12W {
-        _CH12W { w: self }
+    #[inline(always)]
+    pub fn ch12(&mut self) -> CH12_W {
+        CH12_W { w: self }
     }
     #[doc = "Bit 13 - Include or exclude channel 13"]
-    #[inline]
-    pub fn ch13(&mut self) -> _CH13W {
-        _CH13W { w: self }
+    #[inline(always)]
+    pub fn ch13(&mut self) -> CH13_W {
+        CH13_W { w: self }
     }
     #[doc = "Bit 14 - Include or exclude channel 14"]
-    #[inline]
-    pub fn ch14(&mut self) -> _CH14W {
-        _CH14W { w: self }
+    #[inline(always)]
+    pub fn ch14(&mut self) -> CH14_W {
+        CH14_W { w: self }
     }
     #[doc = "Bit 15 - Include or exclude channel 15"]
-    #[inline]
-    pub fn ch15(&mut self) -> _CH15W {
-        _CH15W { w: self }
+    #[inline(always)]
+    pub fn ch15(&mut self) -> CH15_W {
+        CH15_W { w: self }
     }
 }
