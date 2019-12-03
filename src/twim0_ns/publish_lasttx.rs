@@ -1,224 +1,128 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PUBLISH_LASTTX {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PUBLISH_LASTTX"]
+pub type R = crate::R<u32, super::PUBLISH_LASTTX>;
+#[doc = "Writer for register PUBLISH_LASTTX"]
+pub type W = crate::W<u32, super::PUBLISH_LASTTX>;
+#[doc = "Register PUBLISH_LASTTX `reset()`'s with value 0"]
+impl crate::ResetValue for super::PUBLISH_LASTTX {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct CHIDXR {
-    bits: u8,
-}
-impl CHIDXR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Possible values of the field `EN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ENR {
-    #[doc = "Disable publishing"]
-    DISABLED,
-    #[doc = "Enable publishing"]
-    ENABLED,
-}
-impl ENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ENR::DISABLED => false,
-            ENR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ENR {
-        match value {
-            false => ENR::DISABLED,
-            true => ENR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == ENR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == ENR::ENABLED
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CHIDXW<'a> {
+#[doc = "Reader of field `CHIDX`"]
+pub type CHIDX_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CHIDX`"]
+pub struct CHIDX_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CHIDXW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CHIDX_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `EN`"]
-pub enum ENW {
-    #[doc = "Disable publishing"]
+#[doc = "\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EN_A {
+    #[doc = "0: Disable publishing"]
     DISABLED,
-    #[doc = "Enable publishing"]
+    #[doc = "1: Enable publishing"]
     ENABLED,
 }
-impl ENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ENW::DISABLED => false,
-            ENW::ENABLED => true,
+impl From<EN_A> for bool {
+    #[inline(always)]
+    fn from(variant: EN_A) -> Self {
+        match variant {
+            EN_A::DISABLED => false,
+            EN_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _ENW<'a> {
+#[doc = "Reader of field `EN`"]
+pub type EN_R = crate::R<bool, EN_A>;
+impl EN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EN_A {
+        match self.bits {
+            false => EN_A::DISABLED,
+            true => EN_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == EN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == EN_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `EN`"]
+pub struct EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ENW) -> &'a mut W {
+impl<'a> EN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable publishing"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(ENW::DISABLED)
+        self.variant(EN_A::DISABLED)
     }
     #[doc = "Enable publishing"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(ENW::ENABLED)
+        self.variant(EN_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:3 - Channel that event LASTTX will publish to."]
-    #[inline]
-    pub fn chidx(&self) -> CHIDXR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CHIDXR { bits }
+    #[inline(always)]
+    pub fn chidx(&self) -> CHIDX_R {
+        CHIDX_R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bit 31"]
-    #[inline]
-    pub fn en(&self) -> ENR {
-        ENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn en(&self) -> EN_R {
+        EN_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:3 - Channel that event LASTTX will publish to."]
-    #[inline]
-    pub fn chidx(&mut self) -> _CHIDXW {
-        _CHIDXW { w: self }
+    #[inline(always)]
+    pub fn chidx(&mut self) -> CHIDX_W {
+        CHIDX_W { w: self }
     }
     #[doc = "Bit 31"]
-    #[inline]
-    pub fn en(&mut self) -> _ENW {
-        _ENW { w: self }
+    #[inline(always)]
+    pub fn en(&mut self) -> EN_W {
+        EN_W { w: self }
     }
 }

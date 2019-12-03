@@ -1,61 +1,41 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::PART {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `PART`"]
+#[doc = "Reader of register PART"]
+pub type R = crate::R<u32, super::PART>;
+#[doc = "Part code\n\nValue on reset: 37216"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PARTR {
-    #[doc = "nRF9160"]
+pub enum PART_A {
+    #[doc = "37216: nRF9160"]
     N9160,
-    #[doc = r" Reserved"]
-    _Reserved(u32),
 }
-impl PARTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        match *self {
-            PARTR::N9160 => 37216,
-            PARTR::_Reserved(bits) => bits,
+impl From<PART_A> for u32 {
+    #[inline(always)]
+    fn from(variant: PART_A) -> Self {
+        match variant {
+            PART_A::N9160 => 37216,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u32) -> PARTR {
-        match value {
-            37216 => PARTR::N9160,
-            i => PARTR::_Reserved(i),
+}
+#[doc = "Reader of field `PART`"]
+pub type PART_R = crate::R<u32, PART_A>;
+impl PART_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u32, PART_A> {
+        use crate::Variant::*;
+        match self.bits {
+            37216 => Val(PART_A::N9160),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `N9160`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_n9160(&self) -> bool {
-        *self == PARTR::N9160
+        *self == PART_A::N9160
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:31 - Part code"]
-    #[inline]
-    pub fn part(&self) -> PARTR {
-        PARTR::_from({
-            const MASK: u32 = 4294967295;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        })
+    #[inline(always)]
+    pub fn part(&self) -> PART_R {
+        PART_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }

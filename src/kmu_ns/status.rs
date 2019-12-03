@@ -1,132 +1,92 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::STATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `SELECTED`"]
+#[doc = "Reader of register STATUS"]
+pub type R = crate::R<u32, super::STATUS>;
+#[doc = "Key slot ID successfully selected by the KMU\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SELECTEDR {
-    #[doc = "No key slot ID selected by KMU"]
+pub enum SELECTED_A {
+    #[doc = "0: No key slot ID selected by KMU"]
     DISABLED,
-    #[doc = "Key slot ID successfully selected by KMU"]
+    #[doc = "1: Key slot ID successfully selected by KMU"]
     ENABLED,
 }
-impl SELECTEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SELECTEDR::DISABLED => false,
-            SELECTEDR::ENABLED => true,
+impl From<SELECTED_A> for bool {
+    #[inline(always)]
+    fn from(variant: SELECTED_A) -> Self {
+        match variant {
+            SELECTED_A::DISABLED => false,
+            SELECTED_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SELECTEDR {
-        match value {
-            false => SELECTEDR::DISABLED,
-            true => SELECTEDR::ENABLED,
+}
+#[doc = "Reader of field `SELECTED`"]
+pub type SELECTED_R = crate::R<bool, SELECTED_A>;
+impl SELECTED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SELECTED_A {
+        match self.bits {
+            false => SELECTED_A::DISABLED,
+            true => SELECTED_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SELECTEDR::DISABLED
+        *self == SELECTED_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SELECTEDR::ENABLED
+        *self == SELECTED_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `BLOCKED`"]
+#[doc = "Violation status\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BLOCKEDR {
-    #[doc = "No access violation detected"]
+pub enum BLOCKED_A {
+    #[doc = "0: No access violation detected"]
     DISABLED,
-    #[doc = "Access violation detected and blocked"]
+    #[doc = "1: Access violation detected and blocked"]
     ENABLED,
 }
-impl BLOCKEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BLOCKEDR::DISABLED => false,
-            BLOCKEDR::ENABLED => true,
+impl From<BLOCKED_A> for bool {
+    #[inline(always)]
+    fn from(variant: BLOCKED_A) -> Self {
+        match variant {
+            BLOCKED_A::DISABLED => false,
+            BLOCKED_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BLOCKEDR {
-        match value {
-            false => BLOCKEDR::DISABLED,
-            true => BLOCKEDR::ENABLED,
+}
+#[doc = "Reader of field `BLOCKED`"]
+pub type BLOCKED_R = crate::R<bool, BLOCKED_A>;
+impl BLOCKED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BLOCKED_A {
+        match self.bits {
+            false => BLOCKED_A::DISABLED,
+            true => BLOCKED_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == BLOCKEDR::DISABLED
+        *self == BLOCKED_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == BLOCKEDR::ENABLED
+        *self == BLOCKED_A::ENABLED
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Key slot ID successfully selected by the KMU"]
-    #[inline]
-    pub fn selected(&self) -> SELECTEDR {
-        SELECTEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn selected(&self) -> SELECTED_R {
+        SELECTED_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Violation status"]
-    #[inline]
-    pub fn blocked(&self) -> BLOCKEDR {
-        BLOCKEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn blocked(&self) -> BLOCKED_R {
+        BLOCKED_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }

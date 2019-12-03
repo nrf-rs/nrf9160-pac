@@ -1,468 +1,356 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::INTPEND {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `RECEIVE0`"]
+#[doc = "Reader of register INTPEND"]
+pub type R = crate::R<u32, super::INTPEND>;
+#[doc = "Read pending status of interrupt for event RECEIVE\\[0\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE0R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE0_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE0R::NOTPENDING => false,
-            RECEIVE0R::PENDING => true,
+impl From<RECEIVE0_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE0_A) -> Self {
+        match variant {
+            RECEIVE0_A::NOTPENDING => false,
+            RECEIVE0_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE0R {
-        match value {
-            false => RECEIVE0R::NOTPENDING,
-            true => RECEIVE0R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE0`"]
+pub type RECEIVE0_R = crate::R<bool, RECEIVE0_A>;
+impl RECEIVE0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE0_A {
+        match self.bits {
+            false => RECEIVE0_A::NOTPENDING,
+            true => RECEIVE0_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE0R::NOTPENDING
+        *self == RECEIVE0_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE0R::PENDING
+        *self == RECEIVE0_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE1`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[1\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE1R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE1_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE1R::NOTPENDING => false,
-            RECEIVE1R::PENDING => true,
+impl From<RECEIVE1_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE1_A) -> Self {
+        match variant {
+            RECEIVE1_A::NOTPENDING => false,
+            RECEIVE1_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE1R {
-        match value {
-            false => RECEIVE1R::NOTPENDING,
-            true => RECEIVE1R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE1`"]
+pub type RECEIVE1_R = crate::R<bool, RECEIVE1_A>;
+impl RECEIVE1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE1_A {
+        match self.bits {
+            false => RECEIVE1_A::NOTPENDING,
+            true => RECEIVE1_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE1R::NOTPENDING
+        *self == RECEIVE1_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE1R::PENDING
+        *self == RECEIVE1_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE2`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[2\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE2R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE2_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE2R::NOTPENDING => false,
-            RECEIVE2R::PENDING => true,
+impl From<RECEIVE2_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE2_A) -> Self {
+        match variant {
+            RECEIVE2_A::NOTPENDING => false,
+            RECEIVE2_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE2R {
-        match value {
-            false => RECEIVE2R::NOTPENDING,
-            true => RECEIVE2R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE2`"]
+pub type RECEIVE2_R = crate::R<bool, RECEIVE2_A>;
+impl RECEIVE2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE2_A {
+        match self.bits {
+            false => RECEIVE2_A::NOTPENDING,
+            true => RECEIVE2_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE2R::NOTPENDING
+        *self == RECEIVE2_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE2R::PENDING
+        *self == RECEIVE2_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE3`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[3\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE3R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE3_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE3R::NOTPENDING => false,
-            RECEIVE3R::PENDING => true,
+impl From<RECEIVE3_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE3_A) -> Self {
+        match variant {
+            RECEIVE3_A::NOTPENDING => false,
+            RECEIVE3_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE3R {
-        match value {
-            false => RECEIVE3R::NOTPENDING,
-            true => RECEIVE3R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE3`"]
+pub type RECEIVE3_R = crate::R<bool, RECEIVE3_A>;
+impl RECEIVE3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE3_A {
+        match self.bits {
+            false => RECEIVE3_A::NOTPENDING,
+            true => RECEIVE3_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE3R::NOTPENDING
+        *self == RECEIVE3_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE3R::PENDING
+        *self == RECEIVE3_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE4`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[4\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE4R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE4_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE4R::NOTPENDING => false,
-            RECEIVE4R::PENDING => true,
+impl From<RECEIVE4_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE4_A) -> Self {
+        match variant {
+            RECEIVE4_A::NOTPENDING => false,
+            RECEIVE4_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE4R {
-        match value {
-            false => RECEIVE4R::NOTPENDING,
-            true => RECEIVE4R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE4`"]
+pub type RECEIVE4_R = crate::R<bool, RECEIVE4_A>;
+impl RECEIVE4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE4_A {
+        match self.bits {
+            false => RECEIVE4_A::NOTPENDING,
+            true => RECEIVE4_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE4R::NOTPENDING
+        *self == RECEIVE4_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE4R::PENDING
+        *self == RECEIVE4_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE5`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[5\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE5R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE5_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE5R::NOTPENDING => false,
-            RECEIVE5R::PENDING => true,
+impl From<RECEIVE5_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE5_A) -> Self {
+        match variant {
+            RECEIVE5_A::NOTPENDING => false,
+            RECEIVE5_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE5R {
-        match value {
-            false => RECEIVE5R::NOTPENDING,
-            true => RECEIVE5R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE5`"]
+pub type RECEIVE5_R = crate::R<bool, RECEIVE5_A>;
+impl RECEIVE5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE5_A {
+        match self.bits {
+            false => RECEIVE5_A::NOTPENDING,
+            true => RECEIVE5_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE5R::NOTPENDING
+        *self == RECEIVE5_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE5R::PENDING
+        *self == RECEIVE5_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE6`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[6\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE6R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE6_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE6R::NOTPENDING => false,
-            RECEIVE6R::PENDING => true,
+impl From<RECEIVE6_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE6_A) -> Self {
+        match variant {
+            RECEIVE6_A::NOTPENDING => false,
+            RECEIVE6_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE6R {
-        match value {
-            false => RECEIVE6R::NOTPENDING,
-            true => RECEIVE6R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE6`"]
+pub type RECEIVE6_R = crate::R<bool, RECEIVE6_A>;
+impl RECEIVE6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE6_A {
+        match self.bits {
+            false => RECEIVE6_A::NOTPENDING,
+            true => RECEIVE6_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE6R::NOTPENDING
+        *self == RECEIVE6_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE6R::PENDING
+        *self == RECEIVE6_A::PENDING
     }
 }
-#[doc = "Possible values of the field `RECEIVE7`"]
+#[doc = "Read pending status of interrupt for event RECEIVE\\[7\\]\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECEIVE7R {
-    #[doc = "Read: Not pending"]
+pub enum RECEIVE7_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl RECEIVE7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RECEIVE7R::NOTPENDING => false,
-            RECEIVE7R::PENDING => true,
+impl From<RECEIVE7_A> for bool {
+    #[inline(always)]
+    fn from(variant: RECEIVE7_A) -> Self {
+        match variant {
+            RECEIVE7_A::NOTPENDING => false,
+            RECEIVE7_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RECEIVE7R {
-        match value {
-            false => RECEIVE7R::NOTPENDING,
-            true => RECEIVE7R::PENDING,
+}
+#[doc = "Reader of field `RECEIVE7`"]
+pub type RECEIVE7_R = crate::R<bool, RECEIVE7_A>;
+impl RECEIVE7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RECEIVE7_A {
+        match self.bits {
+            false => RECEIVE7_A::NOTPENDING,
+            true => RECEIVE7_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == RECEIVE7R::NOTPENDING
+        *self == RECEIVE7_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == RECEIVE7R::PENDING
+        *self == RECEIVE7_A::PENDING
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Read pending status of interrupt for event RECEIVE\\[0\\]"]
-    #[inline]
-    pub fn receive0(&self) -> RECEIVE0R {
-        RECEIVE0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive0(&self) -> RECEIVE0_R {
+        RECEIVE0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Read pending status of interrupt for event RECEIVE\\[1\\]"]
-    #[inline]
-    pub fn receive1(&self) -> RECEIVE1R {
-        RECEIVE1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive1(&self) -> RECEIVE1_R {
+        RECEIVE1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Read pending status of interrupt for event RECEIVE\\[2\\]"]
-    #[inline]
-    pub fn receive2(&self) -> RECEIVE2R {
-        RECEIVE2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive2(&self) -> RECEIVE2_R {
+        RECEIVE2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Read pending status of interrupt for event RECEIVE\\[3\\]"]
-    #[inline]
-    pub fn receive3(&self) -> RECEIVE3R {
-        RECEIVE3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive3(&self) -> RECEIVE3_R {
+        RECEIVE3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Read pending status of interrupt for event RECEIVE\\[4\\]"]
-    #[inline]
-    pub fn receive4(&self) -> RECEIVE4R {
-        RECEIVE4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive4(&self) -> RECEIVE4_R {
+        RECEIVE4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Read pending status of interrupt for event RECEIVE\\[5\\]"]
-    #[inline]
-    pub fn receive5(&self) -> RECEIVE5R {
-        RECEIVE5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive5(&self) -> RECEIVE5_R {
+        RECEIVE5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Read pending status of interrupt for event RECEIVE\\[6\\]"]
-    #[inline]
-    pub fn receive6(&self) -> RECEIVE6R {
-        RECEIVE6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive6(&self) -> RECEIVE6_R {
+        RECEIVE6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Read pending status of interrupt for event RECEIVE\\[7\\]"]
-    #[inline]
-    pub fn receive7(&self) -> RECEIVE7R {
-        RECEIVE7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn receive7(&self) -> RECEIVE7_R {
+        RECEIVE7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
 }

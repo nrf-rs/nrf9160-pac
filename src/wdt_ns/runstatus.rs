@@ -1,76 +1,48 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::RUNSTATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `RUNSTATUSWDT`"]
+#[doc = "Reader of register RUNSTATUS"]
+pub type R = crate::R<u32, super::RUNSTATUS>;
+#[doc = "Indicates whether or not the watchdog is running\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RUNSTATUSWDTR {
-    #[doc = "Watchdog not running"]
+pub enum RUNSTATUSWDT_A {
+    #[doc = "0: Watchdog not running"]
     NOTRUNNING,
-    #[doc = "Watchdog is running"]
+    #[doc = "1: Watchdog is running"]
     RUNNING,
 }
-impl RUNSTATUSWDTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RUNSTATUSWDTR::NOTRUNNING => false,
-            RUNSTATUSWDTR::RUNNING => true,
+impl From<RUNSTATUSWDT_A> for bool {
+    #[inline(always)]
+    fn from(variant: RUNSTATUSWDT_A) -> Self {
+        match variant {
+            RUNSTATUSWDT_A::NOTRUNNING => false,
+            RUNSTATUSWDT_A::RUNNING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RUNSTATUSWDTR {
-        match value {
-            false => RUNSTATUSWDTR::NOTRUNNING,
-            true => RUNSTATUSWDTR::RUNNING,
+}
+#[doc = "Reader of field `RUNSTATUSWDT`"]
+pub type RUNSTATUSWDT_R = crate::R<bool, RUNSTATUSWDT_A>;
+impl RUNSTATUSWDT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RUNSTATUSWDT_A {
+        match self.bits {
+            false => RUNSTATUSWDT_A::NOTRUNNING,
+            true => RUNSTATUSWDT_A::RUNNING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTRUNNING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_running(&self) -> bool {
-        *self == RUNSTATUSWDTR::NOTRUNNING
+        *self == RUNSTATUSWDT_A::NOTRUNNING
     }
     #[doc = "Checks if the value of the field is `RUNNING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_running(&self) -> bool {
-        *self == RUNSTATUSWDTR::RUNNING
+        *self == RUNSTATUSWDT_A::RUNNING
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Indicates whether or not the watchdog is running"]
-    #[inline]
-    pub fn runstatuswdt(&self) -> RUNSTATUSWDTR {
-        RUNSTATUSWDTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn runstatuswdt(&self) -> RUNSTATUSWDT_R {
+        RUNSTATUSWDT_R::new((self.bits & 0x01) != 0)
     }
 }

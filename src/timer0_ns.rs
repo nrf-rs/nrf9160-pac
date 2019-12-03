@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Start Timer"]
@@ -11,10 +11,10 @@ pub struct RegisterBlock {
     pub tasks_clear: TASKS_CLEAR,
     #[doc = "0x10 - Deprecated register - Shut down timer"]
     pub tasks_shutdown: TASKS_SHUTDOWN,
-    _reserved0: [u8; 44usize],
+    _reserved5: [u8; 44usize],
     #[doc = "0x40 - Description collection: Capture Timer value to CC\\[n\\] register"]
     pub tasks_capture: [TASKS_CAPTURE; 6],
-    _reserved1: [u8; 40usize],
+    _reserved6: [u8; 40usize],
     #[doc = "0x80 - Subscribe configuration for task START"]
     pub subscribe_start: SUBSCRIBE_START,
     #[doc = "0x84 - Subscribe configuration for task STOP"]
@@ -25,158 +25,251 @@ pub struct RegisterBlock {
     pub subscribe_clear: SUBSCRIBE_CLEAR,
     #[doc = "0x90 - Deprecated register - Subscribe configuration for task SHUTDOWN"]
     pub subscribe_shutdown: SUBSCRIBE_SHUTDOWN,
-    _reserved2: [u8; 44usize],
+    _reserved11: [u8; 44usize],
     #[doc = "0xc0 - Description collection: Subscribe configuration for task CAPTURE\\[n\\]"]
     pub subscribe_capture: [SUBSCRIBE_CAPTURE; 6],
-    _reserved3: [u8; 104usize],
+    _reserved12: [u8; 104usize],
     #[doc = "0x140 - Description collection: Compare event on CC\\[n\\] match"]
     pub events_compare: [EVENTS_COMPARE; 6],
-    _reserved4: [u8; 104usize],
+    _reserved13: [u8; 104usize],
     #[doc = "0x1c0 - Description collection: Publish configuration for event COMPARE\\[n\\]"]
     pub publish_compare: [PUBLISH_COMPARE; 6],
-    _reserved5: [u8; 40usize],
+    _reserved14: [u8; 40usize],
     #[doc = "0x200 - Shortcuts between local events and tasks"]
     pub shorts: SHORTS,
-    _reserved6: [u8; 256usize],
+    _reserved15: [u8; 256usize],
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved7: [u8; 504usize],
+    _reserved17: [u8; 504usize],
     #[doc = "0x504 - Timer mode selection"]
     pub mode: MODE,
     #[doc = "0x508 - Configure the number of bits used by the TIMER"]
     pub bitmode: BITMODE,
-    _reserved8: [u8; 4usize],
+    _reserved19: [u8; 4usize],
     #[doc = "0x510 - Timer prescaler register"]
     pub prescaler: PRESCALER,
-    _reserved9: [u8; 44usize],
+    _reserved20: [u8; 44usize],
     #[doc = "0x540 - Description collection: Capture/Compare register n"]
     pub cc: [CC; 6],
 }
-#[doc = "Start Timer"]
-pub struct TASKS_START {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Start Timer\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_start](tasks_start) module"]
+pub type TASKS_START = crate::Reg<u32, _TASKS_START>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _TASKS_START;
+#[doc = "`write(|w| ..)` method takes [tasks_start::W](tasks_start::W) writer structure"]
+impl crate::Writable for TASKS_START {}
 #[doc = "Start Timer"]
 pub mod tasks_start;
-#[doc = "Stop Timer"]
-pub struct TASKS_STOP {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Stop Timer\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_stop](tasks_stop) module"]
+pub type TASKS_STOP = crate::Reg<u32, _TASKS_STOP>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _TASKS_STOP;
+#[doc = "`write(|w| ..)` method takes [tasks_stop::W](tasks_stop::W) writer structure"]
+impl crate::Writable for TASKS_STOP {}
 #[doc = "Stop Timer"]
 pub mod tasks_stop;
-#[doc = "Increment Timer (Counter mode only)"]
-pub struct TASKS_COUNT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Increment Timer (Counter mode only)\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_count](tasks_count) module"]
+pub type TASKS_COUNT = crate::Reg<u32, _TASKS_COUNT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _TASKS_COUNT;
+#[doc = "`write(|w| ..)` method takes [tasks_count::W](tasks_count::W) writer structure"]
+impl crate::Writable for TASKS_COUNT {}
 #[doc = "Increment Timer (Counter mode only)"]
 pub mod tasks_count;
-#[doc = "Clear time"]
-pub struct TASKS_CLEAR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Clear time\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_clear](tasks_clear) module"]
+pub type TASKS_CLEAR = crate::Reg<u32, _TASKS_CLEAR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _TASKS_CLEAR;
+#[doc = "`write(|w| ..)` method takes [tasks_clear::W](tasks_clear::W) writer structure"]
+impl crate::Writable for TASKS_CLEAR {}
 #[doc = "Clear time"]
 pub mod tasks_clear;
-#[doc = "Deprecated register - Shut down timer"]
-pub struct TASKS_SHUTDOWN {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Deprecated register - Shut down timer\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_shutdown](tasks_shutdown) module"]
+pub type TASKS_SHUTDOWN = crate::Reg<u32, _TASKS_SHUTDOWN>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _TASKS_SHUTDOWN;
+#[doc = "`write(|w| ..)` method takes [tasks_shutdown::W](tasks_shutdown::W) writer structure"]
+impl crate::Writable for TASKS_SHUTDOWN {}
 #[doc = "Deprecated register - Shut down timer"]
 pub mod tasks_shutdown;
-#[doc = "Description collection: Capture Timer value to CC\\[n\\] register"]
-pub struct TASKS_CAPTURE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection: Capture Timer value to CC\\[n\\] register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_capture](tasks_capture) module"]
+pub type TASKS_CAPTURE = crate::Reg<u32, _TASKS_CAPTURE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _TASKS_CAPTURE;
+#[doc = "`write(|w| ..)` method takes [tasks_capture::W](tasks_capture::W) writer structure"]
+impl crate::Writable for TASKS_CAPTURE {}
 #[doc = "Description collection: Capture Timer value to CC\\[n\\] register"]
 pub mod tasks_capture;
-#[doc = "Subscribe configuration for task START"]
-pub struct SUBSCRIBE_START {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Subscribe configuration for task START\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_start](subscribe_start) module"]
+pub type SUBSCRIBE_START = crate::Reg<u32, _SUBSCRIBE_START>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SUBSCRIBE_START;
+#[doc = "`read()` method returns [subscribe_start::R](subscribe_start::R) reader structure"]
+impl crate::Readable for SUBSCRIBE_START {}
+#[doc = "`write(|w| ..)` method takes [subscribe_start::W](subscribe_start::W) writer structure"]
+impl crate::Writable for SUBSCRIBE_START {}
 #[doc = "Subscribe configuration for task START"]
 pub mod subscribe_start;
-#[doc = "Subscribe configuration for task STOP"]
-pub struct SUBSCRIBE_STOP {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Subscribe configuration for task STOP\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_stop](subscribe_stop) module"]
+pub type SUBSCRIBE_STOP = crate::Reg<u32, _SUBSCRIBE_STOP>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SUBSCRIBE_STOP;
+#[doc = "`read()` method returns [subscribe_stop::R](subscribe_stop::R) reader structure"]
+impl crate::Readable for SUBSCRIBE_STOP {}
+#[doc = "`write(|w| ..)` method takes [subscribe_stop::W](subscribe_stop::W) writer structure"]
+impl crate::Writable for SUBSCRIBE_STOP {}
 #[doc = "Subscribe configuration for task STOP"]
 pub mod subscribe_stop;
-#[doc = "Subscribe configuration for task COUNT"]
-pub struct SUBSCRIBE_COUNT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Subscribe configuration for task COUNT\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_count](subscribe_count) module"]
+pub type SUBSCRIBE_COUNT = crate::Reg<u32, _SUBSCRIBE_COUNT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SUBSCRIBE_COUNT;
+#[doc = "`read()` method returns [subscribe_count::R](subscribe_count::R) reader structure"]
+impl crate::Readable for SUBSCRIBE_COUNT {}
+#[doc = "`write(|w| ..)` method takes [subscribe_count::W](subscribe_count::W) writer structure"]
+impl crate::Writable for SUBSCRIBE_COUNT {}
 #[doc = "Subscribe configuration for task COUNT"]
 pub mod subscribe_count;
-#[doc = "Subscribe configuration for task CLEAR"]
-pub struct SUBSCRIBE_CLEAR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Subscribe configuration for task CLEAR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_clear](subscribe_clear) module"]
+pub type SUBSCRIBE_CLEAR = crate::Reg<u32, _SUBSCRIBE_CLEAR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SUBSCRIBE_CLEAR;
+#[doc = "`read()` method returns [subscribe_clear::R](subscribe_clear::R) reader structure"]
+impl crate::Readable for SUBSCRIBE_CLEAR {}
+#[doc = "`write(|w| ..)` method takes [subscribe_clear::W](subscribe_clear::W) writer structure"]
+impl crate::Writable for SUBSCRIBE_CLEAR {}
 #[doc = "Subscribe configuration for task CLEAR"]
 pub mod subscribe_clear;
-#[doc = "Deprecated register - Subscribe configuration for task SHUTDOWN"]
-pub struct SUBSCRIBE_SHUTDOWN {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Deprecated register - Subscribe configuration for task SHUTDOWN\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_shutdown](subscribe_shutdown) module"]
+pub type SUBSCRIBE_SHUTDOWN = crate::Reg<u32, _SUBSCRIBE_SHUTDOWN>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SUBSCRIBE_SHUTDOWN;
+#[doc = "`read()` method returns [subscribe_shutdown::R](subscribe_shutdown::R) reader structure"]
+impl crate::Readable for SUBSCRIBE_SHUTDOWN {}
+#[doc = "`write(|w| ..)` method takes [subscribe_shutdown::W](subscribe_shutdown::W) writer structure"]
+impl crate::Writable for SUBSCRIBE_SHUTDOWN {}
 #[doc = "Deprecated register - Subscribe configuration for task SHUTDOWN"]
 pub mod subscribe_shutdown;
-#[doc = "Description collection: Subscribe configuration for task CAPTURE\\[n\\]"]
-pub struct SUBSCRIBE_CAPTURE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection: Subscribe configuration for task CAPTURE\\[n\\]\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_capture](subscribe_capture) module"]
+pub type SUBSCRIBE_CAPTURE = crate::Reg<u32, _SUBSCRIBE_CAPTURE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SUBSCRIBE_CAPTURE;
+#[doc = "`read()` method returns [subscribe_capture::R](subscribe_capture::R) reader structure"]
+impl crate::Readable for SUBSCRIBE_CAPTURE {}
+#[doc = "`write(|w| ..)` method takes [subscribe_capture::W](subscribe_capture::W) writer structure"]
+impl crate::Writable for SUBSCRIBE_CAPTURE {}
 #[doc = "Description collection: Subscribe configuration for task CAPTURE\\[n\\]"]
 pub mod subscribe_capture;
-#[doc = "Description collection: Compare event on CC\\[n\\] match"]
-pub struct EVENTS_COMPARE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection: Compare event on CC\\[n\\] match\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_compare](events_compare) module"]
+pub type EVENTS_COMPARE = crate::Reg<u32, _EVENTS_COMPARE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _EVENTS_COMPARE;
+#[doc = "`read()` method returns [events_compare::R](events_compare::R) reader structure"]
+impl crate::Readable for EVENTS_COMPARE {}
+#[doc = "`write(|w| ..)` method takes [events_compare::W](events_compare::W) writer structure"]
+impl crate::Writable for EVENTS_COMPARE {}
 #[doc = "Description collection: Compare event on CC\\[n\\] match"]
 pub mod events_compare;
-#[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]"]
-pub struct PUBLISH_COMPARE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [publish_compare](publish_compare) module"]
+pub type PUBLISH_COMPARE = crate::Reg<u32, _PUBLISH_COMPARE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PUBLISH_COMPARE;
+#[doc = "`read()` method returns [publish_compare::R](publish_compare::R) reader structure"]
+impl crate::Readable for PUBLISH_COMPARE {}
+#[doc = "`write(|w| ..)` method takes [publish_compare::W](publish_compare::W) writer structure"]
+impl crate::Writable for PUBLISH_COMPARE {}
 #[doc = "Description collection: Publish configuration for event COMPARE\\[n\\]"]
 pub mod publish_compare;
-#[doc = "Shortcuts between local events and tasks"]
-pub struct SHORTS {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Shortcuts between local events and tasks\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [shorts](shorts) module"]
+pub type SHORTS = crate::Reg<u32, _SHORTS>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SHORTS;
+#[doc = "`read()` method returns [shorts::R](shorts::R) reader structure"]
+impl crate::Readable for SHORTS {}
+#[doc = "`write(|w| ..)` method takes [shorts::W](shorts::W) writer structure"]
+impl crate::Writable for SHORTS {}
 #[doc = "Shortcuts between local events and tasks"]
 pub mod shorts;
-#[doc = "Enable interrupt"]
-pub struct INTENSET {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+pub type INTENSET = crate::Reg<u32, _INTENSET>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTENSET;
+#[doc = "`read()` method returns [intenset::R](intenset::R) reader structure"]
+impl crate::Readable for INTENSET {}
+#[doc = "`write(|w| ..)` method takes [intenset::W](intenset::W) writer structure"]
+impl crate::Writable for INTENSET {}
 #[doc = "Enable interrupt"]
 pub mod intenset;
-#[doc = "Disable interrupt"]
-pub struct INTENCLR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+pub type INTENCLR = crate::Reg<u32, _INTENCLR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTENCLR;
+#[doc = "`read()` method returns [intenclr::R](intenclr::R) reader structure"]
+impl crate::Readable for INTENCLR {}
+#[doc = "`write(|w| ..)` method takes [intenclr::W](intenclr::W) writer structure"]
+impl crate::Writable for INTENCLR {}
 #[doc = "Disable interrupt"]
 pub mod intenclr;
-#[doc = "Timer mode selection"]
-pub struct MODE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Timer mode selection\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [mode](mode) module"]
+pub type MODE = crate::Reg<u32, _MODE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _MODE;
+#[doc = "`read()` method returns [mode::R](mode::R) reader structure"]
+impl crate::Readable for MODE {}
+#[doc = "`write(|w| ..)` method takes [mode::W](mode::W) writer structure"]
+impl crate::Writable for MODE {}
 #[doc = "Timer mode selection"]
 pub mod mode;
-#[doc = "Configure the number of bits used by the TIMER"]
-pub struct BITMODE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Configure the number of bits used by the TIMER\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [bitmode](bitmode) module"]
+pub type BITMODE = crate::Reg<u32, _BITMODE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _BITMODE;
+#[doc = "`read()` method returns [bitmode::R](bitmode::R) reader structure"]
+impl crate::Readable for BITMODE {}
+#[doc = "`write(|w| ..)` method takes [bitmode::W](bitmode::W) writer structure"]
+impl crate::Writable for BITMODE {}
 #[doc = "Configure the number of bits used by the TIMER"]
 pub mod bitmode;
-#[doc = "Timer prescaler register"]
-pub struct PRESCALER {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Timer prescaler register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [prescaler](prescaler) module"]
+pub type PRESCALER = crate::Reg<u32, _PRESCALER>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PRESCALER;
+#[doc = "`read()` method returns [prescaler::R](prescaler::R) reader structure"]
+impl crate::Readable for PRESCALER {}
+#[doc = "`write(|w| ..)` method takes [prescaler::W](prescaler::W) writer structure"]
+impl crate::Writable for PRESCALER {}
 #[doc = "Timer prescaler register"]
 pub mod prescaler;
-#[doc = "Description collection: Capture/Compare register n"]
-pub struct CC {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection: Capture/Compare register n\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cc](cc) module"]
+pub type CC = crate::Reg<u32, _CC>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CC;
+#[doc = "`read()` method returns [cc::R](cc::R) reader structure"]
+impl crate::Readable for CC {}
+#[doc = "`write(|w| ..)` method takes [cc::W](cc::W) writer structure"]
+impl crate::Writable for CC {}
 #[doc = "Description collection: Capture/Compare register n"]
 pub mod cc;

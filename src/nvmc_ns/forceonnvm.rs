@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FORCEONNVM {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register FORCEONNVM"]
+pub type R = crate::R<u32, super::FORCEONNVM>;
+#[doc = "Writer for register FORCEONNVM"]
+pub type W = crate::W<u32, super::FORCEONNVM>;
+#[doc = "Register FORCEONNVM `reset()`'s with value 0"]
+impl crate::ResetValue for super::FORCEONNVM {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `FORCEONNVM`"]
+#[doc = "Force on all NVM supplies. Also see the internal section in the NVMC chapter.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FORCEONNVMR {
-    #[doc = "Do not force on NVM supply"]
+pub enum FORCEONNVM_A {
+    #[doc = "0: Do not force on NVM supply"]
     DONOTFORCEON,
-    #[doc = "Force on NVM supply"]
+    #[doc = "1: Force on NVM supply"]
     FORCEON,
 }
-impl FORCEONNVMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FORCEONNVMR::DONOTFORCEON => false,
-            FORCEONNVMR::FORCEON => true,
+impl From<FORCEONNVM_A> for bool {
+    #[inline(always)]
+    fn from(variant: FORCEONNVM_A) -> Self {
+        match variant {
+            FORCEONNVM_A::DONOTFORCEON => false,
+            FORCEONNVM_A::FORCEON => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FORCEONNVMR {
-        match value {
-            false => FORCEONNVMR::DONOTFORCEON,
-            true => FORCEONNVMR::FORCEON,
+}
+#[doc = "Reader of field `FORCEONNVM`"]
+pub type FORCEONNVM_R = crate::R<bool, FORCEONNVM_A>;
+impl FORCEONNVM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FORCEONNVM_A {
+        match self.bits {
+            false => FORCEONNVM_A::DONOTFORCEON,
+            true => FORCEONNVM_A::FORCEON,
         }
     }
     #[doc = "Checks if the value of the field is `DONOTFORCEON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_do_not_force_on(&self) -> bool {
-        *self == FORCEONNVMR::DONOTFORCEON
+        *self == FORCEONNVM_A::DONOTFORCEON
     }
     #[doc = "Checks if the value of the field is `FORCEON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_force_on(&self) -> bool {
-        *self == FORCEONNVMR::FORCEON
+        *self == FORCEONNVM_A::FORCEON
     }
 }
-#[doc = "Values that can be written to the field `FORCEONNVM`"]
-pub enum FORCEONNVMW {
-    #[doc = "Do not force on NVM supply"]
-    DONOTFORCEON,
-    #[doc = "Force on NVM supply"]
-    FORCEON,
-}
-impl FORCEONNVMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FORCEONNVMW::DONOTFORCEON => false,
-            FORCEONNVMW::FORCEON => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FORCEONNVMW<'a> {
+#[doc = "Write proxy for field `FORCEONNVM`"]
+pub struct FORCEONNVM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FORCEONNVMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FORCEONNVMW) -> &'a mut W {
+impl<'a> FORCEONNVM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FORCEONNVM_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Do not force on NVM supply"]
-    #[inline]
+    #[inline(always)]
     pub fn do_not_force_on(self) -> &'a mut W {
-        self.variant(FORCEONNVMW::DONOTFORCEON)
+        self.variant(FORCEONNVM_A::DONOTFORCEON)
     }
     #[doc = "Force on NVM supply"]
-    #[inline]
+    #[inline(always)]
     pub fn force_on(self) -> &'a mut W {
-        self.variant(FORCEONNVMW::FORCEON)
+        self.variant(FORCEONNVM_A::FORCEON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Force on all NVM supplies. Also see the internal section in the NVMC chapter."]
-    #[inline]
-    pub fn forceonnvm(&self) -> FORCEONNVMR {
-        FORCEONNVMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn forceonnvm(&self) -> FORCEONNVM_R {
+        FORCEONNVM_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Force on all NVM supplies. Also see the internal section in the NVMC chapter."]
-    #[inline]
-    pub fn forceonnvm(&mut self) -> _FORCEONNVMW {
-        _FORCEONNVMW { w: self }
+    #[inline(always)]
+    pub fn forceonnvm(&mut self) -> FORCEONNVM_W {
+        FORCEONNVM_W { w: self }
     }
 }

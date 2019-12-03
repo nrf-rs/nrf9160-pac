@@ -1,540 +1,368 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PERM {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
+#[doc = "Reader of register PERM"]
+pub type R = crate::R<u32, super::PERM>;
+#[doc = "Writer for register PERM"]
+pub type W = crate::W<u32, super::PERM>;
+#[doc = "Register PERM `reset()`'s with value 0xffff_ffff"]
+impl crate::ResetValue for super::PERM {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff_ffff
     }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
+}
+#[doc = "Write permission for key slot\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WRITE_A {
+    #[doc = "0: Disable write to the key value registers"]
+    DISABLED,
+    #[doc = "1: Enable write to the key value registers"]
+    ENABLED,
+}
+impl From<WRITE_A> for bool {
+    #[inline(always)]
+    fn from(variant: WRITE_A) -> Self {
+        match variant {
+            WRITE_A::DISABLED => false,
+            WRITE_A::ENABLED => true,
         }
     }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+}
+#[doc = "Reader of field `WRITE`"]
+pub type WRITE_R = crate::R<bool, WRITE_A>;
+impl WRITE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WRITE_A {
+        match self.bits {
+            false => WRITE_A::DISABLED,
+            true => WRITE_A::ENABLED,
+        }
     }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == WRITE_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == WRITE_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `WRITE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WRITER {
+#[doc = "Write proxy for field `WRITE`"]
+pub struct WRITE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> WRITE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WRITE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disable write to the key value registers"]
-    DISABLED,
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(WRITE_A::DISABLED)
+    }
     #[doc = "Enable write to the key value registers"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(WRITE_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Read permission for key slot\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum READ_A {
+    #[doc = "0: Disable read from key value registers"]
+    DISABLED,
+    #[doc = "1: Enable read from key value registers"]
     ENABLED,
 }
-impl WRITER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WRITER::DISABLED => false,
-            WRITER::ENABLED => true,
+impl From<READ_A> for bool {
+    #[inline(always)]
+    fn from(variant: READ_A) -> Self {
+        match variant {
+            READ_A::DISABLED => false,
+            READ_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WRITER {
-        match value {
-            false => WRITER::DISABLED,
-            true => WRITER::ENABLED,
+}
+#[doc = "Reader of field `READ`"]
+pub type READ_R = crate::R<bool, READ_A>;
+impl READ_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> READ_A {
+        match self.bits {
+            false => READ_A::DISABLED,
+            true => READ_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WRITER::DISABLED
+        *self == READ_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WRITER::ENABLED
+        *self == READ_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `READ`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum READR {
+#[doc = "Write proxy for field `READ`"]
+pub struct READ_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> READ_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: READ_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disable read from key value registers"]
-    DISABLED,
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(READ_A::DISABLED)
+    }
     #[doc = "Enable read from key value registers"]
-    ENABLED,
-}
-impl READR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(READ_A::ENABLED)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            READR::DISABLED => false,
-            READR::ENABLED => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> READR {
-        match value {
-            false => READR::DISABLED,
-            true => READR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == READR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == READR::ENABLED
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
     }
 }
-#[doc = "Possible values of the field `PUSH`"]
+#[doc = "Push permission for key slot\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PUSHR {
-    #[doc = "Disable pushing of key value registers over secure APB, but can be read if field READ is Enabled"]
+pub enum PUSH_A {
+    #[doc = "0: Disable pushing of key value registers over secure APB, but can be read if field READ is Enabled"]
     DISABLED,
-    #[doc = "Enable pushing of key value registers over secure APB. Register KEYSLOT.CONFIGn.DEST must contain a valid destination address!"]
+    #[doc = "1: Enable pushing of key value registers over secure APB. Register KEYSLOT.CONFIGn.DEST must contain a valid destination address!"]
     ENABLED,
 }
-impl PUSHR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PUSHR::DISABLED => false,
-            PUSHR::ENABLED => true,
+impl From<PUSH_A> for bool {
+    #[inline(always)]
+    fn from(variant: PUSH_A) -> Self {
+        match variant {
+            PUSH_A::DISABLED => false,
+            PUSH_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PUSHR {
-        match value {
-            false => PUSHR::DISABLED,
-            true => PUSHR::ENABLED,
+}
+#[doc = "Reader of field `PUSH`"]
+pub type PUSH_R = crate::R<bool, PUSH_A>;
+impl PUSH_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PUSH_A {
+        match self.bits {
+            false => PUSH_A::DISABLED,
+            true => PUSH_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == PUSHR::DISABLED
+        *self == PUSH_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == PUSHR::ENABLED
+        *self == PUSH_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `STATE`"]
+#[doc = "Write proxy for field `PUSH`"]
+pub struct PUSH_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PUSH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PUSH_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Disable pushing of key value registers over secure APB, but can be read if field READ is Enabled"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(PUSH_A::DISABLED)
+    }
+    #[doc = "Enable pushing of key value registers over secure APB. Register KEYSLOT.CONFIGn.DEST must contain a valid destination address!"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PUSH_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Revocation state for the key slot\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STATER {
-    #[doc = "Key value registers can no longer be read or pushed"]
+pub enum STATE_A {
+    #[doc = "0: Key value registers can no longer be read or pushed"]
     REVOKED,
-    #[doc = "Key value registers are readable (if enabled) and can be pushed (if enabled)"]
+    #[doc = "1: Key value registers are readable (if enabled) and can be pushed (if enabled)"]
     ACTIVE,
 }
-impl STATER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            STATER::REVOKED => false,
-            STATER::ACTIVE => true,
+impl From<STATE_A> for bool {
+    #[inline(always)]
+    fn from(variant: STATE_A) -> Self {
+        match variant {
+            STATE_A::REVOKED => false,
+            STATE_A::ACTIVE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> STATER {
-        match value {
-            false => STATER::REVOKED,
-            true => STATER::ACTIVE,
+}
+#[doc = "Reader of field `STATE`"]
+pub type STATE_R = crate::R<bool, STATE_A>;
+impl STATE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> STATE_A {
+        match self.bits {
+            false => STATE_A::REVOKED,
+            true => STATE_A::ACTIVE,
         }
     }
     #[doc = "Checks if the value of the field is `REVOKED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_revoked(&self) -> bool {
-        *self == STATER::REVOKED
+        *self == STATE_A::REVOKED
     }
     #[doc = "Checks if the value of the field is `ACTIVE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_active(&self) -> bool {
-        *self == STATER::ACTIVE
+        *self == STATE_A::ACTIVE
     }
 }
-#[doc = "Values that can be written to the field `WRITE`"]
-pub enum WRITEW {
-    #[doc = "Disable write to the key value registers"]
-    DISABLED,
-    #[doc = "Enable write to the key value registers"]
-    ENABLED,
-}
-impl WRITEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WRITEW::DISABLED => false,
-            WRITEW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WRITEW<'a> {
+#[doc = "Write proxy for field `STATE`"]
+pub struct STATE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WRITEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WRITEW) -> &'a mut W {
+impl<'a> STATE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STATE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable write to the key value registers"]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(WRITEW::DISABLED)
-    }
-    #[doc = "Enable write to the key value registers"]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(WRITEW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `READ`"]
-pub enum READW {
-    #[doc = "Disable read from key value registers"]
-    DISABLED,
-    #[doc = "Enable read from key value registers"]
-    ENABLED,
-}
-impl READW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            READW::DISABLED => false,
-            READW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _READW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _READW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: READW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable read from key value registers"]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(READW::DISABLED)
-    }
-    #[doc = "Enable read from key value registers"]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(READW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `PUSH`"]
-pub enum PUSHW {
-    #[doc = "Disable pushing of key value registers over secure APB, but can be read if field READ is Enabled"]
-    DISABLED,
-    #[doc = "Enable pushing of key value registers over secure APB. Register KEYSLOT.CONFIGn.DEST must contain a valid destination address!"]
-    ENABLED,
-}
-impl PUSHW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PUSHW::DISABLED => false,
-            PUSHW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PUSHW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PUSHW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PUSHW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable pushing of key value registers over secure APB, but can be read if field READ is Enabled"]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(PUSHW::DISABLED)
-    }
-    #[doc = "Enable pushing of key value registers over secure APB. Register KEYSLOT.CONFIGn.DEST must contain a valid destination address!"]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(PUSHW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `STATE`"]
-pub enum STATEW {
-    #[doc = "Key value registers can no longer be read or pushed"]
-    REVOKED,
-    #[doc = "Key value registers are readable (if enabled) and can be pushed (if enabled)"]
-    ACTIVE,
-}
-impl STATEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            STATEW::REVOKED => false,
-            STATEW::ACTIVE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _STATEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _STATEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STATEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Key value registers can no longer be read or pushed"]
-    #[inline]
+    #[inline(always)]
     pub fn revoked(self) -> &'a mut W {
-        self.variant(STATEW::REVOKED)
+        self.variant(STATE_A::REVOKED)
     }
     #[doc = "Key value registers are readable (if enabled) and can be pushed (if enabled)"]
-    #[inline]
+    #[inline(always)]
     pub fn active(self) -> &'a mut W {
-        self.variant(STATEW::ACTIVE)
+        self.variant(STATE_A::ACTIVE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Write permission for key slot"]
-    #[inline]
-    pub fn write(&self) -> WRITER {
-        WRITER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn write(&self) -> WRITE_R {
+        WRITE_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Read permission for key slot"]
-    #[inline]
-    pub fn read(&self) -> READR {
-        READR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn read(&self) -> READ_R {
+        READ_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Push permission for key slot"]
-    #[inline]
-    pub fn push(&self) -> PUSHR {
-        PUSHR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn push(&self) -> PUSH_R {
+        PUSH_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Revocation state for the key slot"]
-    #[inline]
-    pub fn state(&self) -> STATER {
-        STATER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn state(&self) -> STATE_R {
+        STATE_R::new(((self.bits >> 16) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 4294967295 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Write permission for key slot"]
-    #[inline]
-    pub fn write(&mut self) -> _WRITEW {
-        _WRITEW { w: self }
+    #[inline(always)]
+    pub fn write(&mut self) -> WRITE_W {
+        WRITE_W { w: self }
     }
     #[doc = "Bit 1 - Read permission for key slot"]
-    #[inline]
-    pub fn read(&mut self) -> _READW {
-        _READW { w: self }
+    #[inline(always)]
+    pub fn read(&mut self) -> READ_W {
+        READ_W { w: self }
     }
     #[doc = "Bit 2 - Push permission for key slot"]
-    #[inline]
-    pub fn push(&mut self) -> _PUSHW {
-        _PUSHW { w: self }
+    #[inline(always)]
+    pub fn push(&mut self) -> PUSH_W {
+        PUSH_W { w: self }
     }
     #[doc = "Bit 16 - Revocation state for the key slot"]
-    #[inline]
-    pub fn state(&mut self) -> _STATEW {
-        _STATEW { w: self }
+    #[inline(always)]
+    pub fn state(&mut self) -> STATE_W {
+        STATE_W { w: self }
     }
 }

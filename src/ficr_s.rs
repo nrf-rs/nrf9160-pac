@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     _reserved0: [u8; 512usize],
@@ -11,7 +11,7 @@ pub struct RegisterBlock {
     #[doc = "0xc00 - NIST800-90B RNG calibration data"]
     pub trng90b: TRNG90B,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct INFO {
     _reserved0: [u8; 4usize],
@@ -34,10 +34,10 @@ pub struct INFO {
     #[doc = "0x28 - Device type"]
     pub devicetype: self::info::DEVICETYPE,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Device info"]
 pub mod info;
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct TRIMCNF {
     #[doc = "0x00 - Description cluster: Address"]
@@ -45,10 +45,10 @@ pub struct TRIMCNF {
     #[doc = "0x04 - Description cluster: Data"]
     pub data: self::trimcnf::DATA,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Unspecified"]
 pub mod trimcnf;
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct TRNG90B {
     #[doc = "0x00 - Amount of bytes for the required entropy bits"]
@@ -68,6 +68,6 @@ pub struct TRNG90B {
     #[doc = "0x1c - Sample count for ring oscillator 4"]
     pub rosc4: self::trng90b::ROSC4,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "NIST800-90B RNG calibration data"]
 pub mod trng90b;

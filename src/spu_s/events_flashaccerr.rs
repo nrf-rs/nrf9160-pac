@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::EVENTS_FLASHACCERR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register EVENTS_FLASHACCERR"]
+pub type R = crate::R<u32, super::EVENTS_FLASHACCERR>;
+#[doc = "Writer for register EVENTS_FLASHACCERR"]
+pub type W = crate::W<u32, super::EVENTS_FLASHACCERR>;
+#[doc = "Register EVENTS_FLASHACCERR `reset()`'s with value 0"]
+impl crate::ResetValue for super::EVENTS_FLASHACCERR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `EVENTS_FLASHACCERR`"]
+#[doc = "A security violation has been detected for the flash memory space\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EVENTS_FLASHACCERRR {
-    #[doc = "Event not generated"]
+pub enum EVENTS_FLASHACCERR_A {
+    #[doc = "0: Event not generated"]
     NOTGENERATED,
-    #[doc = "Event generated"]
+    #[doc = "1: Event generated"]
     GENERATED,
 }
-impl EVENTS_FLASHACCERRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EVENTS_FLASHACCERRR::NOTGENERATED => false,
-            EVENTS_FLASHACCERRR::GENERATED => true,
+impl From<EVENTS_FLASHACCERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: EVENTS_FLASHACCERR_A) -> Self {
+        match variant {
+            EVENTS_FLASHACCERR_A::NOTGENERATED => false,
+            EVENTS_FLASHACCERR_A::GENERATED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EVENTS_FLASHACCERRR {
-        match value {
-            false => EVENTS_FLASHACCERRR::NOTGENERATED,
-            true => EVENTS_FLASHACCERRR::GENERATED,
+}
+#[doc = "Reader of field `EVENTS_FLASHACCERR`"]
+pub type EVENTS_FLASHACCERR_R = crate::R<bool, EVENTS_FLASHACCERR_A>;
+impl EVENTS_FLASHACCERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EVENTS_FLASHACCERR_A {
+        match self.bits {
+            false => EVENTS_FLASHACCERR_A::NOTGENERATED,
+            true => EVENTS_FLASHACCERR_A::GENERATED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTGENERATED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_generated(&self) -> bool {
-        *self == EVENTS_FLASHACCERRR::NOTGENERATED
+        *self == EVENTS_FLASHACCERR_A::NOTGENERATED
     }
     #[doc = "Checks if the value of the field is `GENERATED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_generated(&self) -> bool {
-        *self == EVENTS_FLASHACCERRR::GENERATED
+        *self == EVENTS_FLASHACCERR_A::GENERATED
     }
 }
-#[doc = "Values that can be written to the field `EVENTS_FLASHACCERR`"]
-pub enum EVENTS_FLASHACCERRW {
-    #[doc = "Event not generated"]
-    NOTGENERATED,
-    #[doc = "Event generated"]
-    GENERATED,
-}
-impl EVENTS_FLASHACCERRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EVENTS_FLASHACCERRW::NOTGENERATED => false,
-            EVENTS_FLASHACCERRW::GENERATED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EVENTS_FLASHACCERRW<'a> {
+#[doc = "Write proxy for field `EVENTS_FLASHACCERR`"]
+pub struct EVENTS_FLASHACCERR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EVENTS_FLASHACCERRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EVENTS_FLASHACCERRW) -> &'a mut W {
+impl<'a> EVENTS_FLASHACCERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EVENTS_FLASHACCERR_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Event not generated"]
-    #[inline]
+    #[inline(always)]
     pub fn not_generated(self) -> &'a mut W {
-        self.variant(EVENTS_FLASHACCERRW::NOTGENERATED)
+        self.variant(EVENTS_FLASHACCERR_A::NOTGENERATED)
     }
     #[doc = "Event generated"]
-    #[inline]
+    #[inline(always)]
     pub fn generated(self) -> &'a mut W {
-        self.variant(EVENTS_FLASHACCERRW::GENERATED)
+        self.variant(EVENTS_FLASHACCERR_A::GENERATED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - A security violation has been detected for the flash memory space"]
-    #[inline]
-    pub fn events_flashaccerr(&self) -> EVENTS_FLASHACCERRR {
-        EVENTS_FLASHACCERRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn events_flashaccerr(&self) -> EVENTS_FLASHACCERR_R {
+        EVENTS_FLASHACCERR_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - A security violation has been detected for the flash memory space"]
-    #[inline]
-    pub fn events_flashaccerr(&mut self) -> _EVENTS_FLASHACCERRW {
-        _EVENTS_FLASHACCERRW { w: self }
+    #[inline(always)]
+    pub fn events_flashaccerr(&mut self) -> EVENTS_FLASHACCERR_W {
+        EVENTS_FLASHACCERR_W { w: self }
     }
 }

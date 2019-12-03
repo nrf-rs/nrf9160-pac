@@ -1,84 +1,65 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TASKS_SEQSTART {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register TASKS_SEQSTART[%s]"]
+pub type W = crate::W<u32, super::TASKS_SEQSTART>;
+#[doc = "Register TASKS_SEQSTART[%s] `reset()`'s with value 0"]
+impl crate::ResetValue for super::TASKS_SEQSTART {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Values that can be written to the field `TASKS_SEQSTART`"]
-pub enum TASKS_SEQSTARTW {
-    #[doc = "Trigger task"]
+#[doc = "Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ\\[n\\]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TASKS_SEQSTART_AW {
+    #[doc = "1: Trigger task"]
     TRIGGER,
 }
-impl TASKS_SEQSTARTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TASKS_SEQSTARTW::TRIGGER => true,
+impl From<TASKS_SEQSTART_AW> for bool {
+    #[inline(always)]
+    fn from(variant: TASKS_SEQSTART_AW) -> Self {
+        match variant {
+            TASKS_SEQSTART_AW::TRIGGER => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _TASKS_SEQSTARTW<'a> {
+#[doc = "Write proxy for field `TASKS_SEQSTART`"]
+pub struct TASKS_SEQSTART_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TASKS_SEQSTARTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TASKS_SEQSTARTW) -> &'a mut W {
+impl<'a> TASKS_SEQSTART_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TASKS_SEQSTART_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Trigger task"]
-    #[inline]
+    #[inline(always)]
     pub fn trigger(self) -> &'a mut W {
-        self.variant(TASKS_SEQSTARTW::TRIGGER)
+        self.variant(TASKS_SEQSTART_AW::TRIGGER)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ\\[n\\]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running."]
-    #[inline]
-    pub fn tasks_seqstart(&mut self) -> _TASKS_SEQSTARTW {
-        _TASKS_SEQSTARTW { w: self }
+    #[inline(always)]
+    pub fn tasks_seqstart(&mut self) -> TASKS_SEQSTART_W {
+        TASKS_SEQSTART_W { w: self }
     }
 }

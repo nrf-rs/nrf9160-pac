@@ -1,1016 +1,720 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::POWER {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register POWER"]
+pub type R = crate::R<u32, super::POWER>;
+#[doc = "Writer for register POWER"]
+pub type W = crate::W<u32, super::POWER>;
+#[doc = "Register POWER `reset()`'s with value 0xffff"]
+impl crate::ResetValue for super::POWER {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff
     }
 }
-#[doc = "Possible values of the field `S0POWER`"]
+#[doc = "Keep RAM section S0 of RAM n on or off in System ON mode\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S0POWERR {
-    #[doc = "Off"]
+pub enum S0POWER_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S0POWERR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S0POWERR::OFF => false,
-            S0POWERR::ON => true,
+impl From<S0POWER_A> for bool {
+    #[inline(always)]
+    fn from(variant: S0POWER_A) -> Self {
+        match variant {
+            S0POWER_A::OFF => false,
+            S0POWER_A::ON => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S0POWERR {
-        match value {
-            false => S0POWERR::OFF,
-            true => S0POWERR::ON,
+}
+#[doc = "Reader of field `S0POWER`"]
+pub type S0POWER_R = crate::R<bool, S0POWER_A>;
+impl S0POWER_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S0POWER_A {
+        match self.bits {
+            false => S0POWER_A::OFF,
+            true => S0POWER_A::ON,
         }
     }
     #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_off(&self) -> bool {
-        *self == S0POWERR::OFF
+        *self == S0POWER_A::OFF
     }
     #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_on(&self) -> bool {
-        *self == S0POWERR::ON
+        *self == S0POWER_A::ON
     }
 }
-#[doc = "Possible values of the field `S1POWER`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S1POWERR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S1POWERR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S1POWERR::OFF => false,
-            S1POWERR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S1POWERR {
-        match value {
-            false => S1POWERR::OFF,
-            true => S1POWERR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S1POWERR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S1POWERR::ON
-    }
-}
-#[doc = "Possible values of the field `S2POWER`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S2POWERR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S2POWERR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S2POWERR::OFF => false,
-            S2POWERR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S2POWERR {
-        match value {
-            false => S2POWERR::OFF,
-            true => S2POWERR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S2POWERR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S2POWERR::ON
-    }
-}
-#[doc = "Possible values of the field `S3POWER`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S3POWERR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S3POWERR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S3POWERR::OFF => false,
-            S3POWERR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S3POWERR {
-        match value {
-            false => S3POWERR::OFF,
-            true => S3POWERR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S3POWERR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S3POWERR::ON
-    }
-}
-#[doc = "Possible values of the field `S0RETENTION`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S0RETENTIONR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S0RETENTIONR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S0RETENTIONR::OFF => false,
-            S0RETENTIONR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S0RETENTIONR {
-        match value {
-            false => S0RETENTIONR::OFF,
-            true => S0RETENTIONR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S0RETENTIONR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S0RETENTIONR::ON
-    }
-}
-#[doc = "Possible values of the field `S1RETENTION`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S1RETENTIONR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S1RETENTIONR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S1RETENTIONR::OFF => false,
-            S1RETENTIONR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S1RETENTIONR {
-        match value {
-            false => S1RETENTIONR::OFF,
-            true => S1RETENTIONR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S1RETENTIONR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S1RETENTIONR::ON
-    }
-}
-#[doc = "Possible values of the field `S2RETENTION`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S2RETENTIONR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S2RETENTIONR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S2RETENTIONR::OFF => false,
-            S2RETENTIONR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S2RETENTIONR {
-        match value {
-            false => S2RETENTIONR::OFF,
-            true => S2RETENTIONR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S2RETENTIONR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S2RETENTIONR::ON
-    }
-}
-#[doc = "Possible values of the field `S3RETENTION`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum S3RETENTIONR {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S3RETENTIONR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            S3RETENTIONR::OFF => false,
-            S3RETENTIONR::ON => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> S3RETENTIONR {
-        match value {
-            false => S3RETENTIONR::OFF,
-            true => S3RETENTIONR::ON,
-        }
-    }
-    #[doc = "Checks if the value of the field is `OFF`"]
-    #[inline]
-    pub fn is_off(&self) -> bool {
-        *self == S3RETENTIONR::OFF
-    }
-    #[doc = "Checks if the value of the field is `ON`"]
-    #[inline]
-    pub fn is_on(&self) -> bool {
-        *self == S3RETENTIONR::ON
-    }
-}
-#[doc = "Values that can be written to the field `S0POWER`"]
-pub enum S0POWERW {
-    #[doc = "Off"]
-    OFF,
-    #[doc = "On"]
-    ON,
-}
-impl S0POWERW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S0POWERW::OFF => false,
-            S0POWERW::ON => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _S0POWERW<'a> {
+#[doc = "Write proxy for field `S0POWER`"]
+pub struct S0POWER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S0POWERW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S0POWERW) -> &'a mut W {
+impl<'a> S0POWER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S0POWER_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S0POWERW::OFF)
+        self.variant(S0POWER_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S0POWERW::ON)
+        self.variant(S0POWER_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S1POWER`"]
-pub enum S1POWERW {
-    #[doc = "Off"]
+#[doc = "Keep RAM section S1 of RAM n on or off in System ON mode\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S1POWER_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S1POWERW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S1POWERW::OFF => false,
-            S1POWERW::ON => true,
+impl From<S1POWER_A> for bool {
+    #[inline(always)]
+    fn from(variant: S1POWER_A) -> Self {
+        match variant {
+            S1POWER_A::OFF => false,
+            S1POWER_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S1POWERW<'a> {
+#[doc = "Reader of field `S1POWER`"]
+pub type S1POWER_R = crate::R<bool, S1POWER_A>;
+impl S1POWER_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S1POWER_A {
+        match self.bits {
+            false => S1POWER_A::OFF,
+            true => S1POWER_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S1POWER_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S1POWER_A::ON
+    }
+}
+#[doc = "Write proxy for field `S1POWER`"]
+pub struct S1POWER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S1POWERW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S1POWERW) -> &'a mut W {
+impl<'a> S1POWER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S1POWER_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S1POWERW::OFF)
+        self.variant(S1POWER_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S1POWERW::ON)
+        self.variant(S1POWER_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S2POWER`"]
-pub enum S2POWERW {
-    #[doc = "Off"]
+#[doc = "Keep RAM section S2 of RAM n on or off in System ON mode\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S2POWER_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S2POWERW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S2POWERW::OFF => false,
-            S2POWERW::ON => true,
+impl From<S2POWER_A> for bool {
+    #[inline(always)]
+    fn from(variant: S2POWER_A) -> Self {
+        match variant {
+            S2POWER_A::OFF => false,
+            S2POWER_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S2POWERW<'a> {
+#[doc = "Reader of field `S2POWER`"]
+pub type S2POWER_R = crate::R<bool, S2POWER_A>;
+impl S2POWER_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S2POWER_A {
+        match self.bits {
+            false => S2POWER_A::OFF,
+            true => S2POWER_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S2POWER_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S2POWER_A::ON
+    }
+}
+#[doc = "Write proxy for field `S2POWER`"]
+pub struct S2POWER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S2POWERW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S2POWERW) -> &'a mut W {
+impl<'a> S2POWER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S2POWER_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S2POWERW::OFF)
+        self.variant(S2POWER_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S2POWERW::ON)
+        self.variant(S2POWER_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S3POWER`"]
-pub enum S3POWERW {
-    #[doc = "Off"]
+#[doc = "Keep RAM section S3 of RAM n on or off in System ON mode\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S3POWER_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S3POWERW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S3POWERW::OFF => false,
-            S3POWERW::ON => true,
+impl From<S3POWER_A> for bool {
+    #[inline(always)]
+    fn from(variant: S3POWER_A) -> Self {
+        match variant {
+            S3POWER_A::OFF => false,
+            S3POWER_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S3POWERW<'a> {
+#[doc = "Reader of field `S3POWER`"]
+pub type S3POWER_R = crate::R<bool, S3POWER_A>;
+impl S3POWER_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S3POWER_A {
+        match self.bits {
+            false => S3POWER_A::OFF,
+            true => S3POWER_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S3POWER_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S3POWER_A::ON
+    }
+}
+#[doc = "Write proxy for field `S3POWER`"]
+pub struct S3POWER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S3POWERW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S3POWERW) -> &'a mut W {
+impl<'a> S3POWER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S3POWER_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S3POWERW::OFF)
+        self.variant(S3POWER_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S3POWERW::ON)
+        self.variant(S3POWER_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S0RETENTION`"]
-pub enum S0RETENTIONW {
-    #[doc = "Off"]
+#[doc = "Keep retention on RAM section S0 of RAM n when RAM section is switched off\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S0RETENTION_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S0RETENTIONW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S0RETENTIONW::OFF => false,
-            S0RETENTIONW::ON => true,
+impl From<S0RETENTION_A> for bool {
+    #[inline(always)]
+    fn from(variant: S0RETENTION_A) -> Self {
+        match variant {
+            S0RETENTION_A::OFF => false,
+            S0RETENTION_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S0RETENTIONW<'a> {
+#[doc = "Reader of field `S0RETENTION`"]
+pub type S0RETENTION_R = crate::R<bool, S0RETENTION_A>;
+impl S0RETENTION_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S0RETENTION_A {
+        match self.bits {
+            false => S0RETENTION_A::OFF,
+            true => S0RETENTION_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S0RETENTION_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S0RETENTION_A::ON
+    }
+}
+#[doc = "Write proxy for field `S0RETENTION`"]
+pub struct S0RETENTION_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S0RETENTIONW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S0RETENTIONW) -> &'a mut W {
+impl<'a> S0RETENTION_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S0RETENTION_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S0RETENTIONW::OFF)
+        self.variant(S0RETENTION_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S0RETENTIONW::ON)
+        self.variant(S0RETENTION_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S1RETENTION`"]
-pub enum S1RETENTIONW {
-    #[doc = "Off"]
+#[doc = "Keep retention on RAM section S1 of RAM n when RAM section is switched off\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S1RETENTION_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S1RETENTIONW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S1RETENTIONW::OFF => false,
-            S1RETENTIONW::ON => true,
+impl From<S1RETENTION_A> for bool {
+    #[inline(always)]
+    fn from(variant: S1RETENTION_A) -> Self {
+        match variant {
+            S1RETENTION_A::OFF => false,
+            S1RETENTION_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S1RETENTIONW<'a> {
+#[doc = "Reader of field `S1RETENTION`"]
+pub type S1RETENTION_R = crate::R<bool, S1RETENTION_A>;
+impl S1RETENTION_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S1RETENTION_A {
+        match self.bits {
+            false => S1RETENTION_A::OFF,
+            true => S1RETENTION_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S1RETENTION_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S1RETENTION_A::ON
+    }
+}
+#[doc = "Write proxy for field `S1RETENTION`"]
+pub struct S1RETENTION_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S1RETENTIONW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S1RETENTIONW) -> &'a mut W {
+impl<'a> S1RETENTION_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S1RETENTION_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S1RETENTIONW::OFF)
+        self.variant(S1RETENTION_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S1RETENTIONW::ON)
+        self.variant(S1RETENTION_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S2RETENTION`"]
-pub enum S2RETENTIONW {
-    #[doc = "Off"]
+#[doc = "Keep retention on RAM section S2 of RAM n when RAM section is switched off\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S2RETENTION_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S2RETENTIONW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S2RETENTIONW::OFF => false,
-            S2RETENTIONW::ON => true,
+impl From<S2RETENTION_A> for bool {
+    #[inline(always)]
+    fn from(variant: S2RETENTION_A) -> Self {
+        match variant {
+            S2RETENTION_A::OFF => false,
+            S2RETENTION_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S2RETENTIONW<'a> {
+#[doc = "Reader of field `S2RETENTION`"]
+pub type S2RETENTION_R = crate::R<bool, S2RETENTION_A>;
+impl S2RETENTION_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S2RETENTION_A {
+        match self.bits {
+            false => S2RETENTION_A::OFF,
+            true => S2RETENTION_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S2RETENTION_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S2RETENTION_A::ON
+    }
+}
+#[doc = "Write proxy for field `S2RETENTION`"]
+pub struct S2RETENTION_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S2RETENTIONW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S2RETENTIONW) -> &'a mut W {
+impl<'a> S2RETENTION_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S2RETENTION_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S2RETENTIONW::OFF)
+        self.variant(S2RETENTION_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S2RETENTIONW::ON)
+        self.variant(S2RETENTION_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `S3RETENTION`"]
-pub enum S3RETENTIONW {
-    #[doc = "Off"]
+#[doc = "Keep retention on RAM section S3 of RAM n when RAM section is switched off\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum S3RETENTION_A {
+    #[doc = "0: Off"]
     OFF,
-    #[doc = "On"]
+    #[doc = "1: On"]
     ON,
 }
-impl S3RETENTIONW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            S3RETENTIONW::OFF => false,
-            S3RETENTIONW::ON => true,
+impl From<S3RETENTION_A> for bool {
+    #[inline(always)]
+    fn from(variant: S3RETENTION_A) -> Self {
+        match variant {
+            S3RETENTION_A::OFF => false,
+            S3RETENTION_A::ON => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _S3RETENTIONW<'a> {
+#[doc = "Reader of field `S3RETENTION`"]
+pub type S3RETENTION_R = crate::R<bool, S3RETENTION_A>;
+impl S3RETENTION_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> S3RETENTION_A {
+        match self.bits {
+            false => S3RETENTION_A::OFF,
+            true => S3RETENTION_A::ON,
+        }
+    }
+    #[doc = "Checks if the value of the field is `OFF`"]
+    #[inline(always)]
+    pub fn is_off(&self) -> bool {
+        *self == S3RETENTION_A::OFF
+    }
+    #[doc = "Checks if the value of the field is `ON`"]
+    #[inline(always)]
+    pub fn is_on(&self) -> bool {
+        *self == S3RETENTION_A::ON
+    }
+}
+#[doc = "Write proxy for field `S3RETENTION`"]
+pub struct S3RETENTION_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _S3RETENTIONW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: S3RETENTIONW) -> &'a mut W {
+impl<'a> S3RETENTION_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: S3RETENTION_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Off"]
-    #[inline]
+    #[inline(always)]
     pub fn off(self) -> &'a mut W {
-        self.variant(S3RETENTIONW::OFF)
+        self.variant(S3RETENTION_A::OFF)
     }
     #[doc = "On"]
-    #[inline]
+    #[inline(always)]
     pub fn on(self) -> &'a mut W {
-        self.variant(S3RETENTIONW::ON)
+        self.variant(S3RETENTION_A::ON)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Keep RAM section S0 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s0power(&self) -> S0POWERR {
-        S0POWERR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s0power(&self) -> S0POWER_R {
+        S0POWER_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Keep RAM section S1 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s1power(&self) -> S1POWERR {
-        S1POWERR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s1power(&self) -> S1POWER_R {
+        S1POWER_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Keep RAM section S2 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s2power(&self) -> S2POWERR {
-        S2POWERR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s2power(&self) -> S2POWER_R {
+        S2POWER_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Keep RAM section S3 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s3power(&self) -> S3POWERR {
-        S3POWERR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s3power(&self) -> S3POWER_R {
+        S3POWER_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Keep retention on RAM section S0 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s0retention(&self) -> S0RETENTIONR {
-        S0RETENTIONR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s0retention(&self) -> S0RETENTION_R {
+        S0RETENTION_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Keep retention on RAM section S1 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s1retention(&self) -> S1RETENTIONR {
-        S1RETENTIONR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s1retention(&self) -> S1RETENTION_R {
+        S1RETENTION_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Keep retention on RAM section S2 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s2retention(&self) -> S2RETENTIONR {
-        S2RETENTIONR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s2retention(&self) -> S2RETENTION_R {
+        S2RETENTION_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Keep retention on RAM section S3 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s3retention(&self) -> S3RETENTIONR {
-        S3RETENTIONR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn s3retention(&self) -> S3RETENTION_R {
+        S3RETENTION_R::new(((self.bits >> 19) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 65535 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Keep RAM section S0 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s0power(&mut self) -> _S0POWERW {
-        _S0POWERW { w: self }
+    #[inline(always)]
+    pub fn s0power(&mut self) -> S0POWER_W {
+        S0POWER_W { w: self }
     }
     #[doc = "Bit 1 - Keep RAM section S1 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s1power(&mut self) -> _S1POWERW {
-        _S1POWERW { w: self }
+    #[inline(always)]
+    pub fn s1power(&mut self) -> S1POWER_W {
+        S1POWER_W { w: self }
     }
     #[doc = "Bit 2 - Keep RAM section S2 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s2power(&mut self) -> _S2POWERW {
-        _S2POWERW { w: self }
+    #[inline(always)]
+    pub fn s2power(&mut self) -> S2POWER_W {
+        S2POWER_W { w: self }
     }
     #[doc = "Bit 3 - Keep RAM section S3 of RAM n on or off in System ON mode"]
-    #[inline]
-    pub fn s3power(&mut self) -> _S3POWERW {
-        _S3POWERW { w: self }
+    #[inline(always)]
+    pub fn s3power(&mut self) -> S3POWER_W {
+        S3POWER_W { w: self }
     }
     #[doc = "Bit 16 - Keep retention on RAM section S0 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s0retention(&mut self) -> _S0RETENTIONW {
-        _S0RETENTIONW { w: self }
+    #[inline(always)]
+    pub fn s0retention(&mut self) -> S0RETENTION_W {
+        S0RETENTION_W { w: self }
     }
     #[doc = "Bit 17 - Keep retention on RAM section S1 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s1retention(&mut self) -> _S1RETENTIONW {
-        _S1RETENTIONW { w: self }
+    #[inline(always)]
+    pub fn s1retention(&mut self) -> S1RETENTION_W {
+        S1RETENTION_W { w: self }
     }
     #[doc = "Bit 18 - Keep retention on RAM section S2 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s2retention(&mut self) -> _S2RETENTIONW {
-        _S2RETENTIONW { w: self }
+    #[inline(always)]
+    pub fn s2retention(&mut self) -> S2RETENTION_W {
+        S2RETENTION_W { w: self }
     }
     #[doc = "Bit 19 - Keep retention on RAM section S3 of RAM n when RAM section is switched off"]
-    #[inline]
-    pub fn s3retention(&mut self) -> _S3RETENTIONW {
-        _S3RETENTIONW { w: self }
+    #[inline(always)]
+    pub fn s3retention(&mut self) -> S3RETENTION_W {
+        S3RETENTION_W { w: self }
     }
 }

@@ -1,132 +1,92 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::INTPEND {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `HFCLKSTARTED`"]
+#[doc = "Reader of register INTPEND"]
+pub type R = crate::R<u32, super::INTPEND>;
+#[doc = "Read pending status of interrupt for event HFCLKSTARTED\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum HFCLKSTARTEDR {
-    #[doc = "Read: Not pending"]
+pub enum HFCLKSTARTED_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl HFCLKSTARTEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            HFCLKSTARTEDR::NOTPENDING => false,
-            HFCLKSTARTEDR::PENDING => true,
+impl From<HFCLKSTARTED_A> for bool {
+    #[inline(always)]
+    fn from(variant: HFCLKSTARTED_A) -> Self {
+        match variant {
+            HFCLKSTARTED_A::NOTPENDING => false,
+            HFCLKSTARTED_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> HFCLKSTARTEDR {
-        match value {
-            false => HFCLKSTARTEDR::NOTPENDING,
-            true => HFCLKSTARTEDR::PENDING,
+}
+#[doc = "Reader of field `HFCLKSTARTED`"]
+pub type HFCLKSTARTED_R = crate::R<bool, HFCLKSTARTED_A>;
+impl HFCLKSTARTED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> HFCLKSTARTED_A {
+        match self.bits {
+            false => HFCLKSTARTED_A::NOTPENDING,
+            true => HFCLKSTARTED_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == HFCLKSTARTEDR::NOTPENDING
+        *self == HFCLKSTARTED_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == HFCLKSTARTEDR::PENDING
+        *self == HFCLKSTARTED_A::PENDING
     }
 }
-#[doc = "Possible values of the field `LFCLKSTARTED`"]
+#[doc = "Read pending status of interrupt for event LFCLKSTARTED\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LFCLKSTARTEDR {
-    #[doc = "Read: Not pending"]
+pub enum LFCLKSTARTED_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl LFCLKSTARTEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LFCLKSTARTEDR::NOTPENDING => false,
-            LFCLKSTARTEDR::PENDING => true,
+impl From<LFCLKSTARTED_A> for bool {
+    #[inline(always)]
+    fn from(variant: LFCLKSTARTED_A) -> Self {
+        match variant {
+            LFCLKSTARTED_A::NOTPENDING => false,
+            LFCLKSTARTED_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LFCLKSTARTEDR {
-        match value {
-            false => LFCLKSTARTEDR::NOTPENDING,
-            true => LFCLKSTARTEDR::PENDING,
+}
+#[doc = "Reader of field `LFCLKSTARTED`"]
+pub type LFCLKSTARTED_R = crate::R<bool, LFCLKSTARTED_A>;
+impl LFCLKSTARTED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LFCLKSTARTED_A {
+        match self.bits {
+            false => LFCLKSTARTED_A::NOTPENDING,
+            true => LFCLKSTARTED_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == LFCLKSTARTEDR::NOTPENDING
+        *self == LFCLKSTARTED_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == LFCLKSTARTEDR::PENDING
+        *self == LFCLKSTARTED_A::PENDING
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Read pending status of interrupt for event HFCLKSTARTED"]
-    #[inline]
-    pub fn hfclkstarted(&self) -> HFCLKSTARTEDR {
-        HFCLKSTARTEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn hfclkstarted(&self) -> HFCLKSTARTED_R {
+        HFCLKSTARTED_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Read pending status of interrupt for event LFCLKSTARTED"]
-    #[inline]
-    pub fn lfclkstarted(&self) -> LFCLKSTARTEDR {
-        LFCLKSTARTEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lfclkstarted(&self) -> LFCLKSTARTED_R {
+        LFCLKSTARTED_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }

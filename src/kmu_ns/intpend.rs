@@ -1,188 +1,136 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::INTPEND {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `KEYSLOT_PUSHED`"]
+#[doc = "Reader of register INTPEND"]
+pub type R = crate::R<u32, super::INTPEND>;
+#[doc = "Read pending status of interrupt for event KEYSLOT_PUSHED\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum KEYSLOT_PUSHEDR {
-    #[doc = "Read: Not pending"]
+pub enum KEYSLOT_PUSHED_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl KEYSLOT_PUSHEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            KEYSLOT_PUSHEDR::NOTPENDING => false,
-            KEYSLOT_PUSHEDR::PENDING => true,
+impl From<KEYSLOT_PUSHED_A> for bool {
+    #[inline(always)]
+    fn from(variant: KEYSLOT_PUSHED_A) -> Self {
+        match variant {
+            KEYSLOT_PUSHED_A::NOTPENDING => false,
+            KEYSLOT_PUSHED_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> KEYSLOT_PUSHEDR {
-        match value {
-            false => KEYSLOT_PUSHEDR::NOTPENDING,
-            true => KEYSLOT_PUSHEDR::PENDING,
+}
+#[doc = "Reader of field `KEYSLOT_PUSHED`"]
+pub type KEYSLOT_PUSHED_R = crate::R<bool, KEYSLOT_PUSHED_A>;
+impl KEYSLOT_PUSHED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> KEYSLOT_PUSHED_A {
+        match self.bits {
+            false => KEYSLOT_PUSHED_A::NOTPENDING,
+            true => KEYSLOT_PUSHED_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == KEYSLOT_PUSHEDR::NOTPENDING
+        *self == KEYSLOT_PUSHED_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == KEYSLOT_PUSHEDR::PENDING
+        *self == KEYSLOT_PUSHED_A::PENDING
     }
 }
-#[doc = "Possible values of the field `KEYSLOT_REVOKED`"]
+#[doc = "Read pending status of interrupt for event KEYSLOT_REVOKED\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum KEYSLOT_REVOKEDR {
-    #[doc = "Read: Not pending"]
+pub enum KEYSLOT_REVOKED_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl KEYSLOT_REVOKEDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            KEYSLOT_REVOKEDR::NOTPENDING => false,
-            KEYSLOT_REVOKEDR::PENDING => true,
+impl From<KEYSLOT_REVOKED_A> for bool {
+    #[inline(always)]
+    fn from(variant: KEYSLOT_REVOKED_A) -> Self {
+        match variant {
+            KEYSLOT_REVOKED_A::NOTPENDING => false,
+            KEYSLOT_REVOKED_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> KEYSLOT_REVOKEDR {
-        match value {
-            false => KEYSLOT_REVOKEDR::NOTPENDING,
-            true => KEYSLOT_REVOKEDR::PENDING,
+}
+#[doc = "Reader of field `KEYSLOT_REVOKED`"]
+pub type KEYSLOT_REVOKED_R = crate::R<bool, KEYSLOT_REVOKED_A>;
+impl KEYSLOT_REVOKED_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> KEYSLOT_REVOKED_A {
+        match self.bits {
+            false => KEYSLOT_REVOKED_A::NOTPENDING,
+            true => KEYSLOT_REVOKED_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == KEYSLOT_REVOKEDR::NOTPENDING
+        *self == KEYSLOT_REVOKED_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == KEYSLOT_REVOKEDR::PENDING
+        *self == KEYSLOT_REVOKED_A::PENDING
     }
 }
-#[doc = "Possible values of the field `KEYSLOT_ERROR`"]
+#[doc = "Read pending status of interrupt for event KEYSLOT_ERROR\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum KEYSLOT_ERRORR {
-    #[doc = "Read: Not pending"]
+pub enum KEYSLOT_ERROR_A {
+    #[doc = "0: Read: Not pending"]
     NOTPENDING,
-    #[doc = "Read: Pending"]
+    #[doc = "1: Read: Pending"]
     PENDING,
 }
-impl KEYSLOT_ERRORR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            KEYSLOT_ERRORR::NOTPENDING => false,
-            KEYSLOT_ERRORR::PENDING => true,
+impl From<KEYSLOT_ERROR_A> for bool {
+    #[inline(always)]
+    fn from(variant: KEYSLOT_ERROR_A) -> Self {
+        match variant {
+            KEYSLOT_ERROR_A::NOTPENDING => false,
+            KEYSLOT_ERROR_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> KEYSLOT_ERRORR {
-        match value {
-            false => KEYSLOT_ERRORR::NOTPENDING,
-            true => KEYSLOT_ERRORR::PENDING,
+}
+#[doc = "Reader of field `KEYSLOT_ERROR`"]
+pub type KEYSLOT_ERROR_R = crate::R<bool, KEYSLOT_ERROR_A>;
+impl KEYSLOT_ERROR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> KEYSLOT_ERROR_A {
+        match self.bits {
+            false => KEYSLOT_ERROR_A::NOTPENDING,
+            true => KEYSLOT_ERROR_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOTPENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == KEYSLOT_ERRORR::NOTPENDING
+        *self == KEYSLOT_ERROR_A::NOTPENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == KEYSLOT_ERRORR::PENDING
+        *self == KEYSLOT_ERROR_A::PENDING
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Read pending status of interrupt for event KEYSLOT_PUSHED"]
-    #[inline]
-    pub fn keyslot_pushed(&self) -> KEYSLOT_PUSHEDR {
-        KEYSLOT_PUSHEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn keyslot_pushed(&self) -> KEYSLOT_PUSHED_R {
+        KEYSLOT_PUSHED_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Read pending status of interrupt for event KEYSLOT_REVOKED"]
-    #[inline]
-    pub fn keyslot_revoked(&self) -> KEYSLOT_REVOKEDR {
-        KEYSLOT_REVOKEDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn keyslot_revoked(&self) -> KEYSLOT_REVOKED_R {
+        KEYSLOT_REVOKED_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Read pending status of interrupt for event KEYSLOT_ERROR"]
-    #[inline]
-    pub fn keyslot_error(&self) -> KEYSLOT_ERRORR {
-        KEYSLOT_ERRORR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn keyslot_error(&self) -> KEYSLOT_ERROR_R {
+        KEYSLOT_ERROR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }

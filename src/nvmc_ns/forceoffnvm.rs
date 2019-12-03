@@ -1,388 +1,256 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FORCEOFFNVM {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register FORCEOFFNVM"]
+pub type R = crate::R<u32, super::FORCEOFFNVM>;
+#[doc = "Writer for register FORCEOFFNVM"]
+pub type W = crate::W<u32, super::FORCEOFFNVM>;
+#[doc = "Register FORCEOFFNVM `reset()`'s with value 0"]
+impl crate::ResetValue for super::FORCEOFFNVM {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `FORCEOFFNVM0`"]
+#[doc = "Force off NVM supply 0. Also see the internal section in the NVMC chapter.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FORCEOFFNVM0R {
-    #[doc = "Do not force off supply"]
+pub enum FORCEOFFNVM0_A {
+    #[doc = "0: Do not force off supply"]
     DONOTFORCEOFF,
-    #[doc = "Force off supply"]
+    #[doc = "1: Force off supply"]
     FORCEOFF,
 }
-impl FORCEOFFNVM0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FORCEOFFNVM0R::DONOTFORCEOFF => false,
-            FORCEOFFNVM0R::FORCEOFF => true,
+impl From<FORCEOFFNVM0_A> for bool {
+    #[inline(always)]
+    fn from(variant: FORCEOFFNVM0_A) -> Self {
+        match variant {
+            FORCEOFFNVM0_A::DONOTFORCEOFF => false,
+            FORCEOFFNVM0_A::FORCEOFF => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FORCEOFFNVM0R {
-        match value {
-            false => FORCEOFFNVM0R::DONOTFORCEOFF,
-            true => FORCEOFFNVM0R::FORCEOFF,
+}
+#[doc = "Reader of field `FORCEOFFNVM0`"]
+pub type FORCEOFFNVM0_R = crate::R<bool, FORCEOFFNVM0_A>;
+impl FORCEOFFNVM0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FORCEOFFNVM0_A {
+        match self.bits {
+            false => FORCEOFFNVM0_A::DONOTFORCEOFF,
+            true => FORCEOFFNVM0_A::FORCEOFF,
         }
     }
     #[doc = "Checks if the value of the field is `DONOTFORCEOFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_do_not_force_off(&self) -> bool {
-        *self == FORCEOFFNVM0R::DONOTFORCEOFF
+        *self == FORCEOFFNVM0_A::DONOTFORCEOFF
     }
     #[doc = "Checks if the value of the field is `FORCEOFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_force_off(&self) -> bool {
-        *self == FORCEOFFNVM0R::FORCEOFF
+        *self == FORCEOFFNVM0_A::FORCEOFF
     }
 }
-#[doc = "Possible values of the field `FORCEOFFNVM1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FORCEOFFNVM1R {
-    #[doc = "Do not force off supply"]
-    DONOTFORCEOFF,
-    #[doc = "Force off supply"]
-    FORCEOFF,
+#[doc = "Write proxy for field `FORCEOFFNVM0`"]
+pub struct FORCEOFFNVM0_W<'a> {
+    w: &'a mut W,
 }
-impl FORCEOFFNVM1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FORCEOFFNVM1R::DONOTFORCEOFF => false,
-            FORCEOFFNVM1R::FORCEOFF => true,
+impl<'a> FORCEOFFNVM0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FORCEOFFNVM0_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FORCEOFFNVM1R {
-        match value {
-            false => FORCEOFFNVM1R::DONOTFORCEOFF,
-            true => FORCEOFFNVM1R::FORCEOFF,
+    #[doc = "Do not force off supply"]
+    #[inline(always)]
+    pub fn do_not_force_off(self) -> &'a mut W {
+        self.variant(FORCEOFFNVM0_A::DONOTFORCEOFF)
+    }
+    #[doc = "Force off supply"]
+    #[inline(always)]
+    pub fn force_off(self) -> &'a mut W {
+        self.variant(FORCEOFFNVM0_A::FORCEOFF)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Force off NVM supply 1. Also see the internal section in the NVMC chapter.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FORCEOFFNVM1_A {
+    #[doc = "0: Do not force off supply"]
+    DONOTFORCEOFF,
+    #[doc = "1: Force off supply"]
+    FORCEOFF,
+}
+impl From<FORCEOFFNVM1_A> for bool {
+    #[inline(always)]
+    fn from(variant: FORCEOFFNVM1_A) -> Self {
+        match variant {
+            FORCEOFFNVM1_A::DONOTFORCEOFF => false,
+            FORCEOFFNVM1_A::FORCEOFF => true,
+        }
+    }
+}
+#[doc = "Reader of field `FORCEOFFNVM1`"]
+pub type FORCEOFFNVM1_R = crate::R<bool, FORCEOFFNVM1_A>;
+impl FORCEOFFNVM1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FORCEOFFNVM1_A {
+        match self.bits {
+            false => FORCEOFFNVM1_A::DONOTFORCEOFF,
+            true => FORCEOFFNVM1_A::FORCEOFF,
         }
     }
     #[doc = "Checks if the value of the field is `DONOTFORCEOFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_do_not_force_off(&self) -> bool {
-        *self == FORCEOFFNVM1R::DONOTFORCEOFF
+        *self == FORCEOFFNVM1_A::DONOTFORCEOFF
     }
     #[doc = "Checks if the value of the field is `FORCEOFF`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_force_off(&self) -> bool {
-        *self == FORCEOFFNVM1R::FORCEOFF
+        *self == FORCEOFFNVM1_A::FORCEOFF
     }
 }
-#[doc = "Possible values of the field `KEY`"]
+#[doc = "Write proxy for field `FORCEOFFNVM1`"]
+pub struct FORCEOFFNVM1_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> FORCEOFFNVM1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FORCEOFFNVM1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Do not force off supply"]
+    #[inline(always)]
+    pub fn do_not_force_off(self) -> &'a mut W {
+        self.variant(FORCEOFFNVM1_A::DONOTFORCEOFF)
+    }
+    #[doc = "Force off supply"]
+    #[inline(always)]
+    pub fn force_off(self) -> &'a mut W {
+        self.variant(FORCEOFFNVM1_A::FORCEOFF)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "KEY\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum KEYR {
-    #[doc = "Must be written in order to write to bits 0-7. Any other value will ignore writes to this register. Read as zero."]
+pub enum KEY_A {
+    #[doc = "11325013: Must be written in order to write to bits 0-7. Any other value will ignore writes to this register. Read as zero."]
     ENABLEWRITE,
-    #[doc = r" Reserved"]
-    _Reserved(u32),
 }
-impl KEYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        match *self {
-            KEYR::ENABLEWRITE => 11325013,
-            KEYR::_Reserved(bits) => bits,
+impl From<KEY_A> for u32 {
+    #[inline(always)]
+    fn from(variant: KEY_A) -> Self {
+        match variant {
+            KEY_A::ENABLEWRITE => 11325013,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u32) -> KEYR {
-        match value {
-            11325013 => KEYR::ENABLEWRITE,
-            i => KEYR::_Reserved(i),
+}
+#[doc = "Reader of field `KEY`"]
+pub type KEY_R = crate::R<u32, KEY_A>;
+impl KEY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u32, KEY_A> {
+        use crate::Variant::*;
+        match self.bits {
+            11325013 => Val(KEY_A::ENABLEWRITE),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `ENABLEWRITE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_write(&self) -> bool {
-        *self == KEYR::ENABLEWRITE
+        *self == KEY_A::ENABLEWRITE
     }
 }
-#[doc = "Values that can be written to the field `FORCEOFFNVM0`"]
-pub enum FORCEOFFNVM0W {
-    #[doc = "Do not force off supply"]
-    DONOTFORCEOFF,
-    #[doc = "Force off supply"]
-    FORCEOFF,
-}
-impl FORCEOFFNVM0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FORCEOFFNVM0W::DONOTFORCEOFF => false,
-            FORCEOFFNVM0W::FORCEOFF => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FORCEOFFNVM0W<'a> {
+#[doc = "Write proxy for field `KEY`"]
+pub struct KEY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FORCEOFFNVM0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FORCEOFFNVM0W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Do not force off supply"]
-    #[inline]
-    pub fn do_not_force_off(self) -> &'a mut W {
-        self.variant(FORCEOFFNVM0W::DONOTFORCEOFF)
-    }
-    #[doc = "Force off supply"]
-    #[inline]
-    pub fn force_off(self) -> &'a mut W {
-        self.variant(FORCEOFFNVM0W::FORCEOFF)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `FORCEOFFNVM1`"]
-pub enum FORCEOFFNVM1W {
-    #[doc = "Do not force off supply"]
-    DONOTFORCEOFF,
-    #[doc = "Force off supply"]
-    FORCEOFF,
-}
-impl FORCEOFFNVM1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FORCEOFFNVM1W::DONOTFORCEOFF => false,
-            FORCEOFFNVM1W::FORCEOFF => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FORCEOFFNVM1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _FORCEOFFNVM1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FORCEOFFNVM1W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Do not force off supply"]
-    #[inline]
-    pub fn do_not_force_off(self) -> &'a mut W {
-        self.variant(FORCEOFFNVM1W::DONOTFORCEOFF)
-    }
-    #[doc = "Force off supply"]
-    #[inline]
-    pub fn force_off(self) -> &'a mut W {
-        self.variant(FORCEOFFNVM1W::FORCEOFF)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `KEY`"]
-pub enum KEYW {
-    #[doc = "Must be written in order to write to bits 0-7. Any other value will ignore writes to this register. Read as zero."]
-    ENABLEWRITE,
-}
-impl KEYW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u32 {
-        match *self {
-            KEYW::ENABLEWRITE => 11325013,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _KEYW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _KEYW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: KEYW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> KEY_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: KEY_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Must be written in order to write to bits 0-7. Any other value will ignore writes to this register. Read as zero."]
-    #[inline]
+    #[inline(always)]
     pub fn enable_write(self) -> &'a mut W {
-        self.variant(KEYW::ENABLEWRITE)
+        self.variant(KEY_A::ENABLEWRITE)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 16777215;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | (((value as u32) & 0x00ff_ffff) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Force off NVM supply 0. Also see the internal section in the NVMC chapter."]
-    #[inline]
-    pub fn forceoffnvm0(&self) -> FORCEOFFNVM0R {
-        FORCEOFFNVM0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn forceoffnvm0(&self) -> FORCEOFFNVM0_R {
+        FORCEOFFNVM0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Force off NVM supply 1. Also see the internal section in the NVMC chapter."]
-    #[inline]
-    pub fn forceoffnvm1(&self) -> FORCEOFFNVM1R {
-        FORCEOFFNVM1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn forceoffnvm1(&self) -> FORCEOFFNVM1_R {
+        FORCEOFFNVM1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bits 8:31 - KEY"]
-    #[inline]
-    pub fn key(&self) -> KEYR {
-        KEYR::_from({
-            const MASK: u32 = 16777215;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        })
+    #[inline(always)]
+    pub fn key(&self) -> KEY_R {
+        KEY_R::new(((self.bits >> 8) & 0x00ff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Force off NVM supply 0. Also see the internal section in the NVMC chapter."]
-    #[inline]
-    pub fn forceoffnvm0(&mut self) -> _FORCEOFFNVM0W {
-        _FORCEOFFNVM0W { w: self }
+    #[inline(always)]
+    pub fn forceoffnvm0(&mut self) -> FORCEOFFNVM0_W {
+        FORCEOFFNVM0_W { w: self }
     }
     #[doc = "Bit 1 - Force off NVM supply 1. Also see the internal section in the NVMC chapter."]
-    #[inline]
-    pub fn forceoffnvm1(&mut self) -> _FORCEOFFNVM1W {
-        _FORCEOFFNVM1W { w: self }
+    #[inline(always)]
+    pub fn forceoffnvm1(&mut self) -> FORCEOFFNVM1_W {
+        FORCEOFFNVM1_W { w: self }
     }
     #[doc = "Bits 8:31 - KEY"]
-    #[inline]
-    pub fn key(&mut self) -> _KEYW {
-        _KEYW { w: self }
+    #[inline(always)]
+    pub fn key(&mut self) -> KEY_W {
+        KEY_W { w: self }
     }
 }
