@@ -11,7 +11,7 @@ keywords = [
     "cortex-m",
     "nordic",
 ]
-repository = "https://github.com/themadinventor/nrf91-rs"
+repository = "https://github.com/nrf-rs/nrf91"
 
 [dependencies]
 bare-metal = "0.2.0"
