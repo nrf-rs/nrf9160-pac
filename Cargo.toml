@@ -1,7 +1,10 @@
 [package]
-name = "nrf91"
+name = "nrf9160-pac"
 version = "0.2.0"
-authors = ["Fredrik Ahlberg <fredrik@z80.se>"]
+authors = [
+	"Fredrik Ahlberg <fredrik@z80.se>",
+	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
+]
 description = "Device support crate for nRF9160"
 license = "0BSD"
 categories = ["embedded"]
