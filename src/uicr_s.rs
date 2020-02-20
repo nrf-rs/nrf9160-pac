@@ -26,9 +26,9 @@ pub struct RegisterBlock {
 #[repr(C)]
 pub struct KEYSLOT {
     #[doc = "0x00 - Unspecified"]
-    pub config: [CONFIG; 128],
+    pub config: [keyslot::CONFIG; 128],
     #[doc = "0x400 - Unspecified"]
-    pub key: [KEY; 128],
+    pub key: [keyslot::KEY; 128],
 }
 #[doc = r"Register block"]
 #[doc = "Unspecified"]
