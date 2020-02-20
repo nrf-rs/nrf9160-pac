@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PERM {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WRITE_A {
     #[doc = "0: Disable write to the key value registers"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable write to the key value registers"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WRITE_A> for bool {
     #[inline(always)]
     fn from(variant: WRITE_A) -> Self {
-        match variant {
-            WRITE_A::DISABLED => false,
-            WRITE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WRITE`"]
@@ -92,17 +89,14 @@ impl<'a> WRITE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READ_A {
     #[doc = "0: Disable read from key value registers"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable read from key value registers"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<READ_A> for bool {
     #[inline(always)]
     fn from(variant: READ_A) -> Self {
-        match variant {
-            READ_A::DISABLED => false,
-            READ_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READ`"]
@@ -170,17 +164,14 @@ impl<'a> READ_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PUSH_A {
     #[doc = "0: Disable pushing of key value registers over secure APB, but can be read if field READ is Enabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable pushing of key value registers over secure APB. Register KEYSLOT.CONFIGn.DEST must contain a valid destination address!"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PUSH_A> for bool {
     #[inline(always)]
     fn from(variant: PUSH_A) -> Self {
-        match variant {
-            PUSH_A::DISABLED => false,
-            PUSH_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PUSH`"]
@@ -248,17 +239,14 @@ impl<'a> PUSH_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATE_A {
     #[doc = "0: Key value registers can no longer be read or pushed"]
-    REVOKED,
+    REVOKED = 0,
     #[doc = "1: Key value registers are readable (if enabled) and can be pushed (if enabled)"]
-    ACTIVE,
+    ACTIVE = 1,
 }
 impl From<STATE_A> for bool {
     #[inline(always)]
     fn from(variant: STATE_A) -> Self {
-        match variant {
-            STATE_A::REVOKED => false,
-            STATE_A::ACTIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STATE`"]

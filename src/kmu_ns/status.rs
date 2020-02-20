@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::STATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SELECTED_A {
     #[doc = "0: No key slot ID selected by KMU"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Key slot ID successfully selected by KMU"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SELECTED_A> for bool {
     #[inline(always)]
     fn from(variant: SELECTED_A) -> Self {
-        match variant {
-            SELECTED_A::DISABLED => false,
-            SELECTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SELECTED`"]
@@ -43,17 +40,14 @@ impl SELECTED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BLOCKED_A {
     #[doc = "0: No access violation detected"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Access violation detected and blocked"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<BLOCKED_A> for bool {
     #[inline(always)]
     fn from(variant: BLOCKED_A) -> Self {
-        match variant {
-            BLOCKED_A::DISABLED => false,
-            BLOCKED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BLOCKED`"]

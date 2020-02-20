@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::INTPEND>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HFCLKSTARTED_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<HFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: HFCLKSTARTED_A) -> Self {
-        match variant {
-            HFCLKSTARTED_A::NOTPENDING => false,
-            HFCLKSTARTED_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HFCLKSTARTED`"]
@@ -43,17 +40,14 @@ impl HFCLKSTARTED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LFCLKSTARTED_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<LFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: LFCLKSTARTED_A) -> Self {
-        match variant {
-            LFCLKSTARTED_A::NOTPENDING => false,
-            LFCLKSTARTED_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LFCLKSTARTED`"]

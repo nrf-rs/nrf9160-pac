@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::CAP>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TZM_A {
     #[doc = "0: ARM TrustZone support not available"]
-    NOTAVAILABLE,
+    NOTAVAILABLE = 0,
     #[doc = "1: ARM TrustZone support is available"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TZM_A> for bool {
     #[inline(always)]
     fn from(variant: TZM_A) -> Self {
-        match variant {
-            TZM_A::NOTAVAILABLE => false,
-            TZM_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TZM`"]

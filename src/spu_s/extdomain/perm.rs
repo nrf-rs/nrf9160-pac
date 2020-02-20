@@ -12,22 +12,19 @@ impl crate::ResetValue for super::PERM {
 }
 #[doc = "Define configuration capabilities for TrustZone Cortex-M secure attribute\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SECUREMAPPING_A {
     #[doc = "0: The bus access from this external domain always have the non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
     #[doc = "1: The bus access from this external domain always have the secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "2: Non-secure or secure attribute for bus access from this domain is defined by the EXTDOMAIN\\[n\\].PERM register"]
-    USERSELECTABLE,
+    USERSELECTABLE = 2,
 }
 impl From<SECUREMAPPING_A> for u8 {
     #[inline(always)]
     fn from(variant: SECUREMAPPING_A) -> Self {
-        match variant {
-            SECUREMAPPING_A::NONSECURE => 0,
-            SECUREMAPPING_A::SECURE => 1,
-            SECUREMAPPING_A::USERSELECTABLE => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SECUREMAPPING`"]
@@ -96,17 +93,14 @@ impl<'a> SECUREMAPPING_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SECATTR_A {
     #[doc = "0: Bus accesses from this domain have the non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
     #[doc = "1: Bus accesses from this domain have secure attribute set"]
-    SECURE,
+    SECURE = 1,
 }
 impl From<SECATTR_A> for bool {
     #[inline(always)]
     fn from(variant: SECATTR_A) -> Self {
-        match variant {
-            SECATTR_A::NONSECURE => false,
-            SECATTR_A::SECURE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SECATTR`"]
@@ -174,17 +168,14 @@ impl<'a> SECATTR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "0: This register can be updated"]
-    UNLOCKED,
+    UNLOCKED = 0,
     #[doc = "1: The content of this register can't be changed until the next reset"]
-    LOCKED,
+    LOCKED = 1,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::UNLOCKED => false,
-            LOCK_A::LOCKED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]

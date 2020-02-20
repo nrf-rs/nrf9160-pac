@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PERM {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL0_A {
     #[doc = "1: Channel0 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel0 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL0_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL0_A) -> Self {
-        match variant {
-            CHANNEL0_A::SECURE => true,
-            CHANNEL0_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL0`"]
@@ -92,17 +89,14 @@ impl<'a> CHANNEL0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL1_A {
     #[doc = "1: Channel1 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel1 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL1_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL1_A) -> Self {
-        match variant {
-            CHANNEL1_A::SECURE => true,
-            CHANNEL1_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL1`"]
@@ -170,17 +164,14 @@ impl<'a> CHANNEL1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL2_A {
     #[doc = "1: Channel2 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel2 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL2_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL2_A) -> Self {
-        match variant {
-            CHANNEL2_A::SECURE => true,
-            CHANNEL2_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL2`"]
@@ -248,17 +239,14 @@ impl<'a> CHANNEL2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL3_A {
     #[doc = "1: Channel3 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel3 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL3_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL3_A) -> Self {
-        match variant {
-            CHANNEL3_A::SECURE => true,
-            CHANNEL3_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL3`"]
@@ -326,17 +314,14 @@ impl<'a> CHANNEL3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL4_A {
     #[doc = "1: Channel4 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel4 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL4_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL4_A) -> Self {
-        match variant {
-            CHANNEL4_A::SECURE => true,
-            CHANNEL4_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL4`"]
@@ -404,17 +389,14 @@ impl<'a> CHANNEL4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL5_A {
     #[doc = "1: Channel5 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel5 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL5_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL5_A) -> Self {
-        match variant {
-            CHANNEL5_A::SECURE => true,
-            CHANNEL5_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL5`"]
@@ -482,17 +464,14 @@ impl<'a> CHANNEL5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL6_A {
     #[doc = "1: Channel6 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel6 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL6_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL6_A) -> Self {
-        match variant {
-            CHANNEL6_A::SECURE => true,
-            CHANNEL6_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL6`"]
@@ -560,17 +539,14 @@ impl<'a> CHANNEL6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL7_A {
     #[doc = "1: Channel7 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel7 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL7_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL7_A) -> Self {
-        match variant {
-            CHANNEL7_A::SECURE => true,
-            CHANNEL7_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL7`"]
@@ -638,17 +614,14 @@ impl<'a> CHANNEL7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL8_A {
     #[doc = "1: Channel8 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel8 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL8_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL8_A) -> Self {
-        match variant {
-            CHANNEL8_A::SECURE => true,
-            CHANNEL8_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL8`"]
@@ -716,17 +689,14 @@ impl<'a> CHANNEL8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL9_A {
     #[doc = "1: Channel9 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel9 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL9_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL9_A) -> Self {
-        match variant {
-            CHANNEL9_A::SECURE => true,
-            CHANNEL9_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL9`"]
@@ -794,17 +764,14 @@ impl<'a> CHANNEL9_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL10_A {
     #[doc = "1: Channel10 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel10 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL10_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL10_A) -> Self {
-        match variant {
-            CHANNEL10_A::SECURE => true,
-            CHANNEL10_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL10`"]
@@ -872,17 +839,14 @@ impl<'a> CHANNEL10_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL11_A {
     #[doc = "1: Channel11 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel11 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL11_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL11_A) -> Self {
-        match variant {
-            CHANNEL11_A::SECURE => true,
-            CHANNEL11_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL11`"]
@@ -950,17 +914,14 @@ impl<'a> CHANNEL11_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL12_A {
     #[doc = "1: Channel12 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel12 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL12_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL12_A) -> Self {
-        match variant {
-            CHANNEL12_A::SECURE => true,
-            CHANNEL12_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL12`"]
@@ -1028,17 +989,14 @@ impl<'a> CHANNEL12_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL13_A {
     #[doc = "1: Channel13 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel13 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL13_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL13_A) -> Self {
-        match variant {
-            CHANNEL13_A::SECURE => true,
-            CHANNEL13_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL13`"]
@@ -1106,17 +1064,14 @@ impl<'a> CHANNEL13_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL14_A {
     #[doc = "1: Channel14 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel14 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL14_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL14_A) -> Self {
-        match variant {
-            CHANNEL14_A::SECURE => true,
-            CHANNEL14_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL14`"]
@@ -1184,17 +1139,14 @@ impl<'a> CHANNEL14_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHANNEL15_A {
     #[doc = "1: Channel15 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Channel15 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<CHANNEL15_A> for bool {
     #[inline(always)]
     fn from(variant: CHANNEL15_A) -> Self {
-        match variant {
-            CHANNEL15_A::SECURE => true,
-            CHANNEL15_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHANNEL15`"]

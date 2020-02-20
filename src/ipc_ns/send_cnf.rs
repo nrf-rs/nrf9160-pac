@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::SEND_CNF>;
 #[doc = "Writer for register SEND_CNF[%s]"]
 pub type W = crate::W<u32, super::SEND_CNF>;
-#[doc = "Register SEND_CNF[%s] `reset()`'s with value 0"]
+#[doc = "Register SEND_CNF[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::SEND_CNF {
     type Type = u32;
     #[inline(always)]
@@ -14,17 +15,14 @@ impl crate::ResetValue for super::SEND_CNF {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN0_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN0_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN0_A) -> Self {
-        match variant {
-            CHEN0_A::DISABLE => false,
-            CHEN0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN0`"]
@@ -92,17 +90,14 @@ impl<'a> CHEN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN1_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN1_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN1_A) -> Self {
-        match variant {
-            CHEN1_A::DISABLE => false,
-            CHEN1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN1`"]
@@ -170,17 +165,14 @@ impl<'a> CHEN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN2_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN2_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN2_A) -> Self {
-        match variant {
-            CHEN2_A::DISABLE => false,
-            CHEN2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN2`"]
@@ -248,17 +240,14 @@ impl<'a> CHEN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN3_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN3_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN3_A) -> Self {
-        match variant {
-            CHEN3_A::DISABLE => false,
-            CHEN3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN3`"]
@@ -326,17 +315,14 @@ impl<'a> CHEN3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN4_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN4_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN4_A) -> Self {
-        match variant {
-            CHEN4_A::DISABLE => false,
-            CHEN4_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN4`"]
@@ -404,17 +390,14 @@ impl<'a> CHEN4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN5_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN5_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN5_A) -> Self {
-        match variant {
-            CHEN5_A::DISABLE => false,
-            CHEN5_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN5`"]
@@ -482,17 +465,14 @@ impl<'a> CHEN5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN6_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN6_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN6_A) -> Self {
-        match variant {
-            CHEN6_A::DISABLE => false,
-            CHEN6_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN6`"]
@@ -560,17 +540,14 @@ impl<'a> CHEN6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CHEN7_A {
     #[doc = "0: Disable broadcast."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable broadcast."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CHEN7_A> for bool {
     #[inline(always)]
     fn from(variant: CHEN7_A) -> Self {
-        match variant {
-            CHEN7_A::DISABLE => false,
-            CHEN7_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CHEN7`"]

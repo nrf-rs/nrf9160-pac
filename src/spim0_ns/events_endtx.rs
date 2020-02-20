@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EVENTS_ENDTX {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_ENDTX_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_ENDTX_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_ENDTX_A) -> Self {
-        match variant {
-            EVENTS_ENDTX_A::NOTGENERATED => false,
-            EVENTS_ENDTX_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_ENDTX`"]

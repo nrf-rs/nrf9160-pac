@@ -10,66 +10,63 @@ impl crate::ResetValue for super::LOCK {
         0
     }
 }
-#[doc = "Enable or disable the ERASEALL mechanism\n\nValue on reset: 0"]
+#[doc = "Lock register ERASEPROTECT.DISABLE from being written until next reset\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ERASEPROTECTLOCK_A {
-    #[doc = "0: ERASEALL can be issued"]
-    UNLOCKED,
-    #[doc = "1: ERASEALL is locked"]
-    LOCKED,
+pub enum LOCK_A {
+    #[doc = "0: Register ERASEPROTECT.DISABLE is writeable"]
+    UNLOCKED = 0,
+    #[doc = "1: Register ERASEPROTECT.DISABLE is read-only"]
+    LOCKED = 1,
 }
-impl From<ERASEPROTECTLOCK_A> for bool {
+impl From<LOCK_A> for bool {
     #[inline(always)]
-    fn from(variant: ERASEPROTECTLOCK_A) -> Self {
-        match variant {
-            ERASEPROTECTLOCK_A::UNLOCKED => false,
-            ERASEPROTECTLOCK_A::LOCKED => true,
-        }
+    fn from(variant: LOCK_A) -> Self {
+        variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ERASEPROTECTLOCK`"]
-pub type ERASEPROTECTLOCK_R = crate::R<bool, ERASEPROTECTLOCK_A>;
-impl ERASEPROTECTLOCK_R {
+#[doc = "Reader of field `LOCK`"]
+pub type LOCK_R = crate::R<bool, LOCK_A>;
+impl LOCK_R {
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> ERASEPROTECTLOCK_A {
+    pub fn variant(&self) -> LOCK_A {
         match self.bits {
-            false => ERASEPROTECTLOCK_A::UNLOCKED,
-            true => ERASEPROTECTLOCK_A::LOCKED,
+            false => LOCK_A::UNLOCKED,
+            true => LOCK_A::LOCKED,
         }
     }
     #[doc = "Checks if the value of the field is `UNLOCKED`"]
     #[inline(always)]
     pub fn is_unlocked(&self) -> bool {
-        *self == ERASEPROTECTLOCK_A::UNLOCKED
+        *self == LOCK_A::UNLOCKED
     }
     #[doc = "Checks if the value of the field is `LOCKED`"]
     #[inline(always)]
     pub fn is_locked(&self) -> bool {
-        *self == ERASEPROTECTLOCK_A::LOCKED
+        *self == LOCK_A::LOCKED
     }
 }
-#[doc = "Write proxy for field `ERASEPROTECTLOCK`"]
-pub struct ERASEPROTECTLOCK_W<'a> {
+#[doc = "Write proxy for field `LOCK`"]
+pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> ERASEPROTECTLOCK_W<'a> {
+impl<'a> LOCK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
-    pub fn variant(self, variant: ERASEPROTECTLOCK_A) -> &'a mut W {
+    pub fn variant(self, variant: LOCK_A) -> &'a mut W {
         {
             self.bit(variant.into())
         }
     }
-    #[doc = "ERASEALL can be issued"]
+    #[doc = "Register ERASEPROTECT.DISABLE is writeable"]
     #[inline(always)]
     pub fn unlocked(self) -> &'a mut W {
-        self.variant(ERASEPROTECTLOCK_A::UNLOCKED)
+        self.variant(LOCK_A::UNLOCKED)
     }
-    #[doc = "ERASEALL is locked"]
+    #[doc = "Register ERASEPROTECT.DISABLE is read-only"]
     #[inline(always)]
     pub fn locked(self) -> &'a mut W {
-        self.variant(ERASEPROTECTLOCK_A::LOCKED)
+        self.variant(LOCK_A::LOCKED)
     }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
@@ -89,16 +86,16 @@ impl<'a> ERASEPROTECTLOCK_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Enable or disable the ERASEALL mechanism"]
+    #[doc = "Bit 0 - Lock register ERASEPROTECT.DISABLE from being written until next reset"]
     #[inline(always)]
-    pub fn eraseprotectlock(&self) -> ERASEPROTECTLOCK_R {
-        ERASEPROTECTLOCK_R::new((self.bits & 0x01) != 0)
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Enable or disable the ERASEALL mechanism"]
+    #[doc = "Bit 0 - Lock register ERASEPROTECT.DISABLE from being written until next reset"]
     #[inline(always)]
-    pub fn eraseprotectlock(&mut self) -> ERASEPROTECTLOCK_W {
-        ERASEPROTECTLOCK_W { w: self }
+    pub fn lock(&mut self) -> LOCK_W {
+        LOCK_W { w: self }
     }
 }

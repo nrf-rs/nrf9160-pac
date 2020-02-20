@@ -8,18 +8,16 @@ impl crate::ResetValue for super::TASKS_HFCLKSTART {
         0
     }
 }
-#[doc = "Start HFCLK crystal oscillator\n\nValue on reset: 0"]
+#[doc = "Start HFCLK source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TASKS_HFCLKSTART_AW {
     #[doc = "1: Trigger task"]
-    TRIGGER,
+    TRIGGER = 1,
 }
 impl From<TASKS_HFCLKSTART_AW> for bool {
     #[inline(always)]
     fn from(variant: TASKS_HFCLKSTART_AW) -> Self {
-        match variant {
-            TASKS_HFCLKSTART_AW::TRIGGER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TASKS_HFCLKSTART`"]
@@ -57,7 +55,7 @@ impl<'a> TASKS_HFCLKSTART_W<'a> {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Start HFCLK crystal oscillator"]
+    #[doc = "Bit 0 - Start HFCLK source"]
     #[inline(always)]
     pub fn tasks_hfclkstart(&mut self) -> TASKS_HFCLKSTART_W {
         TASKS_HFCLKSTART_W { w: self }

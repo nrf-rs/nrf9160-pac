@@ -1,4 +1,4 @@
-#[doc = "Description collection: Device identifier\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deviceid](deviceid) module"]
+#[doc = "Description collection: Device identifier\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [deviceid](deviceid) module"]
 pub type DEVICEID = crate::Reg<u32, _DEVICEID>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -7,7 +7,7 @@ pub struct _DEVICEID;
 impl crate::Readable for DEVICEID {}
 #[doc = "Description collection: Device identifier"]
 pub mod deviceid;
-#[doc = "Part code\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [part](part) module"]
+#[doc = "Part code\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [part](part) module"]
 pub type PART = crate::Reg<u32, _PART>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -16,7 +16,7 @@ pub struct _PART;
 impl crate::Readable for PART {}
 #[doc = "Part code"]
 pub mod part;
-#[doc = "Part Variant, Hardware version and Production configuration\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [variant](variant) module"]
+#[doc = "Part Variant, Hardware version and Production configuration\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [variant](variant) module"]
 pub type VARIANT = crate::Reg<u32, _VARIANT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct _VARIANT;
 impl crate::Readable for VARIANT {}
 #[doc = "Part Variant, Hardware version and Production configuration"]
 pub mod variant;
-#[doc = "Package option\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [package](package) module"]
+#[doc = "Package option\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [package](package) module"]
 pub type PACKAGE = crate::Reg<u32, _PACKAGE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -34,7 +34,7 @@ pub struct _PACKAGE;
 impl crate::Readable for PACKAGE {}
 #[doc = "Package option"]
 pub mod package;
-#[doc = "RAM variant\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ram](ram) module"]
+#[doc = "RAM variant\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ram](ram) module"]
 pub type RAM = crate::Reg<u32, _RAM>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct _RAM;
 impl crate::Readable for RAM {}
 #[doc = "RAM variant"]
 pub mod ram;
-#[doc = "Flash variant\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [flash](flash) module"]
+#[doc = "Flash variant\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [flash](flash) module"]
 pub type FLASH = crate::Reg<u32, _FLASH>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ pub struct _FLASH;
 impl crate::Readable for FLASH {}
 #[doc = "Flash variant"]
 pub mod flash;
-#[doc = "Code memory page size\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [codepagesize](codepagesize) module"]
+#[doc = "Code memory page size\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [codepagesize](codepagesize) module"]
 pub type CODEPAGESIZE = crate::Reg<u32, _CODEPAGESIZE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct _CODEPAGESIZE;
 impl crate::Readable for CODEPAGESIZE {}
 #[doc = "Code memory page size"]
 pub mod codepagesize;
-#[doc = "Code memory size\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [codesize](codesize) module"]
+#[doc = "Code memory size\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [codesize](codesize) module"]
 pub type CODESIZE = crate::Reg<u32, _CODESIZE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct _CODESIZE;
 impl crate::Readable for CODESIZE {}
 #[doc = "Code memory size"]
 pub mod codesize;
-#[doc = "Device type\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [devicetype](devicetype) module"]
+#[doc = "Device type\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devicetype](devicetype) module"]
 pub type DEVICETYPE = crate::Reg<u32, _DEVICETYPE>;
 #[allow(missing_docs)]
 #[doc(hidden)]

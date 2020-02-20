@@ -12,14 +12,12 @@ impl crate::ResetValue for super::POWERCLR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S0POWER_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S0POWER_AW> for bool {
     #[inline(always)]
     fn from(variant: S0POWER_AW) -> Self {
-        match variant {
-            S0POWER_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S0POWER`"]
@@ -60,14 +58,12 @@ impl<'a> S0POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S1POWER_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S1POWER_AW> for bool {
     #[inline(always)]
     fn from(variant: S1POWER_AW) -> Self {
-        match variant {
-            S1POWER_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S1POWER`"]
@@ -108,14 +104,12 @@ impl<'a> S1POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S2POWER_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S2POWER_AW> for bool {
     #[inline(always)]
     fn from(variant: S2POWER_AW) -> Self {
-        match variant {
-            S2POWER_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S2POWER`"]
@@ -156,14 +150,12 @@ impl<'a> S2POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S3POWER_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S3POWER_AW> for bool {
     #[inline(always)]
     fn from(variant: S3POWER_AW) -> Self {
-        match variant {
-            S3POWER_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S3POWER`"]
@@ -204,14 +196,12 @@ impl<'a> S3POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S0RETENTION_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S0RETENTION_AW> for bool {
     #[inline(always)]
     fn from(variant: S0RETENTION_AW) -> Self {
-        match variant {
-            S0RETENTION_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S0RETENTION`"]
@@ -252,14 +242,12 @@ impl<'a> S0RETENTION_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S1RETENTION_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S1RETENTION_AW> for bool {
     #[inline(always)]
     fn from(variant: S1RETENTION_AW) -> Self {
-        match variant {
-            S1RETENTION_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S1RETENTION`"]
@@ -300,14 +288,12 @@ impl<'a> S1RETENTION_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S2RETENTION_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S2RETENTION_AW> for bool {
     #[inline(always)]
     fn from(variant: S2RETENTION_AW) -> Self {
-        match variant {
-            S2RETENTION_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S2RETENTION`"]
@@ -348,14 +334,12 @@ impl<'a> S2RETENTION_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S3RETENTION_AW {
     #[doc = "1: Off"]
-    OFF,
+    OFF = 1,
 }
 impl From<S3RETENTION_AW> for bool {
     #[inline(always)]
     fn from(variant: S3RETENTION_AW) -> Self {
-        match variant {
-            S3RETENTION_AW::OFF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `S3RETENTION`"]

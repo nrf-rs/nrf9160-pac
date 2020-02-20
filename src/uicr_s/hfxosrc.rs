@@ -14,17 +14,14 @@ impl crate::ResetValue for super::HFXOSRC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HFXOSRC_A {
     #[doc = "1: 32 MHz crystal oscillator"]
-    XTAL,
+    XTAL = 1,
     #[doc = "0: 32 MHz temperature compensated crystal oscillator (TCXO)"]
-    TCXO,
+    TCXO = 0,
 }
 impl From<HFXOSRC_A> for bool {
     #[inline(always)]
     fn from(variant: HFXOSRC_A) -> Self {
-        match variant {
-            HFXOSRC_A::XTAL => true,
-            HFXOSRC_A::TCXO => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HFXOSRC`"]

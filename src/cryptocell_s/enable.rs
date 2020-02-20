@@ -14,17 +14,14 @@ impl crate::ResetValue for super::ENABLE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENABLE_A {
     #[doc = "0: CRYPTOCELL subsystem disabled"]
-    DISABLED,
-    #[doc = "1: CRYPTOCELL subsystem enabled"]
-    ENABLED,
+    DISABLED = 0,
+    #[doc = "1: CRYPTOCELL subsystem enabled."]
+    ENABLED = 1,
 }
 impl From<ENABLE_A> for bool {
     #[inline(always)]
     fn from(variant: ENABLE_A) -> Self {
-        match variant {
-            ENABLE_A::DISABLED => false,
-            ENABLE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENABLE`"]
@@ -66,7 +63,7 @@ impl<'a> ENABLE_W<'a> {
     pub fn disabled(self) -> &'a mut W {
         self.variant(ENABLE_A::DISABLED)
     }
-    #[doc = "CRYPTOCELL subsystem enabled"]
+    #[doc = "CRYPTOCELL subsystem enabled."]
     #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
         self.variant(ENABLE_A::ENABLED)

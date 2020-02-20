@@ -10,21 +10,18 @@ impl crate::ResetValue for super::DETECTMODE_SEC {
         0
     }
 }
-#[doc = "Select between default DETECT signal behaviour and LDETECT mode\n\nValue on reset: 0"]
+#[doc = "Select between default DETECT signal behavior and LDETECT mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DETECTMODE_A {
     #[doc = "0: DETECT directly connected to PIN DETECT signals"]
-    DEFAULT,
-    #[doc = "1: Use the latched LDETECT behaviour"]
-    LDETECT,
+    DEFAULT = 0,
+    #[doc = "1: Use the latched LDETECT behavior"]
+    LDETECT = 1,
 }
 impl From<DETECTMODE_A> for bool {
     #[inline(always)]
     fn from(variant: DETECTMODE_A) -> Self {
-        match variant {
-            DETECTMODE_A::DEFAULT => false,
-            DETECTMODE_A::LDETECT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DETECTMODE`"]
@@ -66,7 +63,7 @@ impl<'a> DETECTMODE_W<'a> {
     pub fn default(self) -> &'a mut W {
         self.variant(DETECTMODE_A::DEFAULT)
     }
-    #[doc = "Use the latched LDETECT behaviour"]
+    #[doc = "Use the latched LDETECT behavior"]
     #[inline(always)]
     pub fn ldetect(self) -> &'a mut W {
         self.variant(DETECTMODE_A::LDETECT)
@@ -89,14 +86,14 @@ impl<'a> DETECTMODE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Select between default DETECT signal behaviour and LDETECT mode"]
+    #[doc = "Bit 0 - Select between default DETECT signal behavior and LDETECT mode"]
     #[inline(always)]
     pub fn detectmode(&self) -> DETECTMODE_R {
         DETECTMODE_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Select between default DETECT signal behaviour and LDETECT mode"]
+    #[doc = "Bit 0 - Select between default DETECT signal behavior and LDETECT mode"]
     #[inline(always)]
     pub fn detectmode(&mut self) -> DETECTMODE_W {
         DETECTMODE_W { w: self }

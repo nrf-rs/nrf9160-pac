@@ -2,22 +2,19 @@
 pub type R = crate::R<u32, super::LFCLKSTAT>;
 #[doc = "Active clock source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SRC_A {
     #[doc = "0: Reserved for future use"]
-    RFU,
+    RFU = 0,
     #[doc = "1: 32.768 kHz RC oscillator"]
-    LFRC,
+    LFRC = 1,
     #[doc = "2: 32.768 kHz crystal oscillator"]
-    LFXO,
+    LFXO = 2,
 }
 impl From<SRC_A> for u8 {
     #[inline(always)]
     fn from(variant: SRC_A) -> Self {
-        match variant {
-            SRC_A::RFU => 0,
-            SRC_A::LFRC => 1,
-            SRC_A::LFXO => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SRC`"]
@@ -54,17 +51,14 @@ impl SRC_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATE_A {
     #[doc = "0: Requested LFCLK source has not been started or LFCLKSTOP task has been triggered"]
-    NOTRUNNING,
+    NOTRUNNING = 0,
     #[doc = "1: Requested LFCLK source has been started (LFCLKSTARTED event has been generated)"]
-    RUNNING,
+    RUNNING = 1,
 }
 impl From<STATE_A> for bool {
     #[inline(always)]
     fn from(variant: STATE_A) -> Self {
-        match variant {
-            STATE_A::NOTRUNNING => false,
-            STATE_A::RUNNING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STATE`"]

@@ -12,19 +12,17 @@ impl crate::ResetValue for super::HFXOCNT {
 }
 #[doc = "HFXO startup counter. Total debounce time = HFXOCNT*64 us + 0.5 us\n\nValue on reset: 255"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum HFXOCNT_A {
     #[doc = "0: Min debounce time = (0*64 us + 0.5 us)"]
-    MINDEBOUNCETIME,
+    MINDEBOUNCETIME = 0,
     #[doc = "255: Max debounce time = (255*64 us + 0.5 us)"]
-    MAXDEBOUNCETIME,
+    MAXDEBOUNCETIME = 255,
 }
 impl From<HFXOCNT_A> for u8 {
     #[inline(always)]
     fn from(variant: HFXOCNT_A) -> Self {
-        match variant {
-            HFXOCNT_A::MINDEBOUNCETIME => 0,
-            HFXOCNT_A::MAXDEBOUNCETIME => 255,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `HFXOCNT`"]

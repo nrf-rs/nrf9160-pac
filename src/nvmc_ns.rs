@@ -29,14 +29,8 @@ pub struct RegisterBlock {
     pub configns: CONFIGNS,
     #[doc = "0x588 - Non-secure APPROTECT enable register"]
     pub writeuicrns: WRITEUICRNS,
-    _reserved10: [u8; 372usize],
-    #[doc = "0x700 - Force on all NVM supplies. Also see the internal section in the NVMC chapter."]
-    pub forceonnvm: FORCEONNVM,
-    _reserved11: [u8; 36usize],
-    #[doc = "0x728 - Force off NVM supply. Also see the internal section in the NVMC chapter."]
-    pub forceoffnvm: FORCEOFFNVM,
 }
-#[doc = "Ready flag\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ready](ready) module"]
+#[doc = "Ready flag\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ready](ready) module"]
 pub type READY = crate::Reg<u32, _READY>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -45,7 +39,7 @@ pub struct _READY;
 impl crate::Readable for READY {}
 #[doc = "Ready flag"]
 pub mod ready;
-#[doc = "Ready flag\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [readynext](readynext) module"]
+#[doc = "Ready flag\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [readynext](readynext) module"]
 pub type READYNEXT = crate::Reg<u32, _READYNEXT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -54,7 +48,7 @@ pub struct _READYNEXT;
 impl crate::Readable for READYNEXT {}
 #[doc = "Ready flag"]
 pub mod readynext;
-#[doc = "Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [config](config) module"]
+#[doc = "Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config](config) module"]
 pub type CONFIG = crate::Reg<u32, _CONFIG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -65,18 +59,16 @@ impl crate::Readable for CONFIG {}
 impl crate::Writable for CONFIG {}
 #[doc = "Configuration register"]
 pub mod config;
-#[doc = "Register for erasing all non-volatile user memory\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [eraseall](eraseall) module"]
+#[doc = "Register for erasing all non-volatile user memory\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [eraseall](eraseall) module"]
 pub type ERASEALL = crate::Reg<u32, _ERASEALL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
 pub struct _ERASEALL;
-#[doc = "`read()` method returns [eraseall::R](eraseall::R) reader structure"]
-impl crate::Readable for ERASEALL {}
 #[doc = "`write(|w| ..)` method takes [eraseall::W](eraseall::W) writer structure"]
 impl crate::Writable for ERASEALL {}
 #[doc = "Register for erasing all non-volatile user memory"]
 pub mod eraseall;
-#[doc = "Register for partial erase configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [erasepagepartialcfg](erasepagepartialcfg) module"]
+#[doc = "Register for partial erase configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [erasepagepartialcfg](erasepagepartialcfg) module"]
 pub type ERASEPAGEPARTIALCFG = crate::Reg<u32, _ERASEPAGEPARTIALCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -87,7 +79,7 @@ impl crate::Readable for ERASEPAGEPARTIALCFG {}
 impl crate::Writable for ERASEPAGEPARTIALCFG {}
 #[doc = "Register for partial erase configuration"]
 pub mod erasepagepartialcfg;
-#[doc = "I-code cache configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [icachecnf](icachecnf) module"]
+#[doc = "I-code cache configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [icachecnf](icachecnf) module"]
 pub type ICACHECNF = crate::Reg<u32, _ICACHECNF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -98,7 +90,7 @@ impl crate::Readable for ICACHECNF {}
 impl crate::Writable for ICACHECNF {}
 #[doc = "I-code cache configuration register"]
 pub mod icachecnf;
-#[doc = "I-code cache hit counter\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ihit](ihit) module"]
+#[doc = "I-code cache hit counter\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ihit](ihit) module"]
 pub type IHIT = crate::Reg<u32, _IHIT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -109,7 +101,7 @@ impl crate::Readable for IHIT {}
 impl crate::Writable for IHIT {}
 #[doc = "I-code cache hit counter"]
 pub mod ihit;
-#[doc = "I-code cache miss counter\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [imiss](imiss) module"]
+#[doc = "I-code cache miss counter\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [imiss](imiss) module"]
 pub type IMISS = crate::Reg<u32, _IMISS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -120,7 +112,7 @@ impl crate::Readable for IMISS {}
 impl crate::Writable for IMISS {}
 #[doc = "I-code cache miss counter"]
 pub mod imiss;
-#[doc = "Unspecified\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [configns](configns) module"]
+#[doc = "Unspecified\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [configns](configns) module"]
 pub type CONFIGNS = crate::Reg<u32, _CONFIGNS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -131,7 +123,7 @@ impl crate::Readable for CONFIGNS {}
 impl crate::Writable for CONFIGNS {}
 #[doc = "Unspecified"]
 pub mod configns;
-#[doc = "Non-secure APPROTECT enable register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [writeuicrns](writeuicrns) module"]
+#[doc = "Non-secure APPROTECT enable register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [writeuicrns](writeuicrns) module"]
 pub type WRITEUICRNS = crate::Reg<u32, _WRITEUICRNS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -140,25 +132,3 @@ pub struct _WRITEUICRNS;
 impl crate::Writable for WRITEUICRNS {}
 #[doc = "Non-secure APPROTECT enable register"]
 pub mod writeuicrns;
-#[doc = "Force on all NVM supplies. Also see the internal section in the NVMC chapter.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [forceonnvm](forceonnvm) module"]
-pub type FORCEONNVM = crate::Reg<u32, _FORCEONNVM>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _FORCEONNVM;
-#[doc = "`read()` method returns [forceonnvm::R](forceonnvm::R) reader structure"]
-impl crate::Readable for FORCEONNVM {}
-#[doc = "`write(|w| ..)` method takes [forceonnvm::W](forceonnvm::W) writer structure"]
-impl crate::Writable for FORCEONNVM {}
-#[doc = "Force on all NVM supplies. Also see the internal section in the NVMC chapter."]
-pub mod forceonnvm;
-#[doc = "Force off NVM supply. Also see the internal section in the NVMC chapter.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [forceoffnvm](forceoffnvm) module"]
-pub type FORCEOFFNVM = crate::Reg<u32, _FORCEOFFNVM>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _FORCEOFFNVM;
-#[doc = "`read()` method returns [forceoffnvm::R](forceoffnvm::R) reader structure"]
-impl crate::Readable for FORCEOFFNVM {}
-#[doc = "`write(|w| ..)` method takes [forceoffnvm::W](forceoffnvm::W) writer structure"]
-impl crate::Writable for FORCEOFFNVM {}
-#[doc = "Force off NVM supply. Also see the internal section in the NVMC chapter."]
-pub mod forceoffnvm;

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::LOCK {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "1: GPIOPORT\\[n\\].PERM register can't be changed until next reset"]
-    LOCKED,
+    LOCKED = 1,
     #[doc = "0: GPIOPORT\\[n\\].PERM register content can be changed"]
-    UNLOCKED,
+    UNLOCKED = 0,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::LOCKED => true,
-            LOCK_A::UNLOCKED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]

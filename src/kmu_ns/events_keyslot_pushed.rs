@@ -10,21 +10,18 @@ impl crate::ResetValue for super::EVENTS_KEYSLOT_PUSHED {
         0
     }
 }
-#[doc = "Key successfully pushed over secure APB\n\nValue on reset: 0"]
+#[doc = "Key slot successfully pushed over secure APB\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_KEYSLOT_PUSHED_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_KEYSLOT_PUSHED_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_KEYSLOT_PUSHED_A) -> Self {
-        match variant {
-            EVENTS_KEYSLOT_PUSHED_A::NOTGENERATED => false,
-            EVENTS_KEYSLOT_PUSHED_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_KEYSLOT_PUSHED`"]
@@ -89,14 +86,14 @@ impl<'a> EVENTS_KEYSLOT_PUSHED_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Key successfully pushed over secure APB"]
+    #[doc = "Bit 0 - Key slot successfully pushed over secure APB"]
     #[inline(always)]
     pub fn events_keyslot_pushed(&self) -> EVENTS_KEYSLOT_PUSHED_R {
         EVENTS_KEYSLOT_PUSHED_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Key successfully pushed over secure APB"]
+    #[doc = "Bit 0 - Key slot successfully pushed over secure APB"]
     #[inline(always)]
     pub fn events_keyslot_pushed(&mut self) -> EVENTS_KEYSLOT_PUSHED_W {
         EVENTS_KEYSLOT_PUSHED_W { w: self }

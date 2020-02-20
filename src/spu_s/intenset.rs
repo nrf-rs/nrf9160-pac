@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENSET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RAMACCERR_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RAMACCERR_A> for bool {
     #[inline(always)]
     fn from(variant: RAMACCERR_A) -> Self {
-        match variant {
-            RAMACCERR_A::DISABLED => false,
-            RAMACCERR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RAMACCERR`"]
@@ -53,14 +50,12 @@ impl RAMACCERR_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RAMACCERR_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RAMACCERR_AW> for bool {
     #[inline(always)]
     fn from(variant: RAMACCERR_AW) -> Self {
-        match variant {
-            RAMACCERR_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RAMACCERR`"]
@@ -101,17 +96,14 @@ impl<'a> RAMACCERR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASHACCERR_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<FLASHACCERR_A> for bool {
     #[inline(always)]
     fn from(variant: FLASHACCERR_A) -> Self {
-        match variant {
-            FLASHACCERR_A::DISABLED => false,
-            FLASHACCERR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FLASHACCERR`"]
@@ -140,14 +132,12 @@ impl FLASHACCERR_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASHACCERR_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<FLASHACCERR_AW> for bool {
     #[inline(always)]
     fn from(variant: FLASHACCERR_AW) -> Self {
-        match variant {
-            FLASHACCERR_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `FLASHACCERR`"]
@@ -188,17 +178,14 @@ impl<'a> FLASHACCERR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PERIPHACCERR_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PERIPHACCERR_A> for bool {
     #[inline(always)]
     fn from(variant: PERIPHACCERR_A) -> Self {
-        match variant {
-            PERIPHACCERR_A::DISABLED => false,
-            PERIPHACCERR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PERIPHACCERR`"]
@@ -227,14 +214,12 @@ impl PERIPHACCERR_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PERIPHACCERR_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<PERIPHACCERR_AW> for bool {
     #[inline(always)]
     fn from(variant: PERIPHACCERR_AW) -> Self {
-        match variant {
-            PERIPHACCERR_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `PERIPHACCERR`"]

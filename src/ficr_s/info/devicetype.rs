@@ -2,19 +2,17 @@
 pub type R = crate::R<u32, super::DEVICETYPE>;
 #[doc = "Device type\n\nValue on reset: 4294967295"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum DEVICETYPE_A {
     #[doc = "0: Device is an physical DIE"]
-    DIE,
+    DIE = 0,
     #[doc = "4294967295: Device is an FPGA"]
-    FPGA,
+    FPGA = 4294967295,
 }
 impl From<DEVICETYPE_A> for u32 {
     #[inline(always)]
     fn from(variant: DEVICETYPE_A) -> Self {
-        match variant {
-            DEVICETYPE_A::DIE => 0,
-            DEVICETYPE_A::FPGA => 4294967295,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DEVICETYPE`"]

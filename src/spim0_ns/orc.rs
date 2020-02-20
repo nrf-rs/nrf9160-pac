@@ -25,14 +25,14 @@ impl<'a> ORC_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Over-read character. Character clocked out in case and over-read of the TXD buffer."]
+    #[doc = "Bits 0:7 - Over-read character. Character clocked out in case an over-read of the TXD buffer."]
     #[inline(always)]
     pub fn orc(&self) -> ORC_R {
         ORC_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Over-read character. Character clocked out in case and over-read of the TXD buffer."]
+    #[doc = "Bits 0:7 - Over-read character. Character clocked out in case an over-read of the TXD buffer."]
     #[inline(always)]
     pub fn orc(&mut self) -> ORC_W {
         ORC_W { w: self }

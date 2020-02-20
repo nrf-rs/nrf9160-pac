@@ -12,14 +12,12 @@ impl crate::ResetValue for super::WRITEUICRNS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SET_AW {
     #[doc = "1: Set value"]
-    SET,
+    SET = 1,
 }
 impl From<SET_AW> for bool {
     #[inline(always)]
     fn from(variant: SET_AW) -> Self {
-        match variant {
-            SET_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `SET`"]
@@ -58,16 +56,15 @@ impl<'a> SET_W<'a> {
 }
 #[doc = "Key to write in order to validate the write operation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum KEY_AW {
     #[doc = "184280487: Key value"]
-    KEYVALID,
+    KEYVALID = 184280487,
 }
 impl From<KEY_AW> for u32 {
     #[inline(always)]
     fn from(variant: KEY_AW) -> Self {
-        match variant {
-            KEY_AW::KEYVALID => 184280487,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `KEY`"]

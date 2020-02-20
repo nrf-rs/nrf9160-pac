@@ -10,21 +10,18 @@ impl crate::ResetValue for super::EVENTS_SUSPENDED {
         0
     }
 }
-#[doc = "Last byte has been sent out after the SUSPEND task has been issued, TWI traffic is now suspended.\n\nValue on reset: 0"]
+#[doc = "SUSPEND task has been issued, TWI traffic is now suspended.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_SUSPENDED_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_SUSPENDED_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_SUSPENDED_A) -> Self {
-        match variant {
-            EVENTS_SUSPENDED_A::NOTGENERATED => false,
-            EVENTS_SUSPENDED_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_SUSPENDED`"]
@@ -89,14 +86,14 @@ impl<'a> EVENTS_SUSPENDED_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Last byte has been sent out after the SUSPEND task has been issued, TWI traffic is now suspended."]
+    #[doc = "Bit 0 - SUSPEND task has been issued, TWI traffic is now suspended."]
     #[inline(always)]
     pub fn events_suspended(&self) -> EVENTS_SUSPENDED_R {
         EVENTS_SUSPENDED_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Last byte has been sent out after the SUSPEND task has been issued, TWI traffic is now suspended."]
+    #[doc = "Bit 0 - SUSPEND task has been issued, TWI traffic is now suspended."]
     #[inline(always)]
     pub fn events_suspended(&mut self) -> EVENTS_SUSPENDED_W {
         EVENTS_SUSPENDED_W { w: self }

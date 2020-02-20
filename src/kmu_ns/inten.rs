@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_PUSHED_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<KEYSLOT_PUSHED_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_PUSHED_A) -> Self {
-        match variant {
-            KEYSLOT_PUSHED_A::DISABLED => false,
-            KEYSLOT_PUSHED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_PUSHED`"]
@@ -92,17 +89,14 @@ impl<'a> KEYSLOT_PUSHED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_REVOKED_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<KEYSLOT_REVOKED_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_REVOKED_A) -> Self {
-        match variant {
-            KEYSLOT_REVOKED_A::DISABLED => false,
-            KEYSLOT_REVOKED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_REVOKED`"]
@@ -170,17 +164,14 @@ impl<'a> KEYSLOT_REVOKED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_ERROR_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<KEYSLOT_ERROR_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_ERROR_A) -> Self {
-        match variant {
-            KEYSLOT_ERROR_A::DISABLED => false,
-            KEYSLOT_ERROR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_ERROR`"]

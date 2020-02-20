@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENCLR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_PUSHED_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<KEYSLOT_PUSHED_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_PUSHED_A) -> Self {
-        match variant {
-            KEYSLOT_PUSHED_A::DISABLED => false,
-            KEYSLOT_PUSHED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_PUSHED`"]
@@ -53,14 +50,12 @@ impl KEYSLOT_PUSHED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_PUSHED_AW {
     #[doc = "1: Disable"]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<KEYSLOT_PUSHED_AW> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_PUSHED_AW) -> Self {
-        match variant {
-            KEYSLOT_PUSHED_AW::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `KEYSLOT_PUSHED`"]
@@ -101,17 +96,14 @@ impl<'a> KEYSLOT_PUSHED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_REVOKED_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<KEYSLOT_REVOKED_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_REVOKED_A) -> Self {
-        match variant {
-            KEYSLOT_REVOKED_A::DISABLED => false,
-            KEYSLOT_REVOKED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_REVOKED`"]
@@ -140,14 +132,12 @@ impl KEYSLOT_REVOKED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_REVOKED_AW {
     #[doc = "1: Disable"]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<KEYSLOT_REVOKED_AW> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_REVOKED_AW) -> Self {
-        match variant {
-            KEYSLOT_REVOKED_AW::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `KEYSLOT_REVOKED`"]
@@ -188,17 +178,14 @@ impl<'a> KEYSLOT_REVOKED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_ERROR_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<KEYSLOT_ERROR_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_ERROR_A) -> Self {
-        match variant {
-            KEYSLOT_ERROR_A::DISABLED => false,
-            KEYSLOT_ERROR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_ERROR`"]
@@ -227,14 +214,12 @@ impl KEYSLOT_ERROR_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_ERROR_AW {
     #[doc = "1: Disable"]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<KEYSLOT_ERROR_AW> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_ERROR_AW) -> Self {
-        match variant {
-            KEYSLOT_ERROR_AW::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `KEYSLOT_ERROR`"]

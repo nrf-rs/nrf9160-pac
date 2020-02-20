@@ -12,40 +12,31 @@ impl crate::ResetValue for super::SIZE {
 }
 #[doc = "Size of the non-secure callable (NSC) region n\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SIZE_A {
     #[doc = "0: The region n is not defined as a non-secure callable region. Normal security attributes (secure or non-secure) are enforced."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: The region n is defined as non-secure callable with a 32-byte size"]
-    _32,
+    _32 = 1,
     #[doc = "2: The region n is defined as non-secure callable with a 64-byte size"]
-    _64,
+    _64 = 2,
     #[doc = "3: The region n is defined as non-secure callable with a 128-byte size"]
-    _128,
+    _128 = 3,
     #[doc = "4: The region n is defined as non-secure callable with a 256-byte size"]
-    _256,
+    _256 = 4,
     #[doc = "5: The region n is defined as non-secure callable with a 512-byte size"]
-    _512,
+    _512 = 5,
     #[doc = "6: The region n is defined as non-secure callable with a 1024-byte size"]
-    _1024,
+    _1024 = 6,
     #[doc = "7: The region n is defined as non-secure callable with a 2048-byte size"]
-    _2048,
+    _2048 = 7,
     #[doc = "8: The region n is defined as non-secure callable with a 4096-byte size"]
-    _4096,
+    _4096 = 8,
 }
 impl From<SIZE_A> for u8 {
     #[inline(always)]
     fn from(variant: SIZE_A) -> Self {
-        match variant {
-            SIZE_A::DISABLED => 0,
-            SIZE_A::_32 => 1,
-            SIZE_A::_64 => 2,
-            SIZE_A::_128 => 3,
-            SIZE_A::_256 => 4,
-            SIZE_A::_512 => 5,
-            SIZE_A::_1024 => 6,
-            SIZE_A::_2048 => 7,
-            SIZE_A::_4096 => 8,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SIZE`"]
@@ -180,17 +171,14 @@ impl<'a> SIZE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "0: This register can be updated"]
-    UNLOCKED,
+    UNLOCKED = 0,
     #[doc = "1: The content of this register can't be changed until the next reset"]
-    LOCKED,
+    LOCKED = 1,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::UNLOCKED => false,
-            LOCK_A::LOCKED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]

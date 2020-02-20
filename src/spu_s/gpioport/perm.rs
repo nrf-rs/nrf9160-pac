@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PERM {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN0_A {
     #[doc = "1: Pin 0 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 0 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN0_A> for bool {
     #[inline(always)]
     fn from(variant: PIN0_A) -> Self {
-        match variant {
-            PIN0_A::SECURE => true,
-            PIN0_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN0`"]
@@ -92,17 +89,14 @@ impl<'a> PIN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN1_A {
     #[doc = "1: Pin 1 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 1 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN1_A> for bool {
     #[inline(always)]
     fn from(variant: PIN1_A) -> Self {
-        match variant {
-            PIN1_A::SECURE => true,
-            PIN1_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN1`"]
@@ -170,17 +164,14 @@ impl<'a> PIN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN2_A {
     #[doc = "1: Pin 2 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 2 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN2_A> for bool {
     #[inline(always)]
     fn from(variant: PIN2_A) -> Self {
-        match variant {
-            PIN2_A::SECURE => true,
-            PIN2_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN2`"]
@@ -248,17 +239,14 @@ impl<'a> PIN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN3_A {
     #[doc = "1: Pin 3 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 3 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN3_A> for bool {
     #[inline(always)]
     fn from(variant: PIN3_A) -> Self {
-        match variant {
-            PIN3_A::SECURE => true,
-            PIN3_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN3`"]
@@ -326,17 +314,14 @@ impl<'a> PIN3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN4_A {
     #[doc = "1: Pin 4 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 4 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN4_A> for bool {
     #[inline(always)]
     fn from(variant: PIN4_A) -> Self {
-        match variant {
-            PIN4_A::SECURE => true,
-            PIN4_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN4`"]
@@ -404,17 +389,14 @@ impl<'a> PIN4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN5_A {
     #[doc = "1: Pin 5 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 5 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN5_A> for bool {
     #[inline(always)]
     fn from(variant: PIN5_A) -> Self {
-        match variant {
-            PIN5_A::SECURE => true,
-            PIN5_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN5`"]
@@ -482,17 +464,14 @@ impl<'a> PIN5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN6_A {
     #[doc = "1: Pin 6 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 6 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN6_A> for bool {
     #[inline(always)]
     fn from(variant: PIN6_A) -> Self {
-        match variant {
-            PIN6_A::SECURE => true,
-            PIN6_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN6`"]
@@ -560,17 +539,14 @@ impl<'a> PIN6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN7_A {
     #[doc = "1: Pin 7 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 7 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN7_A> for bool {
     #[inline(always)]
     fn from(variant: PIN7_A) -> Self {
-        match variant {
-            PIN7_A::SECURE => true,
-            PIN7_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN7`"]
@@ -638,17 +614,14 @@ impl<'a> PIN7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN8_A {
     #[doc = "1: Pin 8 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 8 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN8_A> for bool {
     #[inline(always)]
     fn from(variant: PIN8_A) -> Self {
-        match variant {
-            PIN8_A::SECURE => true,
-            PIN8_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN8`"]
@@ -716,17 +689,14 @@ impl<'a> PIN8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN9_A {
     #[doc = "1: Pin 9 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 9 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN9_A> for bool {
     #[inline(always)]
     fn from(variant: PIN9_A) -> Self {
-        match variant {
-            PIN9_A::SECURE => true,
-            PIN9_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN9`"]
@@ -794,17 +764,14 @@ impl<'a> PIN9_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN10_A {
     #[doc = "1: Pin 10 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 10 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN10_A> for bool {
     #[inline(always)]
     fn from(variant: PIN10_A) -> Self {
-        match variant {
-            PIN10_A::SECURE => true,
-            PIN10_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN10`"]
@@ -872,17 +839,14 @@ impl<'a> PIN10_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN11_A {
     #[doc = "1: Pin 11 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 11 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN11_A> for bool {
     #[inline(always)]
     fn from(variant: PIN11_A) -> Self {
-        match variant {
-            PIN11_A::SECURE => true,
-            PIN11_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN11`"]
@@ -950,17 +914,14 @@ impl<'a> PIN11_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN12_A {
     #[doc = "1: Pin 12 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 12 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN12_A> for bool {
     #[inline(always)]
     fn from(variant: PIN12_A) -> Self {
-        match variant {
-            PIN12_A::SECURE => true,
-            PIN12_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN12`"]
@@ -1028,17 +989,14 @@ impl<'a> PIN12_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN13_A {
     #[doc = "1: Pin 13 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 13 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN13_A> for bool {
     #[inline(always)]
     fn from(variant: PIN13_A) -> Self {
-        match variant {
-            PIN13_A::SECURE => true,
-            PIN13_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN13`"]
@@ -1106,17 +1064,14 @@ impl<'a> PIN13_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN14_A {
     #[doc = "1: Pin 14 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 14 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN14_A> for bool {
     #[inline(always)]
     fn from(variant: PIN14_A) -> Self {
-        match variant {
-            PIN14_A::SECURE => true,
-            PIN14_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN14`"]
@@ -1184,17 +1139,14 @@ impl<'a> PIN14_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN15_A {
     #[doc = "1: Pin 15 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 15 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN15_A> for bool {
     #[inline(always)]
     fn from(variant: PIN15_A) -> Self {
-        match variant {
-            PIN15_A::SECURE => true,
-            PIN15_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN15`"]
@@ -1262,17 +1214,14 @@ impl<'a> PIN15_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN16_A {
     #[doc = "1: Pin 16 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 16 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN16_A> for bool {
     #[inline(always)]
     fn from(variant: PIN16_A) -> Self {
-        match variant {
-            PIN16_A::SECURE => true,
-            PIN16_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN16`"]
@@ -1340,17 +1289,14 @@ impl<'a> PIN16_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN17_A {
     #[doc = "1: Pin 17 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 17 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN17_A> for bool {
     #[inline(always)]
     fn from(variant: PIN17_A) -> Self {
-        match variant {
-            PIN17_A::SECURE => true,
-            PIN17_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN17`"]
@@ -1418,17 +1364,14 @@ impl<'a> PIN17_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN18_A {
     #[doc = "1: Pin 18 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 18 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN18_A> for bool {
     #[inline(always)]
     fn from(variant: PIN18_A) -> Self {
-        match variant {
-            PIN18_A::SECURE => true,
-            PIN18_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN18`"]
@@ -1496,17 +1439,14 @@ impl<'a> PIN18_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN19_A {
     #[doc = "1: Pin 19 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 19 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN19_A> for bool {
     #[inline(always)]
     fn from(variant: PIN19_A) -> Self {
-        match variant {
-            PIN19_A::SECURE => true,
-            PIN19_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN19`"]
@@ -1574,17 +1514,14 @@ impl<'a> PIN19_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN20_A {
     #[doc = "1: Pin 20 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 20 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN20_A> for bool {
     #[inline(always)]
     fn from(variant: PIN20_A) -> Self {
-        match variant {
-            PIN20_A::SECURE => true,
-            PIN20_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN20`"]
@@ -1652,17 +1589,14 @@ impl<'a> PIN20_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN21_A {
     #[doc = "1: Pin 21 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 21 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN21_A> for bool {
     #[inline(always)]
     fn from(variant: PIN21_A) -> Self {
-        match variant {
-            PIN21_A::SECURE => true,
-            PIN21_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN21`"]
@@ -1730,17 +1664,14 @@ impl<'a> PIN21_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN22_A {
     #[doc = "1: Pin 22 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 22 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN22_A> for bool {
     #[inline(always)]
     fn from(variant: PIN22_A) -> Self {
-        match variant {
-            PIN22_A::SECURE => true,
-            PIN22_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN22`"]
@@ -1808,17 +1739,14 @@ impl<'a> PIN22_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN23_A {
     #[doc = "1: Pin 23 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 23 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN23_A> for bool {
     #[inline(always)]
     fn from(variant: PIN23_A) -> Self {
-        match variant {
-            PIN23_A::SECURE => true,
-            PIN23_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN23`"]
@@ -1886,17 +1814,14 @@ impl<'a> PIN23_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN24_A {
     #[doc = "1: Pin 24 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 24 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN24_A> for bool {
     #[inline(always)]
     fn from(variant: PIN24_A) -> Self {
-        match variant {
-            PIN24_A::SECURE => true,
-            PIN24_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN24`"]
@@ -1964,17 +1889,14 @@ impl<'a> PIN24_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN25_A {
     #[doc = "1: Pin 25 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 25 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN25_A> for bool {
     #[inline(always)]
     fn from(variant: PIN25_A) -> Self {
-        match variant {
-            PIN25_A::SECURE => true,
-            PIN25_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN25`"]
@@ -2042,17 +1964,14 @@ impl<'a> PIN25_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN26_A {
     #[doc = "1: Pin 26 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 26 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN26_A> for bool {
     #[inline(always)]
     fn from(variant: PIN26_A) -> Self {
-        match variant {
-            PIN26_A::SECURE => true,
-            PIN26_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN26`"]
@@ -2120,17 +2039,14 @@ impl<'a> PIN26_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN27_A {
     #[doc = "1: Pin 27 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 27 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN27_A> for bool {
     #[inline(always)]
     fn from(variant: PIN27_A) -> Self {
-        match variant {
-            PIN27_A::SECURE => true,
-            PIN27_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN27`"]
@@ -2198,17 +2114,14 @@ impl<'a> PIN27_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN28_A {
     #[doc = "1: Pin 28 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 28 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN28_A> for bool {
     #[inline(always)]
     fn from(variant: PIN28_A) -> Self {
-        match variant {
-            PIN28_A::SECURE => true,
-            PIN28_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN28`"]
@@ -2276,17 +2189,14 @@ impl<'a> PIN28_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN29_A {
     #[doc = "1: Pin 29 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 29 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN29_A> for bool {
     #[inline(always)]
     fn from(variant: PIN29_A) -> Self {
-        match variant {
-            PIN29_A::SECURE => true,
-            PIN29_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN29`"]
@@ -2354,17 +2264,14 @@ impl<'a> PIN29_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN30_A {
     #[doc = "1: Pin 30 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 30 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN30_A> for bool {
     #[inline(always)]
     fn from(variant: PIN30_A) -> Self {
-        match variant {
-            PIN30_A::SECURE => true,
-            PIN30_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN30`"]
@@ -2432,17 +2339,14 @@ impl<'a> PIN30_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PIN31_A {
     #[doc = "1: Pin 31 has its secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: Pin 31 has its non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<PIN31_A> for bool {
     #[inline(always)]
     fn from(variant: PIN31_A) -> Self {
-        match variant {
-            PIN31_A::SECURE => true,
-            PIN31_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PIN31`"]

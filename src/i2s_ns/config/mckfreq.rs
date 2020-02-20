@@ -12,52 +12,39 @@ impl crate::ResetValue for super::MCKFREQ {
 }
 #[doc = "Master clock generator frequency.\n\nValue on reset: 536870912"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum MCKFREQ_A {
     #[doc = "536870912: 32 MHz / 8 = 4.0 MHz"]
-    _32MDIV8,
+    _32MDIV8 = 536870912,
     #[doc = "402653184: 32 MHz / 10 = 3.2 MHz"]
-    _32MDIV10,
+    _32MDIV10 = 402653184,
     #[doc = "369098752: 32 MHz / 11 = 2.9090909 MHz"]
-    _32MDIV11,
+    _32MDIV11 = 369098752,
     #[doc = "285212672: 32 MHz / 15 = 2.1333333 MHz"]
-    _32MDIV15,
+    _32MDIV15 = 285212672,
     #[doc = "268435456: 32 MHz / 16 = 2.0 MHz"]
-    _32MDIV16,
+    _32MDIV16 = 268435456,
     #[doc = "201326592: 32 MHz / 21 = 1.5238095"]
-    _32MDIV21,
+    _32MDIV21 = 201326592,
     #[doc = "184549376: 32 MHz / 23 = 1.3913043 MHz"]
-    _32MDIV23,
+    _32MDIV23 = 184549376,
     #[doc = "142606336: 32 MHz / 30 = 1.0666667 MHz"]
-    _32MDIV30,
+    _32MDIV30 = 142606336,
     #[doc = "138412032: 32 MHz / 31 = 1.0322581 MHz"]
-    _32MDIV31,
+    _32MDIV31 = 138412032,
     #[doc = "134217728: 32 MHz / 32 = 1.0 MHz"]
-    _32MDIV32,
+    _32MDIV32 = 134217728,
     #[doc = "100663296: 32 MHz / 42 = 0.7619048 MHz"]
-    _32MDIV42,
+    _32MDIV42 = 100663296,
     #[doc = "68157440: 32 MHz / 63 = 0.5079365 MHz"]
-    _32MDIV63,
+    _32MDIV63 = 68157440,
     #[doc = "34340864: 32 MHz / 125 = 0.256 MHz"]
-    _32MDIV125,
+    _32MDIV125 = 34340864,
 }
 impl From<MCKFREQ_A> for u32 {
     #[inline(always)]
     fn from(variant: MCKFREQ_A) -> Self {
-        match variant {
-            MCKFREQ_A::_32MDIV8 => 536870912,
-            MCKFREQ_A::_32MDIV10 => 402653184,
-            MCKFREQ_A::_32MDIV11 => 369098752,
-            MCKFREQ_A::_32MDIV15 => 285212672,
-            MCKFREQ_A::_32MDIV16 => 268435456,
-            MCKFREQ_A::_32MDIV21 => 201326592,
-            MCKFREQ_A::_32MDIV23 => 184549376,
-            MCKFREQ_A::_32MDIV30 => 142606336,
-            MCKFREQ_A::_32MDIV31 => 138412032,
-            MCKFREQ_A::_32MDIV32 => 134217728,
-            MCKFREQ_A::_32MDIV42 => 100663296,
-            MCKFREQ_A::_32MDIV63 => 68157440,
-            MCKFREQ_A::_32MDIV125 => 34340864,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MCKFREQ`"]

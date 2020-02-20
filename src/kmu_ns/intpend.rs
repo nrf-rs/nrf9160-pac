@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::INTPEND>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_PUSHED_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<KEYSLOT_PUSHED_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_PUSHED_A) -> Self {
-        match variant {
-            KEYSLOT_PUSHED_A::NOTPENDING => false,
-            KEYSLOT_PUSHED_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_PUSHED`"]
@@ -43,17 +40,14 @@ impl KEYSLOT_PUSHED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_REVOKED_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<KEYSLOT_REVOKED_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_REVOKED_A) -> Self {
-        match variant {
-            KEYSLOT_REVOKED_A::NOTPENDING => false,
-            KEYSLOT_REVOKED_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_REVOKED`"]
@@ -82,17 +76,14 @@ impl KEYSLOT_REVOKED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum KEYSLOT_ERROR_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<KEYSLOT_ERROR_A> for bool {
     #[inline(always)]
     fn from(variant: KEYSLOT_ERROR_A) -> Self {
-        match variant {
-            KEYSLOT_ERROR_A::NOTPENDING => false,
-            KEYSLOT_ERROR_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `KEYSLOT_ERROR`"]

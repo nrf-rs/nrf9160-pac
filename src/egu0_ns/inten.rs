@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED0_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED0_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED0_A) -> Self {
-        match variant {
-            TRIGGERED0_A::DISABLED => false,
-            TRIGGERED0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED0`"]
@@ -92,17 +89,14 @@ impl<'a> TRIGGERED0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED1_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED1_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED1_A) -> Self {
-        match variant {
-            TRIGGERED1_A::DISABLED => false,
-            TRIGGERED1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED1`"]
@@ -170,17 +164,14 @@ impl<'a> TRIGGERED1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED2_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED2_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED2_A) -> Self {
-        match variant {
-            TRIGGERED2_A::DISABLED => false,
-            TRIGGERED2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED2`"]
@@ -248,17 +239,14 @@ impl<'a> TRIGGERED2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED3_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED3_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED3_A) -> Self {
-        match variant {
-            TRIGGERED3_A::DISABLED => false,
-            TRIGGERED3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED3`"]
@@ -326,17 +314,14 @@ impl<'a> TRIGGERED3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED4_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED4_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED4_A) -> Self {
-        match variant {
-            TRIGGERED4_A::DISABLED => false,
-            TRIGGERED4_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED4`"]
@@ -404,17 +389,14 @@ impl<'a> TRIGGERED4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED5_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED5_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED5_A) -> Self {
-        match variant {
-            TRIGGERED5_A::DISABLED => false,
-            TRIGGERED5_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED5`"]
@@ -482,17 +464,14 @@ impl<'a> TRIGGERED5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED6_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED6_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED6_A) -> Self {
-        match variant {
-            TRIGGERED6_A::DISABLED => false,
-            TRIGGERED6_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED6`"]
@@ -560,17 +539,14 @@ impl<'a> TRIGGERED6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED7_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED7_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED7_A) -> Self {
-        match variant {
-            TRIGGERED7_A::DISABLED => false,
-            TRIGGERED7_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED7`"]
@@ -638,17 +614,14 @@ impl<'a> TRIGGERED7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED8_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED8_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED8_A) -> Self {
-        match variant {
-            TRIGGERED8_A::DISABLED => false,
-            TRIGGERED8_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED8`"]
@@ -716,17 +689,14 @@ impl<'a> TRIGGERED8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED9_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED9_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED9_A) -> Self {
-        match variant {
-            TRIGGERED9_A::DISABLED => false,
-            TRIGGERED9_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED9`"]
@@ -794,17 +764,14 @@ impl<'a> TRIGGERED9_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED10_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED10_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED10_A) -> Self {
-        match variant {
-            TRIGGERED10_A::DISABLED => false,
-            TRIGGERED10_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED10`"]
@@ -872,17 +839,14 @@ impl<'a> TRIGGERED10_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED11_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED11_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED11_A) -> Self {
-        match variant {
-            TRIGGERED11_A::DISABLED => false,
-            TRIGGERED11_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED11`"]
@@ -950,17 +914,14 @@ impl<'a> TRIGGERED11_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED12_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED12_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED12_A) -> Self {
-        match variant {
-            TRIGGERED12_A::DISABLED => false,
-            TRIGGERED12_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED12`"]
@@ -1028,17 +989,14 @@ impl<'a> TRIGGERED12_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED13_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED13_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED13_A) -> Self {
-        match variant {
-            TRIGGERED13_A::DISABLED => false,
-            TRIGGERED13_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED13`"]
@@ -1106,17 +1064,14 @@ impl<'a> TRIGGERED13_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED14_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED14_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED14_A) -> Self {
-        match variant {
-            TRIGGERED14_A::DISABLED => false,
-            TRIGGERED14_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED14`"]
@@ -1184,17 +1139,14 @@ impl<'a> TRIGGERED14_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGERED15_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TRIGGERED15_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGERED15_A) -> Self {
-        match variant {
-            TRIGGERED15_A::DISABLED => false,
-            TRIGGERED15_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGERED15`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::POWERSTATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LTEMODEM_A {
     #[doc = "0: LTE modem domain is powered off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: LTE modem domain is powered on"]
-    ON,
+    ON = 1,
 }
 impl From<LTEMODEM_A> for bool {
     #[inline(always)]
     fn from(variant: LTEMODEM_A) -> Self {
-        match variant {
-            LTEMODEM_A::OFF => false,
-            LTEMODEM_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LTEMODEM`"]

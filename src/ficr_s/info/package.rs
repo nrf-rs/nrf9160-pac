@@ -2,16 +2,15 @@
 pub type R = crate::R<u32, super::PACKAGE>;
 #[doc = "Package option\n\nValue on reset: 8192"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum PACKAGE_A {
     #[doc = "8192: CCxx - 236 ball wlCSP"]
-    CC,
+    CC = 8192,
 }
 impl From<PACKAGE_A> for u32 {
     #[inline(always)]
     fn from(variant: PACKAGE_A) -> Self {
-        match variant {
-            PACKAGE_A::CC => 8192,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PACKAGE`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PERM {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXECUTE_A {
     #[doc = "1: Allow instruction fetches from flash region n"]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: Block instruction fetches from flash region n"]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<EXECUTE_A> for bool {
     #[inline(always)]
     fn from(variant: EXECUTE_A) -> Self {
-        match variant {
-            EXECUTE_A::ENABLE => true,
-            EXECUTE_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXECUTE`"]
@@ -92,17 +89,14 @@ impl<'a> EXECUTE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WRITE_A {
     #[doc = "1: Allow write operation to region n"]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: Block write operation to region n"]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<WRITE_A> for bool {
     #[inline(always)]
     fn from(variant: WRITE_A) -> Self {
-        match variant {
-            WRITE_A::ENABLE => true,
-            WRITE_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WRITE`"]
@@ -170,17 +164,14 @@ impl<'a> WRITE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READ_A {
     #[doc = "1: Allow read operation from flash region n"]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: Block read operation from flash region n"]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<READ_A> for bool {
     #[inline(always)]
     fn from(variant: READ_A) -> Self {
-        match variant {
-            READ_A::ENABLE => true,
-            READ_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READ`"]
@@ -248,17 +239,14 @@ impl<'a> READ_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SECATTR_A {
     #[doc = "0: Flash region n security attribute is non-secure"]
-    NON_SECURE,
+    NON_SECURE = 0,
     #[doc = "1: Flash region n security attribute is secure"]
-    SECURE,
+    SECURE = 1,
 }
 impl From<SECATTR_A> for bool {
     #[inline(always)]
     fn from(variant: SECATTR_A) -> Self {
-        match variant {
-            SECATTR_A::NON_SECURE => false,
-            SECATTR_A::SECURE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SECATTR`"]
@@ -326,17 +314,14 @@ impl<'a> SECATTR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "0: This register can be updated"]
-    UNLOCKED,
+    UNLOCKED = 0,
     #[doc = "1: The content of this register can't be changed until the next reset"]
-    LOCKED,
+    LOCKED = 1,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::UNLOCKED => false,
-            LOCK_A::LOCKED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]

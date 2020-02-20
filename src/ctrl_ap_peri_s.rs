@@ -18,7 +18,7 @@ pub struct MAILBOX {
     _reserved2: [u8; 120usize],
     #[doc = "0x80 - Data sent from the CPU to the debugger"]
     pub txdata: self::mailbox::TXDATA,
-    #[doc = "0x84 - Status to indicate if data sent from the CPU to the debugger status has been read"]
+    #[doc = "0x84 - Status to indicate if data sent from the CPU to the debugger has been read"]
     pub txstatus: self::mailbox::TXSTATUS,
 }
 #[doc = r"Register block"]
@@ -27,9 +27,9 @@ pub mod mailbox;
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct ERASEPROTECT {
-    #[doc = "0x00 - Lock ERASEALL mechanism"]
+    #[doc = "0x00 - Lock register ERASEPROTECT.DISABLE from being written until next reset"]
     pub lock: self::eraseprotect::LOCK,
-    #[doc = "0x04 - Unlock ERASEPROTECT and perform ERASEALL"]
+    #[doc = "0x04 - Disable ERASEPROTECT and perform ERASEALL"]
     pub disable: self::eraseprotect::DISABLE,
 }
 #[doc = r"Register block"]

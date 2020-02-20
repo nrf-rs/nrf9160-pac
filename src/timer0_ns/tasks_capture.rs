@@ -1,6 +1,7 @@
 #[doc = "Writer for register TASKS_CAPTURE[%s]"]
 pub type W = crate::W<u32, super::TASKS_CAPTURE>;
-#[doc = "Register TASKS_CAPTURE[%s] `reset()`'s with value 0"]
+#[doc = "Register TASKS_CAPTURE[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::TASKS_CAPTURE {
     type Type = u32;
     #[inline(always)]
@@ -8,18 +9,17 @@ impl crate::ResetValue for super::TASKS_CAPTURE {
         0
     }
 }
-#[doc = "Capture Timer value to CC\\[n\\] register\n\nValue on reset: 0"]
+#[doc = "Capture Timer value to CC\\[n\\]
+register\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TASKS_CAPTURE_AW {
     #[doc = "1: Trigger task"]
-    TRIGGER,
+    TRIGGER = 1,
 }
 impl From<TASKS_CAPTURE_AW> for bool {
     #[inline(always)]
     fn from(variant: TASKS_CAPTURE_AW) -> Self {
-        match variant {
-            TASKS_CAPTURE_AW::TRIGGER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TASKS_CAPTURE`"]
@@ -57,7 +57,8 @@ impl<'a> TASKS_CAPTURE_W<'a> {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Capture Timer value to CC\\[n\\] register"]
+    #[doc = "Bit 0 - Capture Timer value to CC\\[n\\]
+register"]
     #[inline(always)]
     pub fn tasks_capture(&mut self) -> TASKS_CAPTURE_W {
         TASKS_CAPTURE_W { w: self }

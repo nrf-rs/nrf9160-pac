@@ -2,19 +2,17 @@
 pub type R = crate::R<u32, super::RAM>;
 #[doc = "RAM variant\n\nValue on reset: 256"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum RAM_A {
     #[doc = "256: 256  kByte RAM"]
-    K256,
+    K256 = 256,
     #[doc = "4294967295: Unspecified"]
-    UNSPECIFIED,
+    UNSPECIFIED = 4294967295,
 }
 impl From<RAM_A> for u32 {
     #[inline(always)]
     fn from(variant: RAM_A) -> Self {
-        match variant {
-            RAM_A::K256 => 256,
-            RAM_A::UNSPECIFIED => 4294967295,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RAM`"]

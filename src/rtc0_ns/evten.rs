@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EVTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TICK_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Disable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TICK_A> for bool {
     #[inline(always)]
     fn from(variant: TICK_A) -> Self {
-        match variant {
-            TICK_A::DISABLED => false,
-            TICK_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TICK`"]
@@ -92,17 +89,14 @@ impl<'a> TICK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OVRFLW_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Disable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<OVRFLW_A> for bool {
     #[inline(always)]
     fn from(variant: OVRFLW_A) -> Self {
-        match variant {
-            OVRFLW_A::DISABLED => false,
-            OVRFLW_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OVRFLW`"]
@@ -170,17 +164,14 @@ impl<'a> OVRFLW_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum COMPARE0_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Disable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<COMPARE0_A> for bool {
     #[inline(always)]
     fn from(variant: COMPARE0_A) -> Self {
-        match variant {
-            COMPARE0_A::DISABLED => false,
-            COMPARE0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `COMPARE0`"]
@@ -248,17 +239,14 @@ impl<'a> COMPARE0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum COMPARE1_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Disable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<COMPARE1_A> for bool {
     #[inline(always)]
     fn from(variant: COMPARE1_A) -> Self {
-        match variant {
-            COMPARE1_A::DISABLED => false,
-            COMPARE1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `COMPARE1`"]
@@ -326,17 +314,14 @@ impl<'a> COMPARE1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum COMPARE2_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Disable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<COMPARE2_A> for bool {
     #[inline(always)]
     fn from(variant: COMPARE2_A) -> Self {
-        match variant {
-            COMPARE2_A::DISABLED => false,
-            COMPARE2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `COMPARE2`"]
@@ -404,17 +389,14 @@ impl<'a> COMPARE2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum COMPARE3_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Disable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<COMPARE3_A> for bool {
     #[inline(always)]
     fn from(variant: COMPARE3_A) -> Self {
-        match variant {
-            COMPARE3_A::DISABLED => false,
-            COMPARE3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `COMPARE3`"]

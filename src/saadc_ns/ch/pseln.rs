@@ -12,43 +12,33 @@ impl crate::ResetValue for super::PSELN {
 }
 #[doc = "Analog negative input, enables differential channel\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PSELN_A {
     #[doc = "0: Not connected"]
-    NC,
+    NC = 0,
     #[doc = "1: AIN0"]
-    ANALOGINPUT0,
+    ANALOGINPUT0 = 1,
     #[doc = "2: AIN1"]
-    ANALOGINPUT1,
+    ANALOGINPUT1 = 2,
     #[doc = "3: AIN2"]
-    ANALOGINPUT2,
+    ANALOGINPUT2 = 3,
     #[doc = "4: AIN3"]
-    ANALOGINPUT3,
+    ANALOGINPUT3 = 4,
     #[doc = "5: AIN4"]
-    ANALOGINPUT4,
+    ANALOGINPUT4 = 5,
     #[doc = "6: AIN5"]
-    ANALOGINPUT5,
+    ANALOGINPUT5 = 6,
     #[doc = "7: AIN6"]
-    ANALOGINPUT6,
+    ANALOGINPUT6 = 7,
     #[doc = "8: AIN7"]
-    ANALOGINPUT7,
-    #[doc = "9: VDD"]
-    VDD,
+    ANALOGINPUT7 = 8,
+    #[doc = "9: VDD_GPIO"]
+    VDD_GPIO = 9,
 }
 impl From<PSELN_A> for u8 {
     #[inline(always)]
     fn from(variant: PSELN_A) -> Self {
-        match variant {
-            PSELN_A::NC => 0,
-            PSELN_A::ANALOGINPUT0 => 1,
-            PSELN_A::ANALOGINPUT1 => 2,
-            PSELN_A::ANALOGINPUT2 => 3,
-            PSELN_A::ANALOGINPUT3 => 4,
-            PSELN_A::ANALOGINPUT4 => 5,
-            PSELN_A::ANALOGINPUT5 => 6,
-            PSELN_A::ANALOGINPUT6 => 7,
-            PSELN_A::ANALOGINPUT7 => 8,
-            PSELN_A::VDD => 9,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PSELN`"]
@@ -68,7 +58,7 @@ impl PSELN_R {
             6 => Val(PSELN_A::ANALOGINPUT5),
             7 => Val(PSELN_A::ANALOGINPUT6),
             8 => Val(PSELN_A::ANALOGINPUT7),
-            9 => Val(PSELN_A::VDD),
+            9 => Val(PSELN_A::VDD_GPIO),
             i => Res(i),
         }
     }
@@ -117,10 +107,10 @@ impl PSELN_R {
     pub fn is_analog_input7(&self) -> bool {
         *self == PSELN_A::ANALOGINPUT7
     }
-    #[doc = "Checks if the value of the field is `VDD`"]
+    #[doc = "Checks if the value of the field is `VDD_GPIO`"]
     #[inline(always)]
-    pub fn is_vdd(&self) -> bool {
-        *self == PSELN_A::VDD
+    pub fn is_vdd_gpio(&self) -> bool {
+        *self == PSELN_A::VDD_GPIO
     }
 }
 #[doc = "Write proxy for field `PSELN`"]
@@ -178,10 +168,10 @@ impl<'a> PSELN_W<'a> {
     pub fn analog_input7(self) -> &'a mut W {
         self.variant(PSELN_A::ANALOGINPUT7)
     }
-    #[doc = "VDD"]
+    #[doc = "VDD_GPIO"]
     #[inline(always)]
-    pub fn vdd(self) -> &'a mut W {
-        self.variant(PSELN_A::VDD)
+    pub fn vdd_gpio(self) -> &'a mut W {
+        self.variant(PSELN_A::VDD_GPIO)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
