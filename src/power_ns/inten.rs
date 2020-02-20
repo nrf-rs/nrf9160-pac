@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POFWARN_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<POFWARN_A> for bool {
     #[inline(always)]
     fn from(variant: POFWARN_A) -> Self {
-        match variant {
-            POFWARN_A::DISABLED => false,
-            POFWARN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POFWARN`"]
@@ -92,17 +89,14 @@ impl<'a> POFWARN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPENTER_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLEEPENTER_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEPENTER_A) -> Self {
-        match variant {
-            SLEEPENTER_A::DISABLED => false,
-            SLEEPENTER_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEPENTER`"]
@@ -170,17 +164,14 @@ impl<'a> SLEEPENTER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPEXIT_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLEEPEXIT_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEPEXIT_A) -> Self {
-        match variant {
-            SLEEPEXIT_A::DISABLED => false,
-            SLEEPEXIT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEPEXIT`"]

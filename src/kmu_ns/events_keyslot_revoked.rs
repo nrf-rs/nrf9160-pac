@@ -10,21 +10,18 @@ impl crate::ResetValue for super::EVENTS_KEYSLOT_REVOKED {
         0
     }
 }
-#[doc = "Key has been revoked and cannot be tasked for selection\n\nValue on reset: 0"]
+#[doc = "Key slot has been revoked and cannot be tasked for selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_KEYSLOT_REVOKED_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_KEYSLOT_REVOKED_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_KEYSLOT_REVOKED_A) -> Self {
-        match variant {
-            EVENTS_KEYSLOT_REVOKED_A::NOTGENERATED => false,
-            EVENTS_KEYSLOT_REVOKED_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_KEYSLOT_REVOKED`"]
@@ -89,14 +86,14 @@ impl<'a> EVENTS_KEYSLOT_REVOKED_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Key has been revoked and cannot be tasked for selection"]
+    #[doc = "Bit 0 - Key slot has been revoked and cannot be tasked for selection"]
     #[inline(always)]
     pub fn events_keyslot_revoked(&self) -> EVENTS_KEYSLOT_REVOKED_R {
         EVENTS_KEYSLOT_REVOKED_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Key has been revoked and cannot be tasked for selection"]
+    #[doc = "Bit 0 - Key slot has been revoked and cannot be tasked for selection"]
     #[inline(always)]
     pub fn events_keyslot_revoked(&mut self) -> EVENTS_KEYSLOT_REVOKED_W {
         EVENTS_KEYSLOT_REVOKED_W { w: self }

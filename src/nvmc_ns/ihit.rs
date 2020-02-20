@@ -25,14 +25,14 @@ impl<'a> HITS_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Number of cache hits"]
+    #[doc = "Bits 0:31 - Number of cache hits Write zero to clear"]
     #[inline(always)]
     pub fn hits(&self) -> HITS_R {
         HITS_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Number of cache hits"]
+    #[doc = "Bits 0:31 - Number of cache hits Write zero to clear"]
     #[inline(always)]
     pub fn hits(&mut self) -> HITS_W {
         HITS_W { w: self }

@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::PUBLISH_IN>;
 #[doc = "Writer for register PUBLISH_IN[%s]"]
 pub type W = crate::W<u32, super::PUBLISH_IN>;
-#[doc = "Register PUBLISH_IN[%s] `reset()`'s with value 0"]
+#[doc = "Register PUBLISH_IN[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::PUBLISH_IN {
     type Type = u32;
     #[inline(always)]
@@ -28,17 +29,14 @@ impl<'a> CHIDX_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EN_A {
     #[doc = "0: Disable publishing"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable publishing"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EN_A> for bool {
     #[inline(always)]
     fn from(variant: EN_A) -> Self {
-        match variant {
-            EN_A::DISABLED => false,
-            EN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EN`"]
@@ -103,7 +101,8 @@ impl<'a> EN_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:3 - Channel that event IN\\[n\\] will publish to."]
+    #[doc = "Bits 0:3 - Channel that event IN\\[n\\]
+will publish to."]
     #[inline(always)]
     pub fn chidx(&self) -> CHIDX_R {
         CHIDX_R::new((self.bits & 0x0f) as u8)
@@ -115,7 +114,8 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - Channel that event IN\\[n\\] will publish to."]
+    #[doc = "Bits 0:3 - Channel that event IN\\[n\\]
+will publish to."]
     #[inline(always)]
     pub fn chidx(&mut self) -> CHIDX_W {
         CHIDX_W { w: self }

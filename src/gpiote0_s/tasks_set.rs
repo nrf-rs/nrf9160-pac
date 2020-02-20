@@ -1,6 +1,7 @@
 #[doc = "Writer for register TASKS_SET[%s]"]
 pub type W = crate::W<u32, super::TASKS_SET>;
-#[doc = "Register TASKS_SET[%s] `reset()`'s with value 0"]
+#[doc = "Register TASKS_SET[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::TASKS_SET {
     type Type = u32;
     #[inline(always)]
@@ -12,14 +13,12 @@ impl crate::ResetValue for super::TASKS_SET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TASKS_SET_AW {
     #[doc = "1: Trigger task"]
-    TRIGGER,
+    TRIGGER = 1,
 }
 impl From<TASKS_SET_AW> for bool {
     #[inline(always)]
     fn from(variant: TASKS_SET_AW) -> Self {
-        match variant {
-            TASKS_SET_AW::TRIGGER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TASKS_SET`"]

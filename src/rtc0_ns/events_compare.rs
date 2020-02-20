@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::EVENTS_COMPARE>;
 #[doc = "Writer for register EVENTS_COMPARE[%s]"]
 pub type W = crate::W<u32, super::EVENTS_COMPARE>;
-#[doc = "Register EVENTS_COMPARE[%s] `reset()`'s with value 0"]
+#[doc = "Register EVENTS_COMPARE[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::EVENTS_COMPARE {
     type Type = u32;
     #[inline(always)]
@@ -10,21 +11,19 @@ impl crate::ResetValue for super::EVENTS_COMPARE {
         0
     }
 }
-#[doc = "Compare event on CC\\[n\\] match\n\nValue on reset: 0"]
+#[doc = "Compare event on CC\\[n\\]
+match\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_COMPARE_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_COMPARE_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_COMPARE_A) -> Self {
-        match variant {
-            EVENTS_COMPARE_A::NOTGENERATED => false,
-            EVENTS_COMPARE_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_COMPARE`"]
@@ -89,14 +88,16 @@ impl<'a> EVENTS_COMPARE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Compare event on CC\\[n\\] match"]
+    #[doc = "Bit 0 - Compare event on CC\\[n\\]
+match"]
     #[inline(always)]
     pub fn events_compare(&self) -> EVENTS_COMPARE_R {
         EVENTS_COMPARE_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Compare event on CC\\[n\\] match"]
+    #[doc = "Bit 0 - Compare event on CC\\[n\\]
+match"]
     #[inline(always)]
     pub fn events_compare(&mut self) -> EVENTS_COMPARE_W {
         EVENTS_COMPARE_W { w: self }

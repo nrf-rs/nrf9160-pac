@@ -1,9 +1,9 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Start HFCLK crystal oscillator"]
+    #[doc = "0x00 - Start HFCLK source"]
     pub tasks_hfclkstart: TASKS_HFCLKSTART,
-    #[doc = "0x04 - Stop HFCLK crystal oscillator"]
+    #[doc = "0x04 - Stop HFCLK source"]
     pub tasks_hfclkstop: TASKS_HFCLKSTOP,
     #[doc = "0x08 - Start LFCLK source"]
     pub tasks_lfclkstart: TASKS_LFCLKSTART,
@@ -53,25 +53,25 @@ pub struct RegisterBlock {
     #[doc = "0x518 - Clock source for the LFCLK. LFCLKSTART task starts starts a clock source selected with this register."]
     pub lfclksrc: LFCLKSRC,
 }
-#[doc = "Start HFCLK crystal oscillator\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_hfclkstart](tasks_hfclkstart) module"]
+#[doc = "Start HFCLK source\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_hfclkstart](tasks_hfclkstart) module"]
 pub type TASKS_HFCLKSTART = crate::Reg<u32, _TASKS_HFCLKSTART>;
 #[allow(missing_docs)]
 #[doc(hidden)]
 pub struct _TASKS_HFCLKSTART;
 #[doc = "`write(|w| ..)` method takes [tasks_hfclkstart::W](tasks_hfclkstart::W) writer structure"]
 impl crate::Writable for TASKS_HFCLKSTART {}
-#[doc = "Start HFCLK crystal oscillator"]
+#[doc = "Start HFCLK source"]
 pub mod tasks_hfclkstart;
-#[doc = "Stop HFCLK crystal oscillator\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_hfclkstop](tasks_hfclkstop) module"]
+#[doc = "Stop HFCLK source\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_hfclkstop](tasks_hfclkstop) module"]
 pub type TASKS_HFCLKSTOP = crate::Reg<u32, _TASKS_HFCLKSTOP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
 pub struct _TASKS_HFCLKSTOP;
 #[doc = "`write(|w| ..)` method takes [tasks_hfclkstop::W](tasks_hfclkstop::W) writer structure"]
 impl crate::Writable for TASKS_HFCLKSTOP {}
-#[doc = "Stop HFCLK crystal oscillator"]
+#[doc = "Stop HFCLK source"]
 pub mod tasks_hfclkstop;
-#[doc = "Start LFCLK source\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_lfclkstart](tasks_lfclkstart) module"]
+#[doc = "Start LFCLK source\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_lfclkstart](tasks_lfclkstart) module"]
 pub type TASKS_LFCLKSTART = crate::Reg<u32, _TASKS_LFCLKSTART>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -80,7 +80,7 @@ pub struct _TASKS_LFCLKSTART;
 impl crate::Writable for TASKS_LFCLKSTART {}
 #[doc = "Start LFCLK source"]
 pub mod tasks_lfclkstart;
-#[doc = "Stop LFCLK source\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_lfclkstop](tasks_lfclkstop) module"]
+#[doc = "Stop LFCLK source\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_lfclkstop](tasks_lfclkstop) module"]
 pub type TASKS_LFCLKSTOP = crate::Reg<u32, _TASKS_LFCLKSTOP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -89,7 +89,7 @@ pub struct _TASKS_LFCLKSTOP;
 impl crate::Writable for TASKS_LFCLKSTOP {}
 #[doc = "Stop LFCLK source"]
 pub mod tasks_lfclkstop;
-#[doc = "Subscribe configuration for task HFCLKSTART\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_hfclkstart](subscribe_hfclkstart) module"]
+#[doc = "Subscribe configuration for task HFCLKSTART\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [subscribe_hfclkstart](subscribe_hfclkstart) module"]
 pub type SUBSCRIBE_HFCLKSTART = crate::Reg<u32, _SUBSCRIBE_HFCLKSTART>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -100,7 +100,7 @@ impl crate::Readable for SUBSCRIBE_HFCLKSTART {}
 impl crate::Writable for SUBSCRIBE_HFCLKSTART {}
 #[doc = "Subscribe configuration for task HFCLKSTART"]
 pub mod subscribe_hfclkstart;
-#[doc = "Subscribe configuration for task HFCLKSTOP\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_hfclkstop](subscribe_hfclkstop) module"]
+#[doc = "Subscribe configuration for task HFCLKSTOP\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [subscribe_hfclkstop](subscribe_hfclkstop) module"]
 pub type SUBSCRIBE_HFCLKSTOP = crate::Reg<u32, _SUBSCRIBE_HFCLKSTOP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -111,7 +111,7 @@ impl crate::Readable for SUBSCRIBE_HFCLKSTOP {}
 impl crate::Writable for SUBSCRIBE_HFCLKSTOP {}
 #[doc = "Subscribe configuration for task HFCLKSTOP"]
 pub mod subscribe_hfclkstop;
-#[doc = "Subscribe configuration for task LFCLKSTART\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_lfclkstart](subscribe_lfclkstart) module"]
+#[doc = "Subscribe configuration for task LFCLKSTART\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [subscribe_lfclkstart](subscribe_lfclkstart) module"]
 pub type SUBSCRIBE_LFCLKSTART = crate::Reg<u32, _SUBSCRIBE_LFCLKSTART>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -122,7 +122,7 @@ impl crate::Readable for SUBSCRIBE_LFCLKSTART {}
 impl crate::Writable for SUBSCRIBE_LFCLKSTART {}
 #[doc = "Subscribe configuration for task LFCLKSTART"]
 pub mod subscribe_lfclkstart;
-#[doc = "Subscribe configuration for task LFCLKSTOP\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [subscribe_lfclkstop](subscribe_lfclkstop) module"]
+#[doc = "Subscribe configuration for task LFCLKSTOP\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [subscribe_lfclkstop](subscribe_lfclkstop) module"]
 pub type SUBSCRIBE_LFCLKSTOP = crate::Reg<u32, _SUBSCRIBE_LFCLKSTOP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -133,7 +133,7 @@ impl crate::Readable for SUBSCRIBE_LFCLKSTOP {}
 impl crate::Writable for SUBSCRIBE_LFCLKSTOP {}
 #[doc = "Subscribe configuration for task LFCLKSTOP"]
 pub mod subscribe_lfclkstop;
-#[doc = "HFCLK oscillator started\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_hfclkstarted](events_hfclkstarted) module"]
+#[doc = "HFCLK oscillator started\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_hfclkstarted](events_hfclkstarted) module"]
 pub type EVENTS_HFCLKSTARTED = crate::Reg<u32, _EVENTS_HFCLKSTARTED>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -144,7 +144,7 @@ impl crate::Readable for EVENTS_HFCLKSTARTED {}
 impl crate::Writable for EVENTS_HFCLKSTARTED {}
 #[doc = "HFCLK oscillator started"]
 pub mod events_hfclkstarted;
-#[doc = "LFCLK started\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_lfclkstarted](events_lfclkstarted) module"]
+#[doc = "LFCLK started\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_lfclkstarted](events_lfclkstarted) module"]
 pub type EVENTS_LFCLKSTARTED = crate::Reg<u32, _EVENTS_LFCLKSTARTED>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -155,7 +155,7 @@ impl crate::Readable for EVENTS_LFCLKSTARTED {}
 impl crate::Writable for EVENTS_LFCLKSTARTED {}
 #[doc = "LFCLK started"]
 pub mod events_lfclkstarted;
-#[doc = "Publish configuration for event HFCLKSTARTED\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [publish_hfclkstarted](publish_hfclkstarted) module"]
+#[doc = "Publish configuration for event HFCLKSTARTED\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [publish_hfclkstarted](publish_hfclkstarted) module"]
 pub type PUBLISH_HFCLKSTARTED = crate::Reg<u32, _PUBLISH_HFCLKSTARTED>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -166,7 +166,7 @@ impl crate::Readable for PUBLISH_HFCLKSTARTED {}
 impl crate::Writable for PUBLISH_HFCLKSTARTED {}
 #[doc = "Publish configuration for event HFCLKSTARTED"]
 pub mod publish_hfclkstarted;
-#[doc = "Publish configuration for event LFCLKSTARTED\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [publish_lfclkstarted](publish_lfclkstarted) module"]
+#[doc = "Publish configuration for event LFCLKSTARTED\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [publish_lfclkstarted](publish_lfclkstarted) module"]
 pub type PUBLISH_LFCLKSTARTED = crate::Reg<u32, _PUBLISH_LFCLKSTARTED>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -177,7 +177,7 @@ impl crate::Readable for PUBLISH_LFCLKSTARTED {}
 impl crate::Writable for PUBLISH_LFCLKSTARTED {}
 #[doc = "Publish configuration for event LFCLKSTARTED"]
 pub mod publish_lfclkstarted;
-#[doc = "Enable or disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inten](inten) module"]
+#[doc = "Enable or disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inten](inten) module"]
 pub type INTEN = crate::Reg<u32, _INTEN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -188,7 +188,7 @@ impl crate::Readable for INTEN {}
 impl crate::Writable for INTEN {}
 #[doc = "Enable or disable interrupt"]
 pub mod inten;
-#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](intenset) module"]
 pub type INTENSET = crate::Reg<u32, _INTENSET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -199,7 +199,7 @@ impl crate::Readable for INTENSET {}
 impl crate::Writable for INTENSET {}
 #[doc = "Enable interrupt"]
 pub mod intenset;
-#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](intenclr) module"]
 pub type INTENCLR = crate::Reg<u32, _INTENCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -210,7 +210,7 @@ impl crate::Readable for INTENCLR {}
 impl crate::Writable for INTENCLR {}
 #[doc = "Disable interrupt"]
 pub mod intenclr;
-#[doc = "Pending interrupts\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intpend](intpend) module"]
+#[doc = "Pending interrupts\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intpend](intpend) module"]
 pub type INTPEND = crate::Reg<u32, _INTPEND>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -219,7 +219,7 @@ pub struct _INTPEND;
 impl crate::Readable for INTPEND {}
 #[doc = "Pending interrupts"]
 pub mod intpend;
-#[doc = "Status indicating that HFCLKSTART task has been triggered\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hfclkrun](hfclkrun) module"]
+#[doc = "Status indicating that HFCLKSTART task has been triggered\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hfclkrun](hfclkrun) module"]
 pub type HFCLKRUN = crate::Reg<u32, _HFCLKRUN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -228,7 +228,7 @@ pub struct _HFCLKRUN;
 impl crate::Readable for HFCLKRUN {}
 #[doc = "Status indicating that HFCLKSTART task has been triggered"]
 pub mod hfclkrun;
-#[doc = "The register shows if HFXO has been requested by triggering HFCLKSTART task and if it has been started (STATE)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [hfclkstat](hfclkstat) module"]
+#[doc = "The register shows if HFXO has been requested by triggering HFCLKSTART task and if it has been started (STATE)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hfclkstat](hfclkstat) module"]
 pub type HFCLKSTAT = crate::Reg<u32, _HFCLKSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -237,7 +237,7 @@ pub struct _HFCLKSTAT;
 impl crate::Readable for HFCLKSTAT {}
 #[doc = "The register shows if HFXO has been requested by triggering HFCLKSTART task and if it has been started (STATE)"]
 pub mod hfclkstat;
-#[doc = "Status indicating that LFCLKSTART task has been triggered\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lfclkrun](lfclkrun) module"]
+#[doc = "Status indicating that LFCLKSTART task has been triggered\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lfclkrun](lfclkrun) module"]
 pub type LFCLKRUN = crate::Reg<u32, _LFCLKRUN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -246,7 +246,7 @@ pub struct _LFCLKRUN;
 impl crate::Readable for LFCLKRUN {}
 #[doc = "Status indicating that LFCLKSTART task has been triggered"]
 pub mod lfclkrun;
-#[doc = "The register shows which LFCLK source has been requested (SRC) when triggering LFCLKSTART task and if the source has been started (STATE)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lfclkstat](lfclkstat) module"]
+#[doc = "The register shows which LFCLK source has been requested (SRC) when triggering LFCLKSTART task and if the source has been started (STATE)\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lfclkstat](lfclkstat) module"]
 pub type LFCLKSTAT = crate::Reg<u32, _LFCLKSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -255,7 +255,7 @@ pub struct _LFCLKSTAT;
 impl crate::Readable for LFCLKSTAT {}
 #[doc = "The register shows which LFCLK source has been requested (SRC) when triggering LFCLKSTART task and if the source has been started (STATE)"]
 pub mod lfclkstat;
-#[doc = "Copy of LFCLKSRC register, set after LFCLKSTART task has been triggered\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lfclksrccopy](lfclksrccopy) module"]
+#[doc = "Copy of LFCLKSRC register, set after LFCLKSTART task has been triggered\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lfclksrccopy](lfclksrccopy) module"]
 pub type LFCLKSRCCOPY = crate::Reg<u32, _LFCLKSRCCOPY>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -264,7 +264,7 @@ pub struct _LFCLKSRCCOPY;
 impl crate::Readable for LFCLKSRCCOPY {}
 #[doc = "Copy of LFCLKSRC register, set after LFCLKSTART task has been triggered"]
 pub mod lfclksrccopy;
-#[doc = "Clock source for the LFCLK. LFCLKSTART task starts starts a clock source selected with this register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lfclksrc](lfclksrc) module"]
+#[doc = "Clock source for the LFCLK. LFCLKSTART task starts starts a clock source selected with this register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lfclksrc](lfclksrc) module"]
 pub type LFCLKSRC = crate::Reg<u32, _LFCLKSRC>;
 #[allow(missing_docs)]
 #[doc(hidden)]

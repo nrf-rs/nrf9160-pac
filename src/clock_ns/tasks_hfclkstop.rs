@@ -8,18 +8,16 @@ impl crate::ResetValue for super::TASKS_HFCLKSTOP {
         0
     }
 }
-#[doc = "Stop HFCLK crystal oscillator\n\nValue on reset: 0"]
+#[doc = "Stop HFCLK source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TASKS_HFCLKSTOP_AW {
     #[doc = "1: Trigger task"]
-    TRIGGER,
+    TRIGGER = 1,
 }
 impl From<TASKS_HFCLKSTOP_AW> for bool {
     #[inline(always)]
     fn from(variant: TASKS_HFCLKSTOP_AW) -> Self {
-        match variant {
-            TASKS_HFCLKSTOP_AW::TRIGGER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TASKS_HFCLKSTOP`"]
@@ -57,7 +55,7 @@ impl<'a> TASKS_HFCLKSTOP_W<'a> {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Stop HFCLK crystal oscillator"]
+    #[doc = "Bit 0 - Stop HFCLK source"]
     #[inline(always)]
     pub fn tasks_hfclkstop(&mut self) -> TASKS_HFCLKSTOP_W {
         TASKS_HFCLKSTOP_W { w: self }

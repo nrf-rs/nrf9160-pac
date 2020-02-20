@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STOPPED_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<STOPPED_A> for bool {
     #[inline(always)]
     fn from(variant: STOPPED_A) -> Self {
-        match variant {
-            STOPPED_A::DISABLED => false,
-            STOPPED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STOPPED`"]
@@ -92,17 +89,14 @@ impl<'a> STOPPED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQSTARTED0_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQSTARTED0_A> for bool {
     #[inline(always)]
     fn from(variant: SEQSTARTED0_A) -> Self {
-        match variant {
-            SEQSTARTED0_A::DISABLED => false,
-            SEQSTARTED0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQSTARTED0`"]
@@ -170,17 +164,14 @@ impl<'a> SEQSTARTED0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQSTARTED1_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQSTARTED1_A> for bool {
     #[inline(always)]
     fn from(variant: SEQSTARTED1_A) -> Self {
-        match variant {
-            SEQSTARTED1_A::DISABLED => false,
-            SEQSTARTED1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQSTARTED1`"]
@@ -248,17 +239,14 @@ impl<'a> SEQSTARTED1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQEND0_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQEND0_A> for bool {
     #[inline(always)]
     fn from(variant: SEQEND0_A) -> Self {
-        match variant {
-            SEQEND0_A::DISABLED => false,
-            SEQEND0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQEND0`"]
@@ -326,17 +314,14 @@ impl<'a> SEQEND0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQEND1_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQEND1_A> for bool {
     #[inline(always)]
     fn from(variant: SEQEND1_A) -> Self {
-        match variant {
-            SEQEND1_A::DISABLED => false,
-            SEQEND1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQEND1`"]
@@ -404,17 +389,14 @@ impl<'a> SEQEND1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMPERIODEND_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PWMPERIODEND_A> for bool {
     #[inline(always)]
     fn from(variant: PWMPERIODEND_A) -> Self {
-        match variant {
-            PWMPERIODEND_A::DISABLED => false,
-            PWMPERIODEND_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMPERIODEND`"]
@@ -482,17 +464,14 @@ impl<'a> PWMPERIODEND_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOOPSDONE_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<LOOPSDONE_A> for bool {
     #[inline(always)]
     fn from(variant: LOOPSDONE_A) -> Self {
-        match variant {
-            LOOPSDONE_A::DISABLED => false,
-            LOOPSDONE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOOPSDONE`"]

@@ -12,19 +12,17 @@ impl crate::ResetValue for super::APPROTECT {
 }
 #[doc = "Blocks debugger read/write access to all CPU registers and memory mapped addresses\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum PALL_A {
     #[doc = "4294967295: Unprotected"]
-    UNPROTECTED,
+    UNPROTECTED = 4294967295,
     #[doc = "0: Protected"]
-    PROTECTED,
+    PROTECTED = 0,
 }
 impl From<PALL_A> for u32 {
     #[inline(always)]
     fn from(variant: PALL_A) -> Self {
-        match variant {
-            PALL_A::UNPROTECTED => 4294967295,
-            PALL_A::PROTECTED => 0,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PALL`"]

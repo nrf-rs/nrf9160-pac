@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::EVENTS_IN>;
 #[doc = "Writer for register EVENTS_IN[%s]"]
 pub type W = crate::W<u32, super::EVENTS_IN>;
-#[doc = "Register EVENTS_IN[%s] `reset()`'s with value 0"]
+#[doc = "Register EVENTS_IN[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::EVENTS_IN {
     type Type = u32;
     #[inline(always)]
@@ -14,17 +15,14 @@ impl crate::ResetValue for super::EVENTS_IN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_IN_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_IN_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_IN_A) -> Self {
-        match variant {
-            EVENTS_IN_A::NOTGENERATED => false,
-            EVENTS_IN_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_IN`"]

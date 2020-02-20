@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENCLR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HFCLKSTARTED_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<HFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: HFCLKSTARTED_A) -> Self {
-        match variant {
-            HFCLKSTARTED_A::DISABLED => false,
-            HFCLKSTARTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HFCLKSTARTED`"]
@@ -53,14 +50,12 @@ impl HFCLKSTARTED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HFCLKSTARTED_AW {
     #[doc = "1: Disable"]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<HFCLKSTARTED_AW> for bool {
     #[inline(always)]
     fn from(variant: HFCLKSTARTED_AW) -> Self {
-        match variant {
-            HFCLKSTARTED_AW::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `HFCLKSTARTED`"]
@@ -101,17 +96,14 @@ impl<'a> HFCLKSTARTED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LFCLKSTARTED_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<LFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: LFCLKSTARTED_A) -> Self {
-        match variant {
-            LFCLKSTARTED_A::DISABLED => false,
-            LFCLKSTARTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LFCLKSTARTED`"]
@@ -140,14 +132,12 @@ impl LFCLKSTARTED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LFCLKSTARTED_AW {
     #[doc = "1: Disable"]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<LFCLKSTARTED_AW> for bool {
     #[inline(always)]
     fn from(variant: LFCLKSTARTED_AW) -> Self {
-        match variant {
-            LFCLKSTARTED_AW::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `LFCLKSTARTED`"]

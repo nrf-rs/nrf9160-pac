@@ -28,17 +28,14 @@ impl<'a> CHIDX_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EN_A {
     #[doc = "0: Disable publishing"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable publishing"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EN_A> for bool {
     #[inline(always)]
     fn from(variant: EN_A) -> Self {
-        match variant {
-            EN_A::DISABLED => false,
-            EN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EN`"]

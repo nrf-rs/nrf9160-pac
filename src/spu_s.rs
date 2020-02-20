@@ -130,7 +130,7 @@ pub struct PERIPHID {
 #[doc = r"Register block"]
 #[doc = "Unspecified"]
 pub mod periphid;
-#[doc = "A security violation has been detected for the RAM memory space\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_ramaccerr](events_ramaccerr) module"]
+#[doc = "A security violation has been detected for the RAM memory space\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_ramaccerr](events_ramaccerr) module"]
 pub type EVENTS_RAMACCERR = crate::Reg<u32, _EVENTS_RAMACCERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -141,7 +141,7 @@ impl crate::Readable for EVENTS_RAMACCERR {}
 impl crate::Writable for EVENTS_RAMACCERR {}
 #[doc = "A security violation has been detected for the RAM memory space"]
 pub mod events_ramaccerr;
-#[doc = "A security violation has been detected for the flash memory space\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_flashaccerr](events_flashaccerr) module"]
+#[doc = "A security violation has been detected for the flash memory space\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_flashaccerr](events_flashaccerr) module"]
 pub type EVENTS_FLASHACCERR = crate::Reg<u32, _EVENTS_FLASHACCERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -152,7 +152,7 @@ impl crate::Readable for EVENTS_FLASHACCERR {}
 impl crate::Writable for EVENTS_FLASHACCERR {}
 #[doc = "A security violation has been detected for the flash memory space"]
 pub mod events_flashaccerr;
-#[doc = "A security violation has been detected on one or several peripherals\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_periphaccerr](events_periphaccerr) module"]
+#[doc = "A security violation has been detected on one or several peripherals\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_periphaccerr](events_periphaccerr) module"]
 pub type EVENTS_PERIPHACCERR = crate::Reg<u32, _EVENTS_PERIPHACCERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -163,7 +163,7 @@ impl crate::Readable for EVENTS_PERIPHACCERR {}
 impl crate::Writable for EVENTS_PERIPHACCERR {}
 #[doc = "A security violation has been detected on one or several peripherals"]
 pub mod events_periphaccerr;
-#[doc = "Publish configuration for event RAMACCERR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [publish_ramaccerr](publish_ramaccerr) module"]
+#[doc = "Publish configuration for event RAMACCERR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [publish_ramaccerr](publish_ramaccerr) module"]
 pub type PUBLISH_RAMACCERR = crate::Reg<u32, _PUBLISH_RAMACCERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -174,7 +174,7 @@ impl crate::Readable for PUBLISH_RAMACCERR {}
 impl crate::Writable for PUBLISH_RAMACCERR {}
 #[doc = "Publish configuration for event RAMACCERR"]
 pub mod publish_ramaccerr;
-#[doc = "Publish configuration for event FLASHACCERR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [publish_flashaccerr](publish_flashaccerr) module"]
+#[doc = "Publish configuration for event FLASHACCERR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [publish_flashaccerr](publish_flashaccerr) module"]
 pub type PUBLISH_FLASHACCERR = crate::Reg<u32, _PUBLISH_FLASHACCERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -185,7 +185,7 @@ impl crate::Readable for PUBLISH_FLASHACCERR {}
 impl crate::Writable for PUBLISH_FLASHACCERR {}
 #[doc = "Publish configuration for event FLASHACCERR"]
 pub mod publish_flashaccerr;
-#[doc = "Publish configuration for event PERIPHACCERR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [publish_periphaccerr](publish_periphaccerr) module"]
+#[doc = "Publish configuration for event PERIPHACCERR\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [publish_periphaccerr](publish_periphaccerr) module"]
 pub type PUBLISH_PERIPHACCERR = crate::Reg<u32, _PUBLISH_PERIPHACCERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -196,7 +196,7 @@ impl crate::Readable for PUBLISH_PERIPHACCERR {}
 impl crate::Writable for PUBLISH_PERIPHACCERR {}
 #[doc = "Publish configuration for event PERIPHACCERR"]
 pub mod publish_periphaccerr;
-#[doc = "Enable or disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inten](inten) module"]
+#[doc = "Enable or disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inten](inten) module"]
 pub type INTEN = crate::Reg<u32, _INTEN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -207,7 +207,7 @@ impl crate::Readable for INTEN {}
 impl crate::Writable for INTEN {}
 #[doc = "Enable or disable interrupt"]
 pub mod inten;
-#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](intenset) module"]
 pub type INTENSET = crate::Reg<u32, _INTENSET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -218,7 +218,7 @@ impl crate::Readable for INTENSET {}
 impl crate::Writable for INTENSET {}
 #[doc = "Enable interrupt"]
 pub mod intenset;
-#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](intenclr) module"]
 pub type INTENCLR = crate::Reg<u32, _INTENCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -229,7 +229,7 @@ impl crate::Readable for INTENCLR {}
 impl crate::Writable for INTENCLR {}
 #[doc = "Disable interrupt"]
 pub mod intenclr;
-#[doc = "Show implemented features for the current device\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cap](cap) module"]
+#[doc = "Show implemented features for the current device\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cap](cap) module"]
 pub type CAP = crate::Reg<u32, _CAP>;
 #[allow(missing_docs)]
 #[doc(hidden)]

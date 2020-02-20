@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HFCLKSTARTED_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<HFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: HFCLKSTARTED_A) -> Self {
-        match variant {
-            HFCLKSTARTED_A::DISABLED => false,
-            HFCLKSTARTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HFCLKSTARTED`"]
@@ -92,17 +89,14 @@ impl<'a> HFCLKSTARTED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LFCLKSTARTED_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<LFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: LFCLKSTARTED_A) -> Self {
-        match variant {
-            LFCLKSTARTED_A::DISABLED => false,
-            LFCLKSTARTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LFCLKSTARTED`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::LIMITL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LIMITL_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<LIMITL_A> for bool {
     #[inline(always)]
     fn from(variant: LIMITL_A) -> Self {
-        match variant {
-            LIMITL_A::NOTGENERATED => false,
-            LIMITL_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LIMITL`"]

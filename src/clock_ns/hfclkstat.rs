@@ -4,14 +4,12 @@ pub type R = crate::R<u32, super::HFCLKSTAT>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRC_A {
     #[doc = "1: HFXO - 64 MHz clock derived from external 32 MHz crystal oscillator"]
-    HFXO,
+    HFXO = 1,
 }
 impl From<SRC_A> for bool {
     #[inline(always)]
     fn from(variant: SRC_A) -> Self {
-        match variant {
-            SRC_A::HFXO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SRC`"]
@@ -36,17 +34,14 @@ impl SRC_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATE_A {
     #[doc = "0: HFXO has not been started or HFCLKSTOP task has been triggered"]
-    NOTRUNNING,
+    NOTRUNNING = 0,
     #[doc = "1: HFXO has been started (HFCLKSTARTED event has been generated)"]
-    RUNNING,
+    RUNNING = 1,
 }
 impl From<STATE_A> for bool {
     #[inline(always)]
     fn from(variant: STATE_A) -> Self {
-        match variant {
-            STATE_A::NOTRUNNING => false,
-            STATE_A::RUNNING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STATE`"]

@@ -25,14 +25,14 @@ impl<'a> MISSES_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Number of cache misses"]
+    #[doc = "Bits 0:31 - Number of cache misses Write zero to clear"]
     #[inline(always)]
     pub fn misses(&self) -> MISSES_R {
         MISSES_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Number of cache misses"]
+    #[doc = "Bits 0:31 - Number of cache misses Write zero to clear"]
     #[inline(always)]
     pub fn misses(&mut self) -> MISSES_W {
         MISSES_W { w: self }

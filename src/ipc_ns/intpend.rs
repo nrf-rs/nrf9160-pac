@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::INTPEND>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE0_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE0_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE0_A) -> Self {
-        match variant {
-            RECEIVE0_A::NOTPENDING => false,
-            RECEIVE0_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE0`"]
@@ -43,17 +40,14 @@ impl RECEIVE0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE1_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE1_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE1_A) -> Self {
-        match variant {
-            RECEIVE1_A::NOTPENDING => false,
-            RECEIVE1_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE1`"]
@@ -82,17 +76,14 @@ impl RECEIVE1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE2_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE2_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE2_A) -> Self {
-        match variant {
-            RECEIVE2_A::NOTPENDING => false,
-            RECEIVE2_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE2`"]
@@ -121,17 +112,14 @@ impl RECEIVE2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE3_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE3_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE3_A) -> Self {
-        match variant {
-            RECEIVE3_A::NOTPENDING => false,
-            RECEIVE3_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE3`"]
@@ -160,17 +148,14 @@ impl RECEIVE3_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE4_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE4_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE4_A) -> Self {
-        match variant {
-            RECEIVE4_A::NOTPENDING => false,
-            RECEIVE4_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE4`"]
@@ -199,17 +184,14 @@ impl RECEIVE4_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE5_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE5_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE5_A) -> Self {
-        match variant {
-            RECEIVE5_A::NOTPENDING => false,
-            RECEIVE5_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE5`"]
@@ -238,17 +220,14 @@ impl RECEIVE5_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE6_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE6_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE6_A) -> Self {
-        match variant {
-            RECEIVE6_A::NOTPENDING => false,
-            RECEIVE6_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE6`"]
@@ -277,17 +256,14 @@ impl RECEIVE6_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE7_A {
     #[doc = "0: Read: Not pending"]
-    NOTPENDING,
+    NOTPENDING = 0,
     #[doc = "1: Read: Pending"]
-    PENDING,
+    PENDING = 1,
 }
 impl From<RECEIVE7_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE7_A) -> Self {
-        match variant {
-            RECEIVE7_A::NOTPENDING => false,
-            RECEIVE7_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE7`"]

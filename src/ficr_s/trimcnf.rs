@@ -1,4 +1,4 @@
-#[doc = "Description cluster: Address\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [addr](addr) module"]
+#[doc = "Description cluster: Address\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [addr](addr) module"]
 pub type ADDR = crate::Reg<u32, _ADDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -7,7 +7,7 @@ pub struct _ADDR;
 impl crate::Readable for ADDR {}
 #[doc = "Description cluster: Address"]
 pub mod addr;
-#[doc = "Description cluster: Data\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [data](data) module"]
+#[doc = "Description cluster: Data\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [data](data) module"]
 pub type DATA = crate::Reg<u32, _DATA>;
 #[allow(missing_docs)]
 #[doc(hidden)]

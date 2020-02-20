@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EVENTS_HFCLKSTARTED {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTS_HFCLKSTARTED_A {
     #[doc = "0: Event not generated"]
-    NOTGENERATED,
+    NOTGENERATED = 0,
     #[doc = "1: Event generated"]
-    GENERATED,
+    GENERATED = 1,
 }
 impl From<EVENTS_HFCLKSTARTED_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTS_HFCLKSTARTED_A) -> Self {
-        match variant {
-            EVENTS_HFCLKSTARTED_A::NOTGENERATED => false,
-            EVENTS_HFCLKSTARTED_A::GENERATED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTS_HFCLKSTARTED`"]

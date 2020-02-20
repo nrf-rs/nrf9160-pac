@@ -12,14 +12,12 @@ impl crate::ResetValue for super::TASKS_CALIBRATEOFFSET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TASKS_CALIBRATEOFFSET_AW {
     #[doc = "1: Trigger task"]
-    TRIGGER,
+    TRIGGER = 1,
 }
 impl From<TASKS_CALIBRATEOFFSET_AW> for bool {
     #[inline(always)]
     fn from(variant: TASKS_CALIBRATEOFFSET_AW) -> Self {
-        match variant {
-            TASKS_CALIBRATEOFFSET_AW::TRIGGER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TASKS_CALIBRATEOFFSET`"]

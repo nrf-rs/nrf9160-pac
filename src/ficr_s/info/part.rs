@@ -2,16 +2,15 @@
 pub type R = crate::R<u32, super::PART>;
 #[doc = "Part code\n\nValue on reset: 37216"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum PART_A {
     #[doc = "37216: nRF9160"]
-    N9160,
+    N9160 = 37216,
 }
 impl From<PART_A> for u32 {
     #[inline(always)]
     fn from(variant: PART_A) -> Self {
-        match variant {
-            PART_A::N9160 => 37216,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PART`"]

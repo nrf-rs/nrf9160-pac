@@ -12,25 +12,21 @@ impl crate::ResetValue for super::PERM {
 }
 #[doc = "Define configuration capabilities for TrustZone Cortex-M secure attribute\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SECUREMAPPING_A {
     #[doc = "0: This peripheral is always accessible as a non-secure peripheral"]
-    NONSECURE,
+    NONSECURE = 0,
     #[doc = "1: This peripheral is always accessible as a secure peripheral"]
-    SECURE,
+    SECURE = 1,
     #[doc = "2: Non-secure or secure attribute for this peripheral is defined by the PERIPHID\\[n\\].PERM register"]
-    USERSELECTABLE,
+    USERSELECTABLE = 2,
     #[doc = "3: This peripheral implements the split security mechanism. Non-secure or secure attribute for this peripheral is defined by the PERIPHID\\[n\\].PERM register."]
-    SPLIT,
+    SPLIT = 3,
 }
 impl From<SECUREMAPPING_A> for u8 {
     #[inline(always)]
     fn from(variant: SECUREMAPPING_A) -> Self {
-        match variant {
-            SECUREMAPPING_A::NONSECURE => 0,
-            SECUREMAPPING_A::SECURE => 1,
-            SECUREMAPPING_A::USERSELECTABLE => 2,
-            SECUREMAPPING_A::SPLIT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SECUREMAPPING`"]
@@ -70,22 +66,19 @@ impl SECUREMAPPING_R {
 }
 #[doc = "Indicate if the peripheral has DMA capabilities and if DMA transfer can be assigned to a different security attribute than the peripheral itself\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DMA_A {
     #[doc = "0: Peripheral has no DMA capability"]
-    NODMA,
+    NODMA = 0,
     #[doc = "1: Peripheral has DMA and DMA transfers always have the same security attribute as assigned to the peripheral"]
-    NOSEPARATEATTRIBUTE,
+    NOSEPARATEATTRIBUTE = 1,
     #[doc = "2: Peripheral has DMA and DMA transfers can have a different security attribute than the one assigned to the peripheral"]
-    SEPARATEATTRIBUTE,
+    SEPARATEATTRIBUTE = 2,
 }
 impl From<DMA_A> for u8 {
     #[inline(always)]
     fn from(variant: DMA_A) -> Self {
-        match variant {
-            DMA_A::NODMA => 0,
-            DMA_A::NOSEPARATEATTRIBUTE => 1,
-            DMA_A::SEPARATEATTRIBUTE => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DMA`"]
@@ -122,17 +115,14 @@ impl DMA_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SECATTR_A {
     #[doc = "1: Peripheral is mapped in secure peripheral address space"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: If SECUREMAPPING == UserSelectable: Peripheral is mapped in non-secure peripheral address space. If SECUREMAPPING == Split: Peripheral is mapped in non-secure and secure peripheral address space."]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<SECATTR_A> for bool {
     #[inline(always)]
     fn from(variant: SECATTR_A) -> Self {
-        match variant {
-            SECATTR_A::SECURE => true,
-            SECATTR_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SECATTR`"]
@@ -200,17 +190,14 @@ impl<'a> SECATTR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DMASEC_A {
     #[doc = "1: DMA transfers initiated by this peripheral have the secure attribute set"]
-    SECURE,
+    SECURE = 1,
     #[doc = "0: DMA transfers initiated by this peripheral have the non-secure attribute set"]
-    NONSECURE,
+    NONSECURE = 0,
 }
 impl From<DMASEC_A> for bool {
     #[inline(always)]
     fn from(variant: DMASEC_A) -> Self {
-        match variant {
-            DMASEC_A::SECURE => true,
-            DMASEC_A::NONSECURE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DMASEC`"]
@@ -278,17 +265,14 @@ impl<'a> DMASEC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "0: This register can be updated"]
-    UNLOCKED,
+    UNLOCKED = 0,
     #[doc = "1: The content of this register can't be changed until the next reset"]
-    LOCKED,
+    LOCKED = 1,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::UNLOCKED => false,
-            LOCK_A::LOCKED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]
@@ -356,17 +340,14 @@ impl<'a> LOCK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PRESENT_A {
     #[doc = "0: Peripheral is not present"]
-    NOTPRESENT,
+    NOTPRESENT = 0,
     #[doc = "1: Peripheral is present"]
-    ISPRESENT,
+    ISPRESENT = 1,
 }
 impl From<PRESENT_A> for bool {
     #[inline(always)]
     fn from(variant: PRESENT_A) -> Self {
-        match variant {
-            PRESENT_A::NOTPRESENT => false,
-            PRESENT_A::ISPRESENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PRESENT`"]

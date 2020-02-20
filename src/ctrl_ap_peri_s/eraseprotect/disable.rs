@@ -25,14 +25,14 @@ impl<'a> KEY_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Initiate secure erase even though ERASEPROTECT is enabled if KEY fields match"]
+    #[doc = "Bits 0:31 - The ERASEALL sequence will be initiated if value of KEY fields are non-zero and KEY fields match on both CPU and debugger side"]
     #[inline(always)]
     pub fn key(&self) -> KEY_R {
         KEY_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Initiate secure erase even though ERASEPROTECT is enabled if KEY fields match"]
+    #[doc = "Bits 0:31 - The ERASEALL sequence will be initiated if value of KEY fields are non-zero and KEY fields match on both CPU and debugger side"]
     #[inline(always)]
     pub fn key(&mut self) -> KEY_W {
         KEY_W { w: self }

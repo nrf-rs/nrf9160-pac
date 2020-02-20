@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENSET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE0_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE0_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE0_A) -> Self {
-        match variant {
-            RECEIVE0_A::DISABLED => false,
-            RECEIVE0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE0`"]
@@ -53,14 +50,12 @@ impl RECEIVE0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE0_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE0_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE0_AW) -> Self {
-        match variant {
-            RECEIVE0_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE0`"]
@@ -101,17 +96,14 @@ impl<'a> RECEIVE0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE1_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE1_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE1_A) -> Self {
-        match variant {
-            RECEIVE1_A::DISABLED => false,
-            RECEIVE1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE1`"]
@@ -140,14 +132,12 @@ impl RECEIVE1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE1_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE1_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE1_AW) -> Self {
-        match variant {
-            RECEIVE1_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE1`"]
@@ -188,17 +178,14 @@ impl<'a> RECEIVE1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE2_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE2_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE2_A) -> Self {
-        match variant {
-            RECEIVE2_A::DISABLED => false,
-            RECEIVE2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE2`"]
@@ -227,14 +214,12 @@ impl RECEIVE2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE2_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE2_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE2_AW) -> Self {
-        match variant {
-            RECEIVE2_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE2`"]
@@ -275,17 +260,14 @@ impl<'a> RECEIVE2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE3_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE3_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE3_A) -> Self {
-        match variant {
-            RECEIVE3_A::DISABLED => false,
-            RECEIVE3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE3`"]
@@ -314,14 +296,12 @@ impl RECEIVE3_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE3_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE3_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE3_AW) -> Self {
-        match variant {
-            RECEIVE3_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE3`"]
@@ -362,17 +342,14 @@ impl<'a> RECEIVE3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE4_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE4_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE4_A) -> Self {
-        match variant {
-            RECEIVE4_A::DISABLED => false,
-            RECEIVE4_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE4`"]
@@ -401,14 +378,12 @@ impl RECEIVE4_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE4_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE4_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE4_AW) -> Self {
-        match variant {
-            RECEIVE4_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE4`"]
@@ -449,17 +424,14 @@ impl<'a> RECEIVE4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE5_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE5_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE5_A) -> Self {
-        match variant {
-            RECEIVE5_A::DISABLED => false,
-            RECEIVE5_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE5`"]
@@ -488,14 +460,12 @@ impl RECEIVE5_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE5_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE5_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE5_AW) -> Self {
-        match variant {
-            RECEIVE5_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE5`"]
@@ -536,17 +506,14 @@ impl<'a> RECEIVE5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE6_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE6_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE6_A) -> Self {
-        match variant {
-            RECEIVE6_A::DISABLED => false,
-            RECEIVE6_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE6`"]
@@ -575,14 +542,12 @@ impl RECEIVE6_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE6_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE6_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE6_AW) -> Self {
-        match variant {
-            RECEIVE6_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE6`"]
@@ -623,17 +588,14 @@ impl<'a> RECEIVE6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE7_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RECEIVE7_A> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE7_A) -> Self {
-        match variant {
-            RECEIVE7_A::DISABLED => false,
-            RECEIVE7_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RECEIVE7`"]
@@ -662,14 +624,12 @@ impl RECEIVE7_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RECEIVE7_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<RECEIVE7_AW> for bool {
     #[inline(always)]
     fn from(variant: RECEIVE7_AW) -> Self {
-        match variant {
-            RECEIVE7_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RECEIVE7`"]

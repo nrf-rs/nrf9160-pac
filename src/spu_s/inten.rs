@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RAMACCERR_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RAMACCERR_A> for bool {
     #[inline(always)]
     fn from(variant: RAMACCERR_A) -> Self {
-        match variant {
-            RAMACCERR_A::DISABLED => false,
-            RAMACCERR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RAMACCERR`"]
@@ -92,17 +89,14 @@ impl<'a> RAMACCERR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASHACCERR_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<FLASHACCERR_A> for bool {
     #[inline(always)]
     fn from(variant: FLASHACCERR_A) -> Self {
-        match variant {
-            FLASHACCERR_A::DISABLED => false,
-            FLASHACCERR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FLASHACCERR`"]
@@ -170,17 +164,14 @@ impl<'a> FLASHACCERR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PERIPHACCERR_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PERIPHACCERR_A> for bool {
     #[inline(always)]
     fn from(variant: PERIPHACCERR_A) -> Self {
-        match variant {
-            PERIPHACCERR_A::DISABLED => false,
-            PERIPHACCERR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PERIPHACCERR`"]

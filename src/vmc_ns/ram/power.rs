@@ -14,17 +14,14 @@ impl crate::ResetValue for super::POWER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S0POWER_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S0POWER_A> for bool {
     #[inline(always)]
     fn from(variant: S0POWER_A) -> Self {
-        match variant {
-            S0POWER_A::OFF => false,
-            S0POWER_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S0POWER`"]
@@ -92,17 +89,14 @@ impl<'a> S0POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S1POWER_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S1POWER_A> for bool {
     #[inline(always)]
     fn from(variant: S1POWER_A) -> Self {
-        match variant {
-            S1POWER_A::OFF => false,
-            S1POWER_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S1POWER`"]
@@ -170,17 +164,14 @@ impl<'a> S1POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S2POWER_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S2POWER_A> for bool {
     #[inline(always)]
     fn from(variant: S2POWER_A) -> Self {
-        match variant {
-            S2POWER_A::OFF => false,
-            S2POWER_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S2POWER`"]
@@ -248,17 +239,14 @@ impl<'a> S2POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S3POWER_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S3POWER_A> for bool {
     #[inline(always)]
     fn from(variant: S3POWER_A) -> Self {
-        match variant {
-            S3POWER_A::OFF => false,
-            S3POWER_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S3POWER`"]
@@ -326,17 +314,14 @@ impl<'a> S3POWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S0RETENTION_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S0RETENTION_A> for bool {
     #[inline(always)]
     fn from(variant: S0RETENTION_A) -> Self {
-        match variant {
-            S0RETENTION_A::OFF => false,
-            S0RETENTION_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S0RETENTION`"]
@@ -404,17 +389,14 @@ impl<'a> S0RETENTION_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S1RETENTION_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S1RETENTION_A> for bool {
     #[inline(always)]
     fn from(variant: S1RETENTION_A) -> Self {
-        match variant {
-            S1RETENTION_A::OFF => false,
-            S1RETENTION_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S1RETENTION`"]
@@ -482,17 +464,14 @@ impl<'a> S1RETENTION_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S2RETENTION_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S2RETENTION_A> for bool {
     #[inline(always)]
     fn from(variant: S2RETENTION_A) -> Self {
-        match variant {
-            S2RETENTION_A::OFF => false,
-            S2RETENTION_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S2RETENTION`"]
@@ -560,17 +539,14 @@ impl<'a> S2RETENTION_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S3RETENTION_A {
     #[doc = "0: Off"]
-    OFF,
+    OFF = 0,
     #[doc = "1: On"]
-    ON,
+    ON = 1,
 }
 impl From<S3RETENTION_A> for bool {
     #[inline(always)]
     fn from(variant: S3RETENTION_A) -> Self {
-        match variant {
-            S3RETENTION_A::OFF => false,
-            S3RETENTION_A::ON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S3RETENTION`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::TXSTATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXSTATUS_A {
     #[doc = "0: No data pending in register TXDATA"]
-    NODATAPENDING,
+    NODATAPENDING = 0,
     #[doc = "1: Data pending in register TXDATA"]
-    DATAPENDING,
+    DATAPENDING = 1,
 }
 impl From<TXSTATUS_A> for bool {
     #[inline(always)]
     fn from(variant: TXSTATUS_A) -> Self {
-        match variant {
-            TXSTATUS_A::NODATAPENDING => false,
-            TXSTATUS_A::DATAPENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXSTATUS`"]

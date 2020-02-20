@@ -12,14 +12,12 @@ impl crate::ResetValue for super::TASKS_PREPARETX {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TASKS_PREPARETX_AW {
     #[doc = "1: Trigger task"]
-    TRIGGER,
+    TRIGGER = 1,
 }
 impl From<TASKS_PREPARETX_AW> for bool {
     #[inline(always)]
     fn from(variant: TASKS_PREPARETX_AW) -> Self {
-        match variant {
-            TASKS_PREPARETX_AW::TRIGGER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TASKS_PREPARETX`"]

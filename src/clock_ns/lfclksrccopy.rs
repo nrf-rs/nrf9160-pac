@@ -2,22 +2,19 @@
 pub type R = crate::R<u32, super::LFCLKSRCCOPY>;
 #[doc = "Clock source\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SRC_A {
     #[doc = "0: Reserved for future use"]
-    RFU,
+    RFU = 0,
     #[doc = "1: 32.768 kHz RC oscillator"]
-    LFRC,
+    LFRC = 1,
     #[doc = "2: 32.768 kHz crystal oscillator"]
-    LFXO,
+    LFXO = 2,
 }
 impl From<SRC_A> for u8 {
     #[inline(always)]
     fn from(variant: SRC_A) -> Self {
-        match variant {
-            SRC_A::RFU => 0,
-            SRC_A::LFRC => 1,
-            SRC_A::LFXO => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SRC`"]
