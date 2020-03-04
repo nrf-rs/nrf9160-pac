@@ -14,7 +14,7 @@ keywords = [
     "cortex-m",
     "nordic",
 ]
-repository = "https://github.com/nrf-rs/nrf91"
+repository = "https://github.com/nrf-rs/nrf9160-pac"
 
 [dependencies]
 bare-metal = "0.2.0"
