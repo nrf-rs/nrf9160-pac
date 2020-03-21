@@ -27,3 +27,6 @@ version = "0.6.7"
 
 [features]
 rt = ["cortex-m-rt/device"]
+
+[package.metadata.docs.rs]
+targets = ["thumbv8m.main-none-eabihf"]
