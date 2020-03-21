@@ -1,6 +1,6 @@
 [package]
 name = "nrf9160-pac"
-version = "0.2.0"
+version = "0.2.1"
 authors = [
 	"Fredrik Ahlberg <fredrik@z80.se>",
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
